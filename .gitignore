@@ -1,3 +1,30 @@
-Debug
-.exe
-.tmp
+# 忽略 Keil/MDK 产生的中间文件
+*.obj
+*.lst
+*.m51
+*.__i
+*._ia
+*.crf
+*.lnp
+*.axf
+*.htm
+*.dep
+*.build_log.htm
+*.map
+Listings/
+Objects/
+
+# 忽略 IAR 产生的中间文件
+Debug/
+Release/
+*.pbi
+*.pbd
+*.browse
+
+# 忽略 Windows 系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 忽略自己的同步脚本和临时图片（可选）
+git.png
