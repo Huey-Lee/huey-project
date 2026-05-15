@@ -1,0 +1,160 @@
+C51 COMPILER V9.60.0.0   UART                                                              11/06/2025 09:07:50 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN .\Output\uart.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\bsp\uart.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(..\Libr
+                    -ary\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\LS
+                    -T\uart.lst) TABS(2) OBJECT(.\Output\uart.obj)
+
+line level    source
+
+   1          #include "common.h"
+   2          #include "uart.h"
+   3          #include "uart_frame.h"
+   4          
+   5          u8 uart_time_error;
+   6          static bit busy=0;
+   7          static u8 tx_flag=0;
+   8          void uart_init(void)   //串口初始化
+   9          {
+  10   1        InitialUART0_Timer1(9600);
+  11   1        InitialUART1_Timer3(2400);
+  12   1        busy=0;
+  13   1        //UART0和UART1优先级设置
+  14   1      //  clr_PSH;    //等级1
+  15   1      //  set_PS;
+  16   1      //  clr_PSH_1;  //等级1
+  17   1      //  set_PS_1;
+  18   1        //中断使能
+  19   1        set_ES_1;       
+  20   1        set_ES;
+  21   1      }
+  22          
+  23          
+  24          //unsigned char Receive_Data(unsigned char UARTPort)
+  25          //{
+  26          //  UINT8 c;
+  27          //  switch (UARTPort)
+  28          //  {
+  29          //    case UART0:
+  30          //      while (!RI);
+  31          //      c = SBUF;
+  32          //      RI = 0;
+  33          //      break;
+  34          //    case UART1:
+  35          //      while (!RI_1);
+  36          //      c = SBUF_1;
+  37          //      RI_1 = 0;
+  38          //      break;
+  39          //  }
+  40          //  return (c);
+  41          //}
+  42          
+  43          void UART_Send_Data(UINT8 UARTPort, UINT8 c)
+  44          {
+  45   1        u32 timeout=0xffff;
+  46   1        switch (UARTPort)
+  47   1        {
+  48   2          case UART0:
+  49   2            TI = 0;
+  50   2            SBUF = c;
+  51   2            while(TI==0);
+  52   2            break;
+  53   2          case UART1:
+C51 COMPILER V9.60.0.0   UART                                                              11/06/2025 09:07:50 PAGE 2   
+
+  54   2            tx_flag=1;
+  55   2            SBUF_1 = c;
+  56   2            while(tx_flag==1)
+  57   2            {
+  58   3              if(timeout){timeout--;}
+  59   3              else{break;}
+  60   3            }
+  61   2            break;
+  62   2        }
+  63   1      }
+  64          
+  65          
+  66          //void UART_Send_Value(UINT8 UARTPort, UINT16 val)
+  67          //{
+  68          //  UART_Send_Data(UARTPort,(val/10000)+0x30);
+  69          //  UART_Send_Data(UARTPort,((val%10000)/1000)+0x30);
+  70          //  UART_Send_Data(UARTPort,((val%1000)/100)+0x30);
+  71          //  UART_Send_Data(UARTPort,((val%100)/10)+0x30);
+  72          //  UART_Send_Data(UARTPort,(val%10)+0x30);
+  73          //}
+  74          
+  75          
+  76          void UART_Send_Buf(UINT8 UARTPort, UINT8 *ptr,UINT8 len) 
+  77          {
+  78   1        u8 i;
+  79   1        switch (UARTPort)
+  80   1        {
+  81   2          case UART0:
+  82   2            for(i=0;i<len;i++)
+  83   2            {
+  84   3              busy = 1;
+  85   3              SBUF = ptr[i];
+  86   3              while (busy);
+  87   3            }
+  88   2            break;
+  89   2          case UART1:
+  90   2            for(;len>0;len--)
+  91   2            {
+  92   3              UART_Send_Data(UART1,*ptr);
+  93   3              ptr++;
+  94   3            }
+  95   2            break;
+  96   2        }
+  97   1      }
+  98          
+  99          
+ 100          void UART0_ISR(void) interrupt 4         //蓝牙模组
+ 101          {    
+ 102   1        u8 dat;
+ 103   1        if (RI)
+ 104   1        {
+ 105   2          clr_RI; // Clear RI (Receive Interrupt).
+ 106   2          dat = SBUF;
+ 107   2          UART0_Enter_queue(&UART0_rx_queue,dat);
+ 108   2        }
+ 109   1        if (TI)
+ 110   1        { 
+ 111   2          clr_TI; 
+ 112   2          busy = 0; 
+ 113   2        }
+ 114   1      }
+ 115          
+C51 COMPILER V9.60.0.0   UART                                                              11/06/2025 09:07:50 PAGE 3   
+
+ 116          void UART1_ISR(void) interrupt 15         //下控通讯
+ 117          { 
+ 118   1        u8 dat;
+ 119   1        if (RI_1==1) 
+ 120   1        {                                       /* if reception occur */
+ 121   2          clr_RI_1;                             /* clear reception flag for next reception SBUF_1 */
+ 122   2          dat = SBUF_1;
+ 123   2          uart_time_error=0;
+ 124   2          UART1_Enter_queue(&UART1_rx_queue,dat);
+ 125   2        }
+ 126   1        if(TI_1==1)
+ 127   1        {
+ 128   2          tx_flag=0;
+ 129   2          clr_TI_1;                             /* if emission occur */
+ 130   2        }  
+ 131   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    416    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      2       9
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

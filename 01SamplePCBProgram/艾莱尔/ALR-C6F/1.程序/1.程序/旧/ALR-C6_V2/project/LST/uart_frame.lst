@@ -1,0 +1,661 @@
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE UART_FRAME
+OBJECT MODULE PLACED IN .\Output\uart_frame.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\user\uart_frame.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(
+                    -..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRI
+                    -NT(.\LST\uart_frame.lst) TABS(2) OBJECT(.\Output\uart_frame.obj)
+
+line level    source
+
+   1          /*
+   2           * uart_frame.c
+   3           *
+   4           *  Created on: 2019Äê12ÔÂ11ÈÕ
+   5           *      Author: Administrator
+   6           */
+   7          #include "common.h"
+   8          #include "uart_frame.h"
+   9          #include "queue.h"
+  10          #include "treadmills.h"
+  11          #include "param.h"
+  12          #include "led_disp.h"
+  13          #include "indecate.h"
+  14          #include "beep.h"
+  15          #include "uart.h"
+  16          #include "cfg.h"
+  17          #include "keypad.h"
+  18          #include "keypad_fun.h"
+  19          
+  20          void UART1_cmd_proc(void);  //ÏÂ¿ØÍ¨Ñ¶½ÓÊÕÖ¸Áî´¦Àí
+  21          void UART0_cmd_proc(void);  //À¶ÑÀÄ£×é½ÓÊÕÖ¸Áî´¦Àí
+  22          void UART0_SetCmd_proc(void);
+  23          void UART0_DataCmd_proc(void);
+  24          
+  25          T_QUEUE UART1_rx_queue;
+  26          T_QUEUE UART0_rx_queue;
+  27          
+  28          u8 UART1_rx_buf[UART1_RX_BUFF_SIZE];
+  29          u8 UART0_rx_buf[UART0_RX_BUFF_SIZE];
+  30          
+  31          uart_frame_t uart_frame;
+  32          uart_frame_t uart_tx_frame;
+  33          
+  34          ProtocolFrame_t frame;
+  35          
+  36          void uart_frame_init(void)
+  37          {
+  38   1        Create_Queue(&UART1_rx_queue,&UART1_rx_buf[0],UART1_RX_BUFF_SIZE);    //µ÷ÓÃCreate_Queueº¯Êý£¬´´½¨Ò»¸ö¶ÓÁ
+             -Ð rx_queue£¬²¢½« rx_buf Êý×é×÷Îª¶ÓÁÐµÄ»º³åÇø£¬RX_BUFF_SIZE ×÷Îª¶ÓÁÐµÄ×î´óÈÝÁ¿
+  39   1        Create_Queue(&UART0_rx_queue,&UART0_rx_buf[0],UART0_RX_BUFF_SIZE);
+  40   1        
+  41   1        //ÏÂ¿ØÍ¨Ñ¶
+  42   1        uart_frame.sof=START_OF_FRAME;    //(0X7F)
+  43   1        uart_frame.eof=END_OF_FRAME;      //(0X7E)
+  44   1        uart_tx_frame.sof=START_OF_FRAME;
+  45   1        uart_tx_frame.eof=END_OF_FRAME;
+  46   1        
+  47   1        //À¶ÑÀÄ£¿éÍ¨Ñ¶
+  48   1      //  uart0_frame.sof=0X02;             
+  49   1      //  uart0_tx_frame.sof=0X02; 
+  50   1      }
+  51          
+  52          //ÏÂ¿ØÍ¨Ñ¶·¢ËÍ
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 2   
+
+  53          void uart1_frame_tx(u8 cmd,u8 dat)
+  54          {
+  55   1        u8 xor=0;     //ÓÃÓÚ¼ÆËãÐ£ÑéºÍ
+  56   1        uart_tx_frame.cmd=cmd;
+  57   1        xor^=cmd;
+  58   1        uart_tx_frame.len=1;
+  59   1        xor^=1;
+  60   1        uart_tx_frame.buf[0]=dat;
+  61   1        xor^=dat;
+  62   1        uart_tx_frame.buf[1]=xor;    //ÓÃÓÚ´æ´¢Ð£ÑéºÍ
+  63   1        uart_tx_frame.crch=0;
+  64   1        uart_tx_frame.crcl=END_OF_FRAME;
+  65   1        UART_Send_Buf(UART1,(u8*)&uart_tx_frame,uart_tx_frame.len+6);  //µ÷ÓÃUART_Send_Bufº¯Êý£¬½«uart_tx_frame½á
+             -¹¹ÌåµÄµØÖ·×÷Îª²ÎÊý£¬ÒÔ¼°uart_tx_frameµÄ³¤¶È¼ÓÉÏ 6£¨°üÀ¨ÆðÊ¼Ö¡¡¢ÃüÁî¡¢³¤¶È¡¢Êý¾Ý¡¢Ð£ÑéºÍºÍ½áÊøÖ¡£©×÷Îª²ÎÊý£¬·¢ËÍ UART Êý¾
+             -Ý
+  66   1      }
+  67          
+  68          void uart1_frame_tx_2(u8 cmd,u8 dat0,u8 dat1)
+  69          {
+  70   1        u8 xor=0;      //ÓÃÓÚ¼ÆËãÐ£ÑéºÍ
+  71   1        uart_tx_frame.cmd=cmd;
+  72   1        xor^=cmd;
+  73   1        uart_tx_frame.len=2;
+  74   1        xor^=2;
+  75   1        uart_tx_frame.buf[0]=dat0;
+  76   1        xor^=dat0;
+  77   1        uart_tx_frame.buf[1]=dat1;
+  78   1        xor^=dat1;
+  79   1        uart_tx_frame.crch=xor;    //ÓÃÓÚ´æ´¢Ð£ÑéºÍ
+  80   1        uart_tx_frame.crcl=0;
+  81   1        uart_tx_frame.eof=END_OF_FRAME;
+  82   1        UART_Send_Buf(UART1,(u8*)&uart_tx_frame,uart_tx_frame.len+6);
+  83   1      }
+  84          
+  85          
+  86          //---------------------------------------------------------------
+  87          //ÏÂ¿ØÍ¨Ñ¶½ÓÊÕÖ¸Áî´¦Àí
+  88          void uart1_frame_loop(void)  //´Ó½ÓÊÕ¶ÓÁÐÖÐ»ñÈ¡ UART Êý¾Ý
+  89          {
+  90   1         static u8 sm=0,len=0;
+  91   1         static u8 *ptr;
+  92   1         u8 dat;
+  93   1         u8 ret;
+  94   1         //ET0 = 0; //ÔÊÐíÖÐ¶Ï
+  95   1         ret=Denter_queue(&UART1_rx_queue,&dat);
+  96   1         //ET0 = 1; //ÔÊÐíÖÐ¶Ï
+  97   1         if(ret)    //ret=1 ¶ÓÁÐÖÐÓÐÊý¾Ý£¬Êý¾Ý³ö¶ÓÁÐ£¬¼´·¢ËÍÊý¾Ý
+  98   1         {
+  99   2           if(dat==uart_frame.sof){sm=1;treadmills.ack=1;return;}
+ 100   2           switch(sm)
+ 101   2           {
+ 102   3           case 1:
+ 103   3             uart_frame.cmd=dat;
+ 104   3             sm=2;
+ 105   3             break;
+ 106   3           case 2:
+ 107   3             uart_frame.len=dat;
+ 108   3             if(uart_frame.len>2){sm=0;return;}
+ 109   3             len=0;
+ 110   3             ptr=&uart_frame.buf[0];
+ 111   3             sm=3;
+ 112   3             break;
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 3   
+
+ 113   3           case 3:
+ 114   3             ptr[len]=dat;
+ 115   3             len++;
+ 116   3             if(len>=(uart_frame.len+2)){sm=4;}
+ 117   3             break;
+ 118   3           case 4:
+ 119   3             if(dat==uart_frame.eof)
+ 120   3             {
+ 121   4               ptr=&uart_frame.cmd;
+ 122   4               dat=0;
+ 123   4               for(len=0;len<(uart_frame.len+2);len++)
+ 124   4               {
+ 125   5                dat^=ptr[len];
+ 126   5               }
+ 127   4               if(dat==ptr[len]){UART1_cmd_proc();}
+ 128   4             }
+ 129   3            sm=0;
+ 130   3             break;
+ 131   3           default:
+ 132   3             break;
+ 133   3           }
+ 134   2         }
+ 135   1      }
+ 136          
+ 137          
+ 138          //---------------------------------------------------------------
+ 139          extern u8 error_times;
+ 140          extern u8 down_control;
+ 141          //ÏÂ¿ØÍ¨Ñ¶½ÓÊÕÖ¸Áî´¦Àí
+ 142          void UART1_cmd_proc(void)
+ 143          {
+ 144   1        switch(uart_frame.cmd)
+ 145   1        {
+ 146   2        case CMD_STATUS:
+ 147   2          break;
+ 148   2        case CMD_SPEED:
+ 149   2          break;
+ 150   2      //  case CMD_STATUS_HEART:
+ 151   2      //    treadmills.param.runstep++;
+ 152   2      //    break;
+ 153   2        case CMD_ACK:
+ 154   2          LED1=!LED1;//Ö¸Ê¾µÆÉÁË¸
+ 155   2          treadmills.ack=1;
+ 156   2          down_control = uart_frame.buf[0];
+ 157   2          debug_printf("\r\n --->rply ack");
+ 158   2          //LED1=1;//Ï¨Ãð
+ 159   2          break;
+ 160   2        case CMD_RESET:
+ 161   2        #if(0)
+                  debug_printf("\r\n software reset");
+                  AUXR1 &=(0X7F);
+                  EA=0;
+                  TA=0XAA;
+                  TA=0X55;
+                  CHPCON |=(1<<7);
+                  //EA=1;
+                #endif
+ 170   2          break;
+ 171   2        case CMD_STOP_OVER:
+ 172   2          if(error_times==0)treadmills.status=STATUS_STOP_OVER;
+ 173   2          break;
+ 174   2        case CMD_ERROR:
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 4   
+
+ 175   2          treadmills.ack=1;
+ 176   2          if(treadmills.error_code ==0)
+ 177   2          {
+ 178   3            treadmills.error_code=uart_frame.buf[0];
+ 179   3            error_times=0;
+ 180   3          }
+ 181   2          treadmills.status=STATUS_ERROR;
+ 182   2          break;
+ 183   2        case CMD_WRITE_PARAM:
+ 184   2          uart_tx_frame.cmd=CMD_WRITE_PARAM;
+ 185   2          uart_tx_frame.len=2;
+ 186   2          uart_tx_frame.buf[0]=(u8)param.speed_adc;
+ 187   2          uart_tx_frame.buf[1]=(~(u8)param.speed_adc);
+ 188   2          UART_Send_Buf(UART1,(UINT8*)&uart_tx_frame,sizeof(uart_tx_frame));
+ 189   2          break;
+ 190   2        case CMD_READ_PARAM:
+ 191   2          //ÑéÖ¤Ð£Ñé
+ 192   2          if((uart_frame.buf[0] & uart_frame.buf[1])==0)
+ 193   2          {
+ 194   3            param.speed_adc=(s8)uart_frame.buf[0];
+ 195   3          }
+ 196   2          else
+ 197   2          {
+ 198   3            param.speed_adc=0;
+ 199   3          }
+ 200   2          break;
+ 201   2        case CMD_TEST:
+ 202   2          beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 203   2          if(uart_frame.buf[0] ==0)
+ 204   2          {
+ 205   3            indecate.led_step=LED_ON;
+ 206   3            indecate.led_speed=LED_ON;
+ 207   3            indecate.led_updp=LED_ON;
+ 208   3            indecate.led_downdp=LED_ON;
+ 209   3      
+ 210   3            indecate.led_time=LED_ON;
+ 211   3            indecate.led_distance=LED_ON;
+ 212   3            indecate.led_calorie=LED_ON;
+ 213   3            set_seg_val(1234);
+ 214   3            set_seg_mode(SEG_MODE_NORMAL);
+ 215   3          }
+ 216   2          else if(uart_frame.buf[0] ==1)
+ 217   2          {
+ 218   3            indecate.led_step=LED_ON;
+ 219   3            indecate.led_speed=LED_ON;
+ 220   3            indecate.led_updp=LED_ON;
+ 221   3            indecate.led_downdp=LED_ON;
+ 222   3      
+ 223   3            indecate.led_time=LED_ON;
+ 224   3            indecate.led_distance=LED_ON;
+ 225   3            indecate.led_calorie=LED_ON;
+ 226   3            set_seg_val(5678);
+ 227   3            set_seg_mode(SEG_MODE_NORMAL);
+ 228   3          }
+ 229   2          else if(uart_frame.buf[0] ==2)
+ 230   2          {
+ 231   3            indecate.led_step=LED_ON;
+ 232   3            indecate.led_speed=LED_ON;
+ 233   3            indecate.led_updp=LED_ON;
+ 234   3            indecate.led_downdp=LED_ON;
+ 235   3      
+ 236   3            indecate.led_time=LED_ON;
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 5   
+
+ 237   3            indecate.led_distance=LED_ON;
+ 238   3            indecate.led_calorie=LED_ON;
+ 239   3            set_seg_val(8888);
+ 240   3            set_seg_mode(SEG_MODE_NORMAL);
+ 241   3          }
+ 242   2          break;
+ 243   2        default:
+ 244   2          break;
+ 245   2        }
+ 246   1      }
+ 247          
+ 248          /* Òì»òÐ£Ñéº¯Êý */
+ 249          unsigned char crc_cheack(unsigned char *pkt, unsigned char len)  
+ 250          {  
+ 251   1          unsigned char i = 0, calculatedCRC = pkt[0];  
+ 252   1          for(i = 1; i < len; i++)   
+ 253   1          {  
+ 254   2              calculatedCRC ^= pkt[i];  
+ 255   2          }  
+ 256   1          return calculatedCRC;  
+ 257   1      }
+ 258          
+ 259          
+ 260          void uart0_send_frame(u8 sof, u8 cmd, u8 subcmd, u8 len, u8 *buf, u8 end)
+ 261          {
+ 262   1          u8 tx_buf[6 + MAX_DATA_LEN]; // max buffer
+ 263   1          u8 temp[3 + MAX_DATA_LEN];   // for CRC
+ 264   1          u8 i;
+ 265   1      
+ 266   1          tx_buf[0] = sof;
+ 267   1          tx_buf[1] = cmd;
+ 268   1          tx_buf[2] = subcmd;
+ 269   1          tx_buf[3] = len;
+ 270   1      
+ 271   1          temp[0] = cmd;
+ 272   1          temp[1] = subcmd;
+ 273   1          temp[2] = len;
+ 274   1      
+ 275   1          // Èç¹ûÓÐÊý¾Ý
+ 276   1          if (len > 0 && buf != NULL)
+ 277   1          {
+ 278   2              for (i = 0; i < len; i++)
+ 279   2              {
+ 280   3                  tx_buf[4 + i] = buf[i];
+ 281   3                  temp[3 + i] = buf[i];
+ 282   3              }
+ 283   2          }
+ 284   1      
+ 285   1          tx_buf[4 + len] = crc_cheack(temp, 3 + len); // fcs
+ 286   1          tx_buf[5 + len] = end;                       // end
+ 287   1      
+ 288   1          UART_Send_Buf(UART0, tx_buf, 6 + len);       // total length
+ 289   1      }
+ 290          
+ 291          
+ 292          // === È«¾Ö±äÁ¿Óë¶¨Òå ===
+ 293          volatile u16 bt_init_tick = 0;
+ 294          volatile u8 bt_param_send_step = 0;
+ 295          bit bt_param_send_flag = 0;
+ 296          bit app_control_permission = 0;
+ 297          
+ 298          /* À¶ÑÀ½ÓÊÕ´¦Àí */
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 6   
+
+ 299          void uart0_frame_loop(void)
+ 300          {
+ 301   1          static u8 sm = 0, len = 0;
+ 302   1          static u8 *ptr;
+ 303   1          u8 datt;
+ 304   1      
+ 305   1          while (Denter_queue(&UART0_rx_queue, &datt)) {
+ 306   2              switch (sm)
+ 307   2              {
+ 308   3                  case 0:
+ 309   3                      if (datt == 0x53 || datt == 0x57) {
+ 310   4                          frame.sof = datt;
+ 311   4                          sm = 1;
+ 312   4                      }
+ 313   3                      break;
+ 314   3                  case 1:
+ 315   3                      frame.cmd = datt;
+ 316   3                      sm = 2;
+ 317   3                      break;
+ 318   3                  case 2:
+ 319   3                      frame.subcmd = datt;
+ 320   3                      sm = 3;
+ 321   3                      break;
+ 322   3                  case 3:
+ 323   3                      frame.len = datt;
+ 324   3                      if (frame.len > MAX_DATA_LEN) {
+ 325   4                          sm = 0;
+ 326   4                          break;
+ 327   4                      }
+ 328   3                      len = 0;
+ 329   3                      ptr = frame.buf;
+ 330   3                      sm = 4;
+ 331   3                      break;
+ 332   3                  case 4:
+ 333   3                      ptr[len++] = datt;
+ 334   3                      if (len >= frame.len + 1)
+ 335   3                          sm = 5;
+ 336   3                      break;
+ 337   3                  case 5:
+ 338   3                      if ((datt == 0x54 && frame.sof == 0x53) || (datt == 0x58 && frame.sof == 0x57)) {
+ 339   4                          frame.end = datt;
+ 340   4                          if (frame.sof == 0x53 && frame.cmd == 0x03 && frame.subcmd == 0x00 && frame.len == 0) 
+ 341   4                          {
+ 342   5                              uart0_send_frame(0x53, 0x03, 0x00, 0, NULL, 0x54);
+ 343   5                              bt_init_tick = 0;
+ 344   5                              bt_param_send_flag = 1;
+ 345   5                              bt_param_send_step = 0;
+ 346   5                          }
+ 347   4                          else if(frame.sof == 0x57) 
+ 348   4                          {
+ 349   5                            UART0_cmd_proc();
+ 350   5                          }
+ 351   4                      }
+ 352   3                      sm = 0;
+ 353   3                      break;
+ 354   3                  default:
+ 355   3                      sm = 0;
+ 356   3                      break;
+ 357   3              }
+ 358   2          }
+ 359   1      }
+ 360          
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 7   
+
+ 361          void UART0_cmd_proc(void)
+ 362          {
+ 363   1          u8 result = 0x01; // Ä¬ÈÏ²Ù×÷³É¹¦
+ 364   1        
+ 365   1          // ========== APP¿ØÖÆÀàÖ¸Áî ==========
+ 366   1          if (frame.cmd == 0x03)
+ 367   1          {
+ 368   2              switch (frame.subcmd)
+ 369   2              {
+ 370   3                  case 0x00: // APPÇëÇó¿ØÖÆ
+ 371   3                      if(frame.len == 0x00)
+ 372   3                      {
+ 373   4                        uart0_send_frame(0x57, 0x03, 0x00, 0x01, &result, 0x58);
+ 374   4                      }
+ 375   3                  break;
+ 376   3      
+ 377   3                  case 0x01: // ¸´Î»
+ 378   3                      if(frame.len == 0x00)
+ 379   3                      {
+ 380   4                          treadmills.status = STATUS_STOP;
+ 381   4                          treadmills.param.distance = 0;
+ 382   4                          treadmills.param.calorie = 0;
+ 383   4                          treadmills.param.second = 0;                   
+ 384   4                          uart0_send_frame(0x57, 0x03, 0x01, 0x01, &result, 0x58);                              
+             -       
+ 385   4                      }
+ 386   3                      break;
+ 387   3      
+ 388   3                  case 0x02: // ÉèÖÃÄ¿±êËÙ¶È
+ 389   3                    if(frame.len == 0x02)
+ 390   3                    {
+ 391   4                      if (treadmills.status == STATUS_RUNNING)
+ 392   4                      {
+ 393   5                          treadmills.param.speed = frame.buf[0] | (frame.buf[1] << 8);
+ 394   5                          uart1_frame_tx(CMD_SPEED, treadmills.param.speed / 10);
+ 395   5                          treadmills.display.index = 0;
+ 396   5                          treadmills.display.mode = DISP_MODE_SINGLE;
+ 397   5                          beep_set(1, DEFAULT_ON_TICKS, DEFAULT_OFF_TICKS);
+ 398   5                      }
+ 399   4                      else
+ 400   4                      {
+ 401   5                        result = 0x05; // ²»ÔÊÐí²Ù×÷
+ 402   5                      }
+ 403   4                      uart0_send_frame(0x57, 0x03, 0x02, 0x01, &result, 0x58);
+ 404   4                    }
+ 405   3                    break;
+ 406   3      
+ 407   3                  case 0x03: // ÉèÖÃÄ¿±êÆÂ¶È£¨ÔÝÎÞ£©
+ 408   3                      result = 0x02; // ²»Ö§³Ö
+ 409   3                      uart0_send_frame(0x57, 0x03, 0x03, 0x01, &result, 0x58);
+ 410   3                      break;
+ 411   3      
+ 412   3                  case 0x07: // Æô¶¯/»Ö¸´           
+ 413   3                      if (treadmills.status == STATUS_SLEEP_MODE)
+ 414   3                      {
+ 415   4                          treadmills.status = STATUS_POWERON;
+ 416   4                      }
+ 417   3                      else
+ 418   3                      {                   
+ 419   4                          if ((treadmills.status == STATUS_WAIT ||treadmills.status == STATUS_STOP_OVER ||treadmills.statu
+             -s == STATUS_PAUSE||
+ 420   4                               treadmills.status == STATUS_STOP||treadmills.status == STATUS_PAUSE) && (treadmills.error_cod
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 8   
+
+             -e == 0))
+ 421   4                          {
+ 422   5                              treadmills.status = STATUS_RUN;
+ 423   5                              key_mask = 0xFF;
+ 424   5                              beep_set(1, DEFAULT_ON_TICKS, DEFAULT_OFF_TICKS);
+ 425   5                          }
+ 426   4                          else
+ 427   4                          {
+ 428   5                              result = 0x05; // ²»ÔÊÐí²Ù×÷
+ 429   5                          }
+ 430   4                          uart0_send_frame(0x57, 0x03, 0x07, 0x01, &result, 0x58);
+ 431   4                      }
+ 432   3                      break;
+ 433   3      
+ 434   3                  case 0x08: // Í£Ö¹0x01/ÔÝÍ£0x02           
+ 435   3                    if(frame.len == 0x01 && frame.buf[0] == 0x01)
+ 436   3                    {
+ 437   4                          PAUSE_FLAG = 0;
+ 438   4                          treadmills.status = STATUS_STOP;//_OVER;
+ 439   4                          beep_set(1, DEFAULT_ON_TICKS, DEFAULT_OFF_TICKS);
+ 440   4                    }
+ 441   3                    else if (frame.len == 0x01 && frame.buf[0] == 0x02)
+ 442   3                    {
+ 443   4                         PAUSE_FLAG = 1;
+ 444   4                         treadmills.status = STATUS_STOP;
+ 445   4                         beep_set(1, DEFAULT_ON_TICKS, DEFAULT_OFF_TICKS);
+ 446   4                    }
+ 447   3                    else
+ 448   3                    {
+ 449   4                       result = 0x05; // ²»ÔÊÐí²Ù×÷
+ 450   4                    }
+ 451   3                    
+ 452   3                    uart0_send_frame(0x57, 0x03, 0x08, 0x01, &result, 0x58);
+ 453   3                    break;
+ 454   3      
+ 455   3                  default:
+ 456   3                      break;
+ 457   3              }
+ 458   2          }
+ 459   1          
+ 460   1          else if(frame.cmd == 0x04)
+ 461   1          {
+ 462   2            switch (frame.subcmd)
+ 463   2              {
+ 464   3                  case 0x01: // APPÁ¬½Ó           
+ 465   3                    break;
+ 466   3                  case 0x02:   // ¶Ï¿ªÉè±¸
+ 467   3                    treadmills.status = STATUS_STOP;//_OVER;
+ 468   3                    beep_set(1, DEFAULT_ON_TICKS, DEFAULT_OFF_TICKS);
+ 469   3                    break;
+ 470   3                  default:
+ 471   3                    break;              
+ 472   3              }
+ 473   2            
+ 474   2          }     
+ 475   1      }   
+ 476          
+ 477          
+ 478          u8 name[] = {0x53, 0x50, 0x41, 0x58}; // SPAX
+ 479          u8 feature_setting_data[8] = {0x04, 0x12, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00};
+ 480          u8 treadmill_status[] = {0x01};
+ 481          u8 speed_range[6] = {0x64, 0x00, 0x20, 0x03, 0x0A, 0x00};
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 9   
+
+ 482          u8 device_type[4] = {0x01, 0x00, 0x02, 0x01};
+ 483          
+ 484          /* À¶ÑÀÑÓ³Ù²ÎÊýÉèÖÃÂß¼­ */
+ 485          void bt_power_send(void)
+ 486          {
+ 487   1          static u8 delay_cnt = 0;
+ 488   1      
+ 489   1          if (bt_param_send_flag)
+ 490   1          {
+ 491   2              delay_cnt++;
+ 492   2              if (delay_cnt < 1) return; // ±£Ö¤100ms½ÚÅÄ½øÈë
+ 493   2              delay_cnt = 0;
+ 494   2      
+ 495   2              switch (bt_param_send_step++)
+ 496   2              {
+ 497   3                  case 0:
+ 498   3                      uart0_send_frame(0x53, 0x03, 0x01, sizeof(name), name, 0x54);
+ 499   3                      break;
+ 500   3                  case 1:
+ 501   3                      uart0_send_frame(0x53, 0x04, 0x01, sizeof(feature_setting_data), feature_setting_data, 0x5
+             -4);
+ 502   3                      break;
+ 503   3                  case 2:
+ 504   3                      uart0_send_frame(0x53, 0x04, 0x02, sizeof(treadmill_status), treadmill_status, 0x54);
+ 505   3                      break;
+ 506   3                  case 3:
+ 507   3                      uart0_send_frame(0x53, 0x04, 0x03, sizeof(speed_range), speed_range, 0x54);
+ 508   3                      break;
+ 509   3                  case 4:
+ 510   3                      uart0_send_frame(0x53, 0x04, 0x0A, sizeof(device_type), device_type, 0x54);
+ 511   3                      bt_param_send_flag = 0;
+ 512   3                      bt_param_send_step = 0;
+ 513   3                      break;
+ 514   3                  default:
+ 515   3                      break;
+ 516   3              }
+ 517   2          }
+ 518   1      }
+ 519          
+ 520          
+ 521          // Ãæ°å²Ù×÷ÉÏ±¨£¨·¢ËÍ 0x02 ÀàÖ¡£©
+ 522          void bt_panel_send_cmd(u8 subcmd, u8 len, u8* buf)
+ 523          {
+ 524   1          uart0_send_frame(0x57, 0x02, subcmd, len, buf, 0x58);
+ 525   1      }
+ 526          
+ 527          void bt_panel_send_speed(void)
+ 528          {
+ 529   1          u8 speed_buf[2];
+ 530   1      
+ 531   1          speed_buf[0] = treadmills.param.speed & 0xFF;         // µÍ×Ö½Ú
+ 532   1          speed_buf[1] = (treadmills.param.speed >> 8) & 0xFF;  // ¸ß×Ö½Ú
+ 533   1      
+ 534   1          bt_panel_send_cmd(0x05, 0x02, speed_buf); // 0x05: ÉèÖÃËÙ¶È£¬³¤¶ÈÎª2
+ 535   1      }
+ 536          
+ 537          
+ 538          // ========== ÉÏ±¨ÔË¶¯Êý¾ÝÐ­ÒéÖ¡ ==========
+ 539          void send_motion_data(u8 status_code)
+ 540          {
+ 541   1          u8 buf[18];
+ 542   1          u16 speed     = treadmills.param.speed;
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 10  
+
+ 543   1          u32 distance  = treadmills.param.distance;
+ 544   1          u16 calorie   = treadmills.param.calorie / 1000;
+ 545   1          u16 hour_cal  = 0;
+ 546   1          u8  min_cal   = 0;
+ 547   1          u16 seconds   = treadmills.param.second;
+ 548   1          u16 steps     = 0;
+ 549   1          u16 flags     = 0x0484;//ÎÞsteps
+ 550   1      
+ 551   1          buf[0]  = status_code;
+ 552   1          buf[1]  = flags & 0xFF;
+ 553   1          buf[2]  = (flags >> 8) & 0xFF;
+ 554   1          buf[3]  = speed & 0xFF;
+ 555   1          buf[4]  = (speed >> 8) & 0xFF;
+ 556   1          buf[5]  = distance & 0xFF;
+ 557   1          buf[6]  = (distance >> 8) & 0xFF;
+ 558   1          buf[7]  = (distance >> 16) & 0xFF;
+ 559   1          buf[8]  = calorie & 0xFF;
+ 560   1          buf[9]  = (calorie >> 8) & 0xFF;
+ 561   1          buf[10] = hour_cal & 0xFF;
+ 562   1          buf[11] = (hour_cal >> 8) & 0xFF;
+ 563   1          buf[12] = min_cal;
+ 564   1          buf[13] = seconds & 0xFF;
+ 565   1          buf[14] = (seconds >> 8) & 0xFF;
+ 566   1          buf[15] = steps & 0xFF;
+ 567   1          buf[16] = (steps >> 8) & 0xFF;
+ 568   1          buf[17] = 0x00;
+ 569   1      
+ 570   1          uart0_send_frame(0x57, 0x01, 0x00, sizeof(buf), buf, 0x58);
+ 571   1      }
+ 572          
+ 573          void send_motion_data_by_status(void)
+ 574          {
+ 575   1          u8 status_code;
+ 576   1      
+ 577   1          switch (treadmills.status)
+ 578   1          {
+ 579   2            
+ 580   2              case STATUS_POWERON:
+ 581   2              case STATUS_WAIT:
+ 582   2              case STATUS_STOP_OVER:
+ 583   2              case STATUS_PAUSE:
+ 584   2                  status_code = 0x01;
+ 585   2                  break;
+ 586   2              case STATUS_RUN:
+ 587   2                  status_code = 0x0E;//0x0E
+ 588   2                  break;
+ 589   2              case STATUS_RUNNING:
+ 590   2                  status_code = 0x0D;
+ 591   2                  break;
+ 592   2              case STATUS_STOP:
+ 593   2                  status_code = 0x0F;
+ 594   2                  break;
+ 595   2              case STATUS_ERROR:
+ 596   2      //            status_code = 0x10;
+ 597   2                  break;
+ 598   2              case STATUS_REED_ERROR:
+ 599   2      //            status_code = 0x11;
+ 600   2                  break;
+ 601   2              default:
+ 602   2                  return; // ²»ÉÏ±¨
+ 603   2          }
+ 604   1      
+C51 COMPILER V9.60.0.0   UART_FRAME                                                        07/25/2025 09:11:53 PAGE 11  
+
+ 605   1          send_motion_data(status_code);
+ 606   1      }
+ 607          
+ 608          
+ 609          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2716    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =    411     101
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

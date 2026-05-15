@@ -1,0 +1,632 @@
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE TREADMILLS
+OBJECT MODULE PLACED IN .\Output\treadmills.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\user\treadmills.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(
+                    -..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRI
+                    -NT(.\LST\treadmills.lst) TABS(2) OBJECT(.\Output\treadmills.obj)
+
+line level    source
+
+   1          #include "common.h"
+   2          #include "treadmills.h"
+   3          #include "keypad.h"
+   4          #include "led_disp.h"
+   5          #include "keypad_fun.h"
+   6          #include "uart_frame.h"
+   7          #include "indecate.h"
+   8          #include "7_segment.h"
+   9          #include "beep.h"
+  10          #include "uart.h"
+  11          #include "param.h"
+  12          #include "cfg.h"
+  13          #include "programe.h"
+  14          
+  15          
+  16          extern u8 tl_flag;
+  17          u8 error_times=0;
+  18          treadmills_t treadmills;
+  19          //bit STATUS_PAUSE_FLAG = 0;
+  20          //u8 time_delay=0;
+  21          
+  22          
+  23          //≈‹≤Ωª˙≥ı ºªØ
+  24          void treadmills_init(void)
+  25          {
+  26   1        treadmills.ack=0;
+  27   1        treadmills.param.second=0;
+  28   1        treadmills.param.speed=0;
+  29   1        treadmills.param.distance=0;
+  30   1        treadmills.param.calorie=0;
+  31   1        treadmills.param.runstep=0;
+  32   1        treadmills.error_cnt=0;
+  33   1        treadmills.error_code=0;
+  34   1      //  STATUS_PAUSE_FLAG = 0;
+  35   1      //  Bluetooth = 0;   //…œµÁø™∆Ù¿∂—¿
+  36   1        treadmills.param.beep_status = BEEP_SWITCH_ON;  //0±Ì æ∑‰√˘∆˜ø™£¨1±Ì æπÿ
+  37   1      }
+  38          
+  39          
+  40          static const u8 boot_disp_tab[]={ NUM_0, NUM_0, NUM_0 };
+  41          
+  42          //µπº∆ ±3£¨2£¨1
+  43          static const u8 run_disp_tab[]={ NUM_3, NUM_2, NUM_1};//NUM_5, NUM_4, 
+  44          
+  45          u8 booktime_en=0;
+  46          u8 booktime_cnt=0;
+  47          
+  48          // ±ª˘ 10ms
+  49          void boot_time(void)  //ÀŸ∂»µπº∆ ±
+  50          {
+  51   1        if(booktime_en==0){booktime_cnt=0;return;}
+  52   1        booktime_cnt++;
+  53   1        if(booktime_cnt>STOP_DISPLAY_INTERVAL)//20
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 2   
+
+  54   1        {
+  55   2          booktime_cnt=0;
+  56   2          if(treadmills.param.speed>=10)
+  57   2          {
+  58   3            treadmills.param.speed-=10;
+  59   3          }
+  60   2          else
+  61   2          {
+  62   3            treadmills.param.speed=0;
+  63   3          }
+  64   2          treadmills.display.index=PARAM_SET_SPEED_ADC;//ÀŸ∂»µµ
+  65   2          treadmills_display(treadmills.display.index);
+  66   2      //    bt_panel_send_speed();// µ ±…œ±®µ±«∞ÀŸ∂»
+  67   2      
+  68   2          if(treadmills.param.speed==0)
+  69   2          {
+  70   3            treadmills.status=STATUS_STOP_OVER;
+  71   3            booktime_cnt=0;
+  72   3            booktime_en=0;
+  73   3          }
+  74   2        }
+  75   1      }
+  76          
+  77          
+  78          //≤Œ ˝º∆À„…Ë÷√  1000ms
+  79          void treadmills_param_calc(void)
+  80          {
+  81   1        static float distance=0;
+  82   1        if(treadmills.status !=STATUS_RUNNING){distance=0;return;}
+  83   1       
+  84   1        //…Ë÷√ ±º‰
+  85   1        if(param.index==PARAM_SET_TIME)//—°‘Ò¡Àƒ£ Ω£¨–Ë“™µπº∆
+  86   1        {
+  87   2          if(treadmills.param.second){treadmills.param.second--;}
+  88   2          else
+  89   2          {
+  90   3            treadmills.status=STATUS_STOP;
+  91   3            key_mask =0x00;
+  92   3            beep_set(STOP_BEEP_CNT,STOP_BEEP_ON_TICKS,STOP_BEEP_OFF_TICKS);
+  93   3          }
+  94   2        }
+  95   1        else
+  96   1        {
+  97   2          treadmills.param.second++;
+  98   2          //‘ˆº”∂® ±π¶ƒ‹---±ÿ–Î∫Õº¸≈ÃÕ≥“ª
+  99   2          if(treadmills.param.second>=Overflow_time)    //‘À––100∑÷÷”Õ£÷π,6000
+ 100   2          {
+ 101   3            treadmills.status=STATUS_STOP;     
+ 102   3            key_mask =0x00;
+ 103   3            beep_set(STOP_BEEP_CNT,STOP_BEEP_ON_TICKS,STOP_BEEP_OFF_TICKS);
+ 104   3          }
+ 105   2        }
+ 106   1      
+ 107   1        //…Ë÷√æ‡¿Î  
+ 108   1        if(param.index==PARAM_SET_DISTANCE)//—°‘Ò¡Àƒ£ Ω£¨–Ë“™µπº∆
+ 109   1        {
+ 110   2          distance+=((float)(treadmills.param.speed))/360.0;//√◊/√Î  µ•Œª£∫√◊
+ 111   2          treadmills.param.distance-=((float)(treadmills.param.speed))/360.0;//√◊/√Î  µ•Œª£∫√◊
+ 112   2      
+ 113   2          if(treadmills.param.distance<10)
+ 114   2          {
+ 115   3            treadmills.status=STATUS_STOP;       
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 3   
+
+ 116   3            key_mask =0x00;
+ 117   3            beep_set(STOP_BEEP_CNT,STOP_BEEP_ON_TICKS,STOP_BEEP_OFF_TICKS);
+ 118   3          }
+ 119   2        }
+ 120   1        else
+ 121   1        {
+ 122   2          /**
+ 123   2          * distance=V*t
+ 124   2          *         =(((float)treadmills.param.speed/100.0)*1000.0)/(3600.0)
+ 125   2          */
+ 126   2          treadmills.param.distance+=((float)(treadmills.param.speed))/360.0;//√◊/√Î  µ•Œª£∫√◊
+ 127   2          distance=treadmills.param.distance;
+ 128   2        }
+ 129   1        
+ 130   1          //…Ë÷√ø®¬∑¿Ô
+ 131   1          if(param.index==PARAM_SET_CALORIE)//—°‘Ò¡Àƒ£ Ω£¨–Ë“™µπº∆
+ 132   1          {
+ 133   2            if(treadmills.param.calorie>=(((float)(treadmills.param.speed))/360.0)*70)//70«ßø®/«ß√◊ =0.070K/M  µ
+             -•Œª:ø®
+ 134   2            {
+ 135   3              treadmills.param.calorie-=(((float)(treadmills.param.speed))/360.0)*70;
+ 136   3            }
+ 137   2            else
+ 138   2            {
+ 139   3              treadmills.param.calorie=0;
+ 140   3              treadmills.status=STATUS_STOP;
+ 141   3              key_mask =0x00;
+ 142   3              beep_set(STOP_BEEP_CNT,STOP_BEEP_ON_TICKS,STOP_BEEP_OFF_TICKS);
+ 143   3            }
+ 144   2          }
+ 145   1          else
+ 146   1          {
+ 147   2            treadmills.param.calorie=distance*70;//70«ßø®/«ß√◊ =0.070K/M  µ•Œª:ø®
+ 148   2          }
+ 149   1       
+ 150   1        treadmills_display(treadmills.display.index);
+ 151   1      }
+ 152          
+ 153          u8 status_code;
+ 154          // ±ª˘ 100ms
+ 155          void treadmills_proc_loop(void) //¥¶¿Ì
+ 156          {
+ 157   1        static u8 cnt=0,timeout=0;
+ 158   1        static u8 val=0;
+ 159   1        
+ 160   1        switch(treadmills.status)
+ 161   1        {
+ 162   2        case STATUS_POWERON:
+ 163   2          cnt++;
+ 164   2          if(cnt>1)//10
+ 165   2          {
+ 166   3            cnt=0;
+ 167   3      
+ 168   3            indecate.led_speed=LED_OFF;
+ 169   3            indecate.led_distance=LED_OFF;
+ 170   3            indecate.led_calorie=LED_OFF;
+ 171   3            indecate.led_step=LED_OFF;
+ 172   3            indecate.led_time=LED_OFF;
+ 173   3            indecate.led_updp=LED_OFF;
+ 174   3            
+ 175   3            set_bit_seg(0,SEG_ALL_OFF);//…œµÁ»´¡¡∫Ûœ‘ æOFF
+ 176   3            set_bit_seg(1,SEG_O);
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 4   
+
+ 177   3            set_bit_seg(2,SEG_F);
+ 178   3            set_bit_seg(3,SEG_F);
+ 179   3            set_seg_mode(SEG_MODE_NORMAL);
+ 180   3            
+ 181   3            treadmills.status=STATUS_WAIT;
+ 182   3      
+ 183   3            uart_tx_frame.cmd=CMD_READ_PARAM;
+ 184   3            uart_tx_frame.len=1;
+ 185   3            uart_tx_frame.buf[0]=0x00;
+ 186   3            UART_Send_Buf(UART1,(UINT8*)&uart_tx_frame,sizeof(uart_tx_frame));
+ 187   3      
+ 188   3            key_mask=0xff;
+ 189   3          }
+ 190   2      
+ 191   2          break;
+ 192   2        case STATUS_WAIT:  
+ 193   2          break;
+ 194   2        case STATUS_SET_PARAM:
+ 195   2          break;
+ 196   2        case STATUS_RUN:
+ 197   2          if(cnt==0)
+ 198   2          {
+ 199   3            beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 200   3            set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ
+ 201   3            set_bit_seg(1,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ   
+ 202   3            set_bit_seg(3,run_disp_tab[val]);
+ 203   3            set_bit_seg(2,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ  
+ 204   3            set_seg_mode(SEG_MODE_NORMAL);
+ 205   3            cnt=1;
+ 206   3            val=1;
+ 207   3          }
+ 208   2          else
+ 209   2          {
+ 210   3            cnt++;
+ 211   3            if(cnt>10)
+ 212   3            {
+ 213   4              cnt=1;
+ 214   4              beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 215   4              if(val<=2)  //∆Ù∂Øµπº∆ ±¥Œ ˝
+ 216   4              {
+ 217   5                set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ
+ 218   5                set_bit_seg(1,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ 
+ 219   5                set_bit_seg(3,run_disp_tab[val]);
+ 220   5                set_bit_seg(2,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ                  
+ 221   5                
+ 222   5                val++;
+ 223   5              }
+ 224   4              else
+ 225   4              {
+ 226   5                val=0;
+ 227   5                treadmills.param.speed=TREADMILLS_SPEED_MIN;
+ 228   5                
+ 229   5                uart1_frame_tx_2(CMD_STATUS,STATUS_MOTOR_RUN,treadmills.param.speed/10);
+ 230   5                uart1_frame_tx_2(CMD_STATUS,STATUS_MOTOR_RUN,treadmills.param.speed/10);
+ 231   5              
+ 232   5                treadmills.status = STATUS_RUNNING;
+ 233   5                treadmills.display.index=PARAM_SET_SPEED_ADC;//ÀŸ∂»µµ
+ 234   5                treadmills.display.mode=DISP_MODE_AUTO; 
+ 235   5                treadmills_display(treadmills.display.index);
+ 236   5              }
+ 237   4            }
+ 238   3          }
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 5   
+
+ 239   2          indecate.led_updp=LED_OFF;
+ 240   2          indecate.led_downdp=LED_OFF;  
+ 241   2          break;
+ 242   2        case STATUS_RUNNING:
+ 243   2          break;
+ 244   2        case STATUS_STOP:     
+ 245   2          treadmills.display.mode=IDEL;
+ 246   2        
+ 247   2          uart1_frame_tx(CMD_STATUS,STATUS_MOTOR_STOP);
+ 248   2          uart1_frame_tx(CMD_STATUS,STATUS_MOTOR_STOP);
+ 249   2          set_seg_mode(SEG_MODE_NORMAL);
+ 250   2          param.index=0;     //≥ı ºªØ≤Œ ˝À˜“˝
+ 251   2          booktime_cnt=0;
+ 252   2          booktime_en=1;     //ÀŸ∂»µπº∆ ± πƒ‹
+ 253   2          cnt=0;
+ 254   2          timeout=0;
+ 255   2          treadmills.status=STATUS_STOP_WAIT;
+ 256   2          break;
+ 257   2        case STATUS_STOP_WAIT:
+ 258   2          timeout++;
+ 259   2          if(timeout>STOP_WAIT_TIMEOUT)//≥¨ ±ÕÀ≥ˆ 5*5=25   //100
+ 260   2          {
+ 261   3            timeout=0;
+ 262   3            treadmills.status=STATUS_STOP_OVER;    
+ 263   3          }
+ 264   2          break;
+ 265   2        case STATUS_STOP_OVER:
+ 266   2          treadmills.display.mode=IDEL;
+ 267   2          if((treadmills.param.second>=Overflow_time)||(PAUSE_FLAG == 0))    //‘À––100∑÷÷”Õ£÷π
+ 268   2          {
+ 269   3            treadmills.param.speed=0;
+ 270   3            treadmills.param.second=0;
+ 271   3            treadmills.param.distance=0;
+ 272   3            treadmills.param.calorie=0;
+ 273   3      
+ 274   3            treadmills.status=STATUS_POWERON;//STATUS_WAIT; 
+ 275   3            set_seg_mode(SEG_MODE_NORMAL);
+ 276   3          }
+ 277   2          else if(PAUSE_FLAG == 1)//∞¥‘›Õ£º¸£¨‘ÚΩ¯»Î‘›Õ£ƒ£ Ω
+ 278   2          {
+ 279   3            treadmills.param.speed=0;
+ 280   3      //      treadmills.display.index=1;// ±º‰µµ
+ 281   3      //      treadmills_display(treadmills.display.index);
+ 282   3      //      set_seg_mode(SEG_MODE_FLASH_SELF);
+ 283   3            treadmills.status=STATUS_PAUSE;
+ 284   3          }
+ 285   2      
+ 286   2          booktime_en=0;
+ 287   2          param.index=0;
+ 288   2          cnt=0;
+ 289   2          val=0;
+ 290   2          beep_force_stop();
+ 291   2          break;
+ 292   2          
+ 293   2        case STATUS_PAUSE:
+ 294   2          treadmills.status=STATUS_POWERON;//STATUS_WAIT;
+ 295   2          booktime_en=0;
+ 296   2          cnt=0;
+ 297   2          val=0;
+ 298   2          beep_force_stop();  
+ 299   2          break;
+ 300   2        case STATUS_SLEEP_MODE:
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 6   
+
+ 301   2          treadmills.display.mode=IDEL;
+ 302   2          treadmills.param.second=0;
+ 303   2          treadmills.param.distance=0;
+ 304   2          treadmills.param.calorie=0;
+ 305   2          treadmills.param.runstep=0;
+ 306   2        
+ 307   2          indecate.led_speed=LED_OFF;
+ 308   2          indecate.led_distance=LED_OFF;
+ 309   2          indecate.led_calorie=LED_OFF;
+ 310   2          indecate.led_time=LED_OFF;
+ 311   2          indecate.led_updp=LED_OFF;   
+ 312   2      
+ 313   2          set_bit_seg(0,SEG_ALL_OFF);
+ 314   2          set_bit_seg(1,SEG_ALL_OFF);       
+ 315   2          set_bit_seg(2,SEG_ALL_OFF);
+ 316   2          set_bit_seg(3,SEG_ALL_OFF);
+ 317   2          key_mask =0xff;  
+ 318   2          break;  
+ 319   2        case STATUS_FULL_DISPLAY:         
+ 320   2          indecate.led_speed=LED_ON;
+ 321   2          indecate.led_distance=LED_ON;
+ 322   2          indecate.led_calorie=LED_ON;
+ 323   2          indecate.led_time=LED_ON;
+ 324   2          indecate.led_updp=LED_ON;
+ 325   2          indecate.led_downdp=LED_ON;
+ 326   2          set_dp0();
+ 327   2          set_dp1();
+ 328   2          set_dp2();
+ 329   2          set_dp3();
+ 330   2          set_seg_val(8888);  
+ 331   2          break;
+ 332   2        case STATUS_ERROR:
+ 333   2          key_mask=0x00;//πÿ±’À˘”–µƒ∞¥º¸π¶ƒ‹
+ 334   2          set_bit_seg(0,SEG_ALL_OFF);
+ 335   2          set_bit_seg(1,SEG_E);
+ 336   2          set_bit_seg(2,seg_num[0]);
+ 337   2          set_bit_seg(3,seg_num[treadmills.error_code]);
+ 338   2          
+ 339   2          indecate.led_speed=LED_OFF;
+ 340   2          indecate.led_distance=LED_OFF;
+ 341   2          indecate.led_calorie=LED_OFF;
+ 342   2          indecate.led_step=LED_OFF;
+ 343   2          indecate.led_time=LED_OFF;
+ 344   2          indecate.led_updp=LED_OFF;
+ 345   2          indecate.led_downdp=LED_OFF;
+ 346   2          clr_dp1();
+ 347   2      
+ 348   2          treadmills.status=IDEL;
+ 349   2          treadmills.display.mode=IDEL;
+ 350   2      
+ 351   2        if(error_times==0)
+ 352   2        {
+ 353   3          uart1_frame_tx(CMD_STATUS,STATUS_MOTOR_STOP);
+ 354   3          uart1_frame_tx(CMD_STATUS,STATUS_MOTOR_STOP);
+ 355   3        }
+ 356   2        error_times++;
+ 357   2        if(error_times>60)
+ 358   2        {
+ 359   3          treadmills.status=IDEL;
+ 360   3          error_times=60;
+ 361   3        }
+ 362   2          
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 7   
+
+ 363   2        if(tl_flag==0)
+ 364   2          {
+ 365   3            tl_flag=1;
+ 366   3            beep_set(1, ERROR_ON_TICKS, ERROR_OFF_TICKS);//±®¥Ì∑‰√˘∆˜œÏ∏ƒ’‚¿Ô£¨’‚¿Ô‘ˆº”∑‰√˘∆˜∑‰√˘∆˜ «“ª…˘≥÷–¯≥§œÏ
+ 367   3          }
+ 368   2          
+ 369   2          break;
+ 370   2        default:
+ 371   2          cnt=0;
+ 372   2          val=0;
+ 373   2          break;
+ 374   2        }
+ 375   1      }
+ 376          
+ 377          
+ 378          void treadmills_display(index)   //œ‘ æƒ£ Ω
+ 379          {
+ 380   1        unsigned char H[]={0,1,2,3,4};
+ 381   1        unsigned char L[]={0,10,20,30,40,50,60,70,80,90};
+ 382   1        u8 n=0;
+ 383   1        u8 high,low;
+ 384   1        float DIS_VAL;
+ 385   1        float TIME_VAL;
+ 386   1        if(index==0)//œ‘ æÀŸ∂» km/hour
+ 387   1        {
+ 388   2          indecate.led_speed=LED_ON;
+ 389   2          indecate.led_distance=LED_OFF;
+ 390   2          indecate.led_calorie=LED_OFF;
+ 391   2          indecate.led_step=LED_OFF;
+ 392   2          indecate.led_time=LED_OFF;
+ 393   2          indecate.led_updp=LED_OFF;
+ 394   2          indecate.led_downdp=LED_OFF;
+ 395   2          
+ 396   2          //œ‘ æπ´¿Ô÷∆ÀŸ∂»    
+ 397   2          high=treadmills.param.speed/100;
+ 398   2          low=treadmills.param.speed%100;   
+ 399   2          set_seg_two_sc(high,low);
+ 400   2          set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ
+ 401   2          set_bit_seg(1,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ
+ 402   2          set_dp2();       //–° ˝µ„
+ 403   2        }
+ 404   1        else if(index==1)//¬∑≥Ã km
+ 405   1        {
+ 406   2          indecate.led_speed=LED_OFF;
+ 407   2          indecate.led_distance=LED_ON;
+ 408   2          indecate.led_calorie=LED_OFF;
+ 409   2          indecate.led_step=LED_OFF;
+ 410   2          indecate.led_time=LED_OFF;
+ 411   2          indecate.led_updp=LED_OFF;
+ 412   2          indecate.led_downdp=LED_ON;
+ 413   2                
+ 414   2          // µº  ˝æ›
+ 415   2          DIS_VAL=(treadmills.param.distance);  
+ 416   2          
+ 417   2          if(DIS_VAL>=99990)
+ 418   2          {
+ 419   3            DIS_VAL=0;
+ 420   3          }
+ 421   2          high=((u32)DIS_VAL/1000);
+ 422   2          low=((u32)DIS_VAL/10)%100;
+ 423   2      
+ 424   2          if(DIS_VAL<=9999)
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 8   
+
+ 425   2          {
+ 426   3            set_seg_two(high,low);
+ 427   3            set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ
+ 428   3            set_dp1();       //–° ˝µ„
+ 429   3          }
+ 430   2          else
+ 431   2          {
+ 432   3            set_seg_two(high,low);
+ 433   3            set_dp1();       //–° ˝µ„
+ 434   3          }
+ 435   2        }
+ 436   1        else if(index==2)//ø®¬Â¿Ô kcal
+ 437   1        {
+ 438   2          indecate.led_speed=LED_OFF;
+ 439   2          indecate.led_distance=LED_OFF;
+ 440   2          indecate.led_calorie=LED_ON;
+ 441   2          indecate.led_step=LED_OFF;
+ 442   2          indecate.led_time=LED_OFF;
+ 443   2          indecate.led_updp=LED_OFF;
+ 444   2          indecate.led_downdp=LED_OFF;
+ 445   2      
+ 446   2          //treadmills.param.calorie//µ•Œª£∫ø®
+ 447   2           if(treadmills.param.calorie>=999000)
+ 448   2          {
+ 449   3            treadmills.param.calorie=0;
+ 450   3          }
+ 451   2          
+ 452   2          if(treadmills.param.calorie<=99999)//=99.99«ßø®
+ 453   2          {
+ 454   3            high=(treadmills.param.calorie/1000);
+ 455   3            low=(treadmills.param.calorie%1000)/10;
+ 456   3            set_seg_two_sc(high,low);
+ 457   3          }
+ 458   2          else if((treadmills.param.calorie>=100000)&&(treadmills.param.calorie<=999000))
+ 459   2          {
+ 460   3            high=(treadmills.param.calorie/1000)/10;
+ 461   3            low=((treadmills.param.calorie/100)%100);
+ 462   3            set_seg_two(high,low);
+ 463   3          }
+ 464   2              
+ 465   2          set_dp2();
+ 466   2          
+ 467   2          if(treadmills.param.calorie<=99999)//=99.99«ßø®
+ 468   2          {
+ 469   3            if(treadmills.param.calorie<=9999)
+ 470   3            {
+ 471   4              set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ 
+ 472   4              set_bit_seg(1,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ 
+ 473   4            }
+ 474   3            set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ    
+ 475   3          }
+ 476   2        }
+ 477   1        else if(index==3)// ±º‰:mm:ss
+ 478   1        {
+ 479   2          indecate.led_speed=LED_OFF;
+ 480   2          indecate.led_distance=LED_OFF;
+ 481   2          indecate.led_calorie=LED_OFF;
+ 482   2          indecate.led_step=LED_OFF;
+ 483   2          indecate.led_time=LED_ON;
+ 484   2          indecate.led_updp=LED_ON;
+ 485   2          indecate.led_downdp=LED_ON;
+ 486   2      
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 9   
+
+ 487   2          TIME_VAL=treadmills.param.second;
+ 488   2          high=((u32)TIME_VAL/60)%100;
+ 489   2          low=(u32)TIME_VAL%60;
+ 490   2      
+ 491   2          if(TIME_VAL<600)
+ 492   2          {
+ 493   3            set_seg_two(high,low);
+ 494   3            set_bit_seg(0,SEG_ALL_OFF);//«ø÷∆πÿ±’œ‘ æ
+ 495   3          }
+ 496   2          else
+ 497   2          {
+ 498   3            set_seg_two(high,low);
+ 499   3          }
+ 500   2      
+ 501   2        }
+ 502   1      }
+ 503          
+ 504          
+ 505          // ±ª˘ 100ms
+ 506          void treadmills_disp_loop(void)
+ 507          {
+ 508   1        static u8 cnt=0;
+ 509   1        switch(treadmills.display.mode)
+ 510   1        {
+ 511   2          case DISP_MODE_AUTO:
+ 512   2            cnt=0;
+ 513   2      
+ 514   2            treadmills.display.index=0;  //0--speed 1--distance 2--calorie 3--time 4--programe
+ 515   2            treadmills_display(treadmills.display.index);
+ 516   2            treadmills.display.mode=DISP_MODE_TO_AUTO;          
+ 517   2            break;
+ 518   2          case DISP_MODE_TO_AUTO:
+ 519   2            cnt++;        
+ 520   2            if(cnt>50)//50*100ms=5s
+ 521   2            {
+ 522   3              cnt=0;
+ 523   3      
+ 524   3                if(treadmills.status==STATUS_POWERON||treadmills.status==STATUS_WAIT
+ 525   3                  ||treadmills.status==STATUS_RUNNING||treadmills.status==STATUS_STOP
+ 526   3                  ||treadmills.status==STATUS_STOP_WAIT){
+ 527   4                  treadmills.display.index++;
+ 528   4                  if(treadmills.display.index>=4){treadmills.display.index=0;}
+ 529   4                  treadmills_display(treadmills.display.index);
+ 530   4                }
+ 531   3            }
+ 532   2            break;
+ 533   2          case DISP_MODE_SINGLE:
+ 534   2            treadmills.display.index=0;
+ 535   2            treadmills_display(treadmills.display.index);
+ 536   2            treadmills.display.mode=DISP_MODE_TO_AUTO;  
+ 537   2            break;
+ 538   2          default:
+ 539   2            break;
+ 540   2        }
+ 541   1      }
+ 542          
+ 543          
+ 544          void communication_checkout(void)
+ 545          {
+ 546   1        static u8 timeout=0;
+ 547   1        static u8 sm=0;
+ 548   1        static u8 error_cnt=0;
+C51 COMPILER V9.60.0.0   TREADMILLS                                                        07/25/2025 09:11:53 PAGE 10  
+
+ 549   1        switch(sm)
+ 550   1        {
+ 551   2          case 0:
+ 552   2            treadmills.ack=0;
+ 553   2            uart1_frame_tx(CMD_ACK,treadmills.ack);
+ 554   2            timeout=0;
+ 555   2            sm=1;
+ 556   2            break;
+ 557   2          case 1:
+ 558   2            timeout++;
+ 559   2            if(treadmills.ack==0)
+ 560   2            {
+ 561   3              uart1_frame_tx(CMD_ACK,treadmills.ack);
+ 562   3              if(timeout>1)
+ 563   3              {
+ 564   4                timeout=0;
+ 565   4                error_cnt++;
+ 566   4                if(error_cnt>10)
+ 567   4                {
+ 568   5                  treadmills.error_code=ERROR_06;
+ 569   5                  treadmills.status=STATUS_ERROR;
+ 570   5                  sm=2;
+ 571   5                  beep_set(1,ERROR_ON_TICKS,ERROR_OFF_TICKS);
+ 572   5                }
+ 573   4                else{sm=0;}
+ 574   4              }
+ 575   3            }
+ 576   2            else
+ 577   2            {
+ 578   3              error_cnt=0;
+ 579   3              sm=0;
+ 580   3            }
+ 581   2            break;
+ 582   2          case 2:
+ 583   2            break;
+ 584   2          default:
+ 585   2            break;
+ 586   2        }
+ 587   1      }
+ 588          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   3155    ----
+   CONSTANT SIZE    =     15    ----
+   XDATA SIZE       =     76      28
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

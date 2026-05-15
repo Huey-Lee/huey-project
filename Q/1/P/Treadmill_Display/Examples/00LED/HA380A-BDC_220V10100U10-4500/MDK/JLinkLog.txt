@@ -1,0 +1,56 @@
+T4130 000:022.055   SEGGER J-Link V7.22b Log File
+T4130 000:022.427   DLL Compiled: Jun 17 2021 17:22:49
+T4130 000:022.443   Logging started @ 2026-04-29 08:22
+T4130 000:022.456 - 22.462ms
+T4130 000:022.774 JLINK_SetWarnOutHandler(...)
+T4130 000:022.807 - 0.039ms
+T4130 000:022.824 JLINK_OpenEx(...)
+T4130 000:031.852   Looking for J-Link GUI Server exe at: D:\Software\DevelopmentTools\Keil\ARM\Segger\JLinkGUIServer.exe
+T4130 000:032.138   Looking for J-Link GUI Server exe at: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T4130 000:032.236   Forking J-Link GUI Server: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T4130 000:452.329   J-Link GUI Server info: "J-Link GUI server V7.96 "
+T4130 004:066.100   TELNET listener socket opened on port 19021
+T4130 004:066.276   WEBSRV Starting webserver
+T4130 004:066.446   WEBSRV Webserver running on local port 19080
+T4130 004:066.464 - 4043.643ms returns "O.K."
+T4130 004:066.496 JLINK_GetEmuCaps()
+T4130 004:066.505 - 0.013ms returns 0x98E61B83
+T4130 004:066.518 JLINK_TIF_GetAvailable(...)
+T4130 004:066.525 - 0.010ms
+T4130 004:066.538 JLINK_SetErrorOutHandler(...)
+T4130 004:066.545 - 0.010ms
+T4130 004:066.575 JLINK_ExecCommand("ProjectFile = "D:\Huey\BDC\P\Treadmill_Display\Examples\00LED\HA380A-BDC_220V10100U10-4500\MDK\JLinkSettings.ini"", ...). 
+T4130 004:109.850   Device "CORTEX-M0" selected.
+T4130 004:110.165 - 43.597ms returns 0x00
+T4130 004:113.081 JLINK_ExecCommand("Device = CW32L010F8", ...). 
+T4130 004:116.847   Device "CORTEX-M0" selected.
+T4130 004:120.554 - 7.480ms returns 0x00
+T4130 004:120.599 JLINK_GetHardwareVersion()
+T4130 004:122.342 - 1.756ms returns 20100
+T4130 004:122.362 JLINK_GetDLLVersion()
+T4130 004:122.367 - 0.027ms returns 72202
+T4130 004:122.394 JLINK_GetOEMString(...)
+T4130 004:122.401 JLINK_GetFirmwareString(...)
+T4130 004:122.412 - 0.013ms
+T4130 004:129.788 JLINK_GetDLLVersion()
+T4130 004:129.810 - 0.025ms returns 72202
+T4130 004:129.817 JLINK_GetCompileDateTime()
+T4130 004:129.822 - 0.007ms
+T4130 004:132.322 JLINK_GetFirmwareString(...)
+T4130 004:132.337 - 0.018ms
+T4130 004:135.108 JLINK_GetHardwareVersion()
+T4130 004:135.128 - 0.024ms returns 20100
+T4130 004:139.902 JLINK_GetSN()
+T4130 004:139.926 - 0.027ms returns 1048438211
+T4130 004:144.455 JLINK_GetOEMString(...)
+T4130 004:147.684 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T4130 004:153.362 - 5.697ms returns 0x00
+T4130 004:153.391 JLINK_HasError()
+T4130 004:153.658 JLINK_SetSpeed(2000)
+T4130 004:155.363 - 1.717ms
+T4130 004:155.384 JLINK_GetId()
+T4130 004:975.249 - 819.890ms returns 0x00000000
+T4130 006:205.285 JLINK_Close()
+T4130 006:220.405 - 15.142ms
+T4130 006:220.431   
+T4130 006:220.437   Closed

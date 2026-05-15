@@ -1,0 +1,162 @@
+C51 COMPILER V9.60.0.0   KEYPAD                                                            07/25/2025 12:06:48 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEYPAD
+OBJECT MODULE PLACED IN .\Output\keypad.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\driver\keypad.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(..
+                    -\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT
+                    -(.\LST\keypad.lst) TABS(2) OBJECT(.\Output\keypad.obj)
+
+line level    source
+
+   1          /*
+   2           * keypad.c
+   3           *
+   4           *  Created on: 2018年2月4日
+   5           *      Author: Administrator
+   6           */
+   7          #include "keypad.h"
+   8          #include "keypad_fun.h"
+   9          #include "led_disp.h"
+  10          #include "decode.h"
+  11          #include "treadmills.h"
+  12          #include "beep.h"
+  13          
+  14          
+  15          static u8 trig=0;
+  16          static u8 cont=0;
+  17          
+  18          static u8 cnt=0,state=0;
+  19          static u8 new ,old;
+  20          
+  21          u8 FOHA_cont_cnt=0;
+  22          
+  23          u8 times=0;
+  24          u8 key_valuq=0;
+  25          u8 key=0;
+  26          u8 key_long_flag=0;
+  27          u8 key_cnt=0x00;
+  28          u8 key_mask=0x00;
+  29          u8 delay_add=0x00;
+  30          u8 tl_flag=0;
+  31          u8 key_continue=0;
+  32          extern bit poweron_flag;
+  33          u16 key_delay_dede=0;
+  34          extern u16 no_key_cnt;
+  35          
+  36          void KeyPad_Scan(void)
+  37          {
+  38   1         /**
+  39   1         * 按键输入入口,和硬件有关系
+  40   1         */
+  41   1        //=================================
+  42   1        new=0;
+  43   1        
+  44   1        if(key_value!=key_valuq)
+  45   1        {
+  46   2          times++;
+  47   2          if(times>15)
+  48   2          {
+  49   3            key_valuq = key_value;
+  50   3            times=0;
+  51   3          }
+  52   2          if(key_long_flag==0)
+  53   2          {
+C51 COMPILER V9.60.0.0   KEYPAD                                                            07/25/2025 12:06:48 PAGE 2   
+
+  54   3            
+  55   3            if(key_continue>=7)
+  56   3            {
+  57   4            key_valuq = key_value;
+  58   4              key_continue=0;
+  59   4            }
+  60   3            else if(key_continue<=7)
+  61   3            key_continue++;
+  62   3          }
+  63   2        }
+  64   1        else if(key_value == key_valuq)
+  65   1        {
+  66   2          times=0;
+  67   2            if(key_continue<=7)
+  68   2            key_continue++;
+  69   2        }
+  70   1        
+  71   1        //客户433键值
+  72   1        if(key_valuq==0X04){new |=(1<<0);}  //+     //0X04
+  73   1        if(key_valuq==0X1A){new |=(1<<1);}  //ON/OFF  
+  74   1        if(key_valuq==0X01){new |=(1<<2);}  //M     
+  75   1        if(key_valuq==0X05){new |=(1<<3);}  //-
+  76   1        
+  77   1        
+  78   1          if(key_delay_dede)
+  79   1          {
+  80   2            key_delay_dede--;
+  81   2            return;
+  82   2          }
+  83   1        
+  84   1        if(new!=0)//按键有效
+  85   1        {   
+  86   2         if(treadmills.status==STATUS_SLEEP_MODE)  //休眠状态下，按遥控器任何按键
+  87   2          {
+  88   3              treadmills.status=STATUS_POWERON; 
+  89   3              beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+  90   3              key_delay_dede=20;
+  91   3              return;
+  92   3          }   
+  93   2          no_key_cnt=0;
+  94   2      
+  95   2         if(FOHA_cont_cnt>90) //长按延时
+  96   2         {
+  97   3           key=new;
+  98   3           delay_add++;
+  99   3           if(delay_add==15)    //连击延时，越小越快，15
+ 100   3           {
+ 101   4             key_long_flag=1;
+ 102   4             delay_add=0;
+ 103   4             keypad_continue_proc();
+ 104   4           }
+ 105   3         }else
+ 106   2         {
+ 107   3           FOHA_cont_cnt++;
+ 108   3         }
+ 109   2        }else//按键无效了
+ 110   1        {
+ 111   2          if(FOHA_cont_cnt==1)
+ 112   2          {
+ 113   3            FOHA_cont_cnt=0;
+ 114   3            beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 115   3          }
+C51 COMPILER V9.60.0.0   KEYPAD                                                            07/25/2025 12:06:48 PAGE 3   
+
+ 116   2        }
+ 117   1        
+ 118   1        if(new !=old)//按键有变更
+ 119   1        {
+ 120   2          no_key_cnt=0;
+ 121   2          key=new;
+ 122   2          keypad_short_proc();
+ 123   2          old=new;
+ 124   2          if(FOHA_cont_cnt>90)//连击结束响
+ 125   2          {
+ 126   3            FOHA_cont_cnt=1;
+ 127   3          }else
+ 128   2          {
+ 129   3            FOHA_cont_cnt=0;
+ 130   3          }
+ 131   2        } 
+ 132   1      }
+ 133          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    390    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     18    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

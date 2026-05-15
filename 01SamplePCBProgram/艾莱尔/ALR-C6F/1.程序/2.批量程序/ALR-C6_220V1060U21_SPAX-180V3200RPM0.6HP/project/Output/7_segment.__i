@@ -1,0 +1,1 @@
+"..\driver\7_segment.c" LARGE OPTIMIZE (7,SPEED) BROWSE INCDIR(..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\LST\7_segment.lst) TABS (2) OBJECT(.\Output\7_segment.obj)

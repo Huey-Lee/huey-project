@@ -1,0 +1,1 @@
+"..\Common\Common.c" LARGE OPTIMIZE (7,SPEED) BROWSE INCDIR(..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\LST\Common.lst) TABS (2) OBJECT(.\Output\Common.obj)

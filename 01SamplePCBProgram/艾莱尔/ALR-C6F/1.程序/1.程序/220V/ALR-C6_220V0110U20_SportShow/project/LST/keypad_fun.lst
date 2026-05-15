@@ -1,0 +1,220 @@
+C51 COMPILER V9.60.0.0   KEYPAD_FUN                                                        08/07/2025 09:12:48 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE KEYPAD_FUN
+OBJECT MODULE PLACED IN .\Output\keypad_fun.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\driver\keypad_fun.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDI
+                    -R(..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND P
+                    -RINT(.\LST\keypad_fun.lst) TABS(2) OBJECT(.\Output\keypad_fun.obj)
+
+line level    source
+
+   1          /*
+   2           * keypad_fun.c
+   3           */
+   4          #include "common.h"
+   5          #include "keypad_fun.h"
+   6          #include "beep.h"
+   7          #include "led_disp.h"
+   8          #include "uart_frame.h"
+   9          #include "uart.h"
+  10          #include "treadmills.h"
+  11          #include "7_segment.h"
+  12          #include "indecate.h"
+  13          #include "treadmills.h"
+  14          #include "param.h"
+  15          #include "programe.h"
+  16          #include "ee_param.h"
+  17          #include "decode.h"
+  18          
+  19          static u8 index=0;
+  20          bit PAUSE_FLAG = 0;
+  21          
+  22          //按键加
+  23          static void btn_add_proc(int scale)
+  24          {
+  25   1        if(scale==1)
+  26   1        {
+  27   2          if(treadmills.status==STATUS_RUNNING)
+  28   2          {
+  29   3            if(treadmills.param.speed < treadmills.param.speed_max)//treadmills.param.speed_max
+  30   3            {
+  31   4              beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+  32   4              treadmills.param.speed += treadmills.param.speed_step;
+  33   4              if( treadmills.param.speed > treadmills.param.speed_max )
+  34   4              {
+  35   5                treadmills.param.speed = treadmills.param.speed_max;
+  36   5              }
+  37   4            }
+  38   3            else{treadmills.param.speed=treadmills.param.speed_max;}
+  39   3      
+  40   3            uart1_frame_tx(CMD_SPEED,treadmills.param.speed/10);
+  41   3            treadmills.display.index=0;
+  42   3            treadmills.display.mode=DISP_MODE_SINGLE;
+  43   3          }
+  44   2        } 
+  45   1      }
+  46          
+  47          //按键减
+  48          static void btn_sub_proc(int scale)
+  49          {
+  50   1        if(scale==1)
+  51   1        {
+  52   2          if(treadmills.status==STATUS_RUNNING)
+  53   2          {
+C51 COMPILER V9.60.0.0   KEYPAD_FUN                                                        08/07/2025 09:12:48 PAGE 2   
+
+  54   3           if(treadmills.param.speed>TREADMILLS_SPEED_MIN)//100
+  55   3            {
+  56   4              beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+  57   4              treadmills.param.speed -= treadmills.param.speed_step;  //2.2
+  58   4              if( treadmills.param.speed < TREADMILLS_SPEED_MIN)
+  59   4              {
+  60   5                treadmills.param.speed = TREADMILLS_SPEED_MIN;           //避免减了步距之后小于最小值2023.2.2
+  61   5              }
+  62   4            }
+  63   3            else{treadmills.param.speed=TREADMILLS_SPEED_MIN;}
+  64   3            
+  65   3            
+  66   3            uart1_frame_tx(CMD_SPEED,treadmills.param.speed/10);
+  67   3            treadmills.display.index=0;
+  68   3            treadmills.display.mode=DISP_MODE_SINGLE;
+  69   3          }
+  70   2        }
+  71   1      }
+  72          
+  73          int speed_modes[] = {SPEED_MODE_2KM, SPEED_MODE_4KM, SPEED_MODE_6KM};  // 定义速度模式数组和索引
+  74          
+  75          void keypad_short_proc(void)
+  76          {
+  77   1        u8 bitmap = key;    
+  78   1      
+  79   1      //-------------------- +键处理 -----------------------------
+  80   1        if((bitmap & BTN_ADD) &&(key_mask &BTN_ADD)) 
+  81   1        {
+  82   2          btn_add_proc(1);
+  83   2        }
+  84   1      
+  85   1      //-----------------------启动/暂停键处理 ----------------------------
+  86   1        if((bitmap & BTN_ONOFF) &&(key_mask &BTN_ONOFF))
+  87   1        {
+  88   2          beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+  89   2          if(treadmills.status==STATUS_WAIT)
+  90   2          {
+  91   3            treadmills.status=STATUS_RUN;
+  92   3            key_mask =0xff;//打开所有按键
+  93   3            
+  94   3            beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+  95   3          }
+  96   2          else if(treadmills.status==STATUS_RUN)//进入运行到计时间，但未真正的开始运行的时候。
+  97   2          {
+  98   3            treadmills.status=STATUS_STOP_OVER;
+  99   3            key_mask=0x00;//禁止所有按键操作
+ 100   3      
+ 101   3            beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 102   3          }
+ 103   2          else if(treadmills.status==STATUS_RUNNING)//电机正在运行中
+ 104   2          { 
+ 105   3            treadmills.status=STATUS_STOP;
+ 106   3            key_mask=0x00;//禁止所有按键操作
+ 107   3          
+ 108   3            beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 109   3          }
+ 110   2          else if(treadmills.status==STATUS_PAUSE)
+ 111   2          {
+ 112   3            PAUSE_FLAG = 0;
+ 113   3            treadmills.status=STATUS_RUN;     
+ 114   3            key_mask =0xff;//打开所有按键
+ 115   3      
+C51 COMPILER V9.60.0.0   KEYPAD_FUN                                                        08/07/2025 09:12:48 PAGE 3   
+
+ 116   3            beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 117   3          }
+ 118   2        }
+ 119   1      
+ 120   1      // ------------------模式按键 处理-------------------------------
+ 121   1        if((bitmap & BTN_MODE) &&(key_mask &BTN_MODE))
+ 122   1        {       
+ 123   2        //-----------------运行时 BTN_MODE 键处理 -------------------------
+ 124   2          if (treadmills.status == STATUS_RUNNING) 
+ 125   2          {
+ 126   3              int current_mode_index = 0; // 当前模式索引
+ 127   3              int current_speed = treadmills.param.speed;      // 获取当前速度
+ 128   3              beep_set(1, DEFAULT_ON_TICKS, DEFAULT_OFF_TICKS); // 响铃提示切换     
+ 129   3      
+ 130   3              // 根据当前速度设置新的模式
+ 131   3              if (current_speed < SPEED_MODE_2KM) {
+ 132   4                  // 小于 2KM 显示 2KM 模式
+ 133   4                  current_mode_index = 0;
+ 134   4              } else if (current_speed >= SPEED_MODE_2KM && current_speed < SPEED_MODE_4KM) {
+ 135   4                  // 大于等于 2KM 且小于 4KM 显示 4KM 模式
+ 136   4                  current_mode_index = 1;
+ 137   4              } else if (current_speed >= SPEED_MODE_4KM && current_speed < SPEED_MODE_6KM) {
+ 138   4                  // 大于等于 4KM 且小于 6KM 显示 6KM 模式
+ 139   4                  current_mode_index = 2;
+ 140   4              } else if (current_speed == SPEED_MODE_6KM) {
+ 141   4                  // 等于 6KM 切换回 2KM 模式
+ 142   4                  current_mode_index = 0;
+ 143   4              }
+ 144   3      
+ 145   3            
+ 146   3            treadmills.param.speed = speed_modes[current_mode_index];// 设置跑步机速度
+ 147   3            uart1_frame_tx(CMD_SPEED, treadmills.param.speed / 10); // 发送速度到下控
+ 148   3      
+ 149   3            // 更新显示模式
+ 150   3            treadmills.display.index = 0;
+ 151   3            treadmills.display.mode = DISP_MODE_SINGLE;
+ 152   3          }
+ 153   2        }
+ 154   1      //----------------- -键处理 -------------------------
+ 155   1        if((bitmap & BTN_SUB) &&(key_mask &BTN_SUB))
+ 156   1        {
+ 157   2          btn_sub_proc(1);
+ 158   2        }
+ 159   1      }
+ 160          
+ 161          
+ 162          void keypad_long_proc(void)
+ 163          {
+ 164   1        u8 bitmap = key;
+ 165   1        key=key;
+ 166   1      }
+ 167          
+ 168          
+ 169          void keypad_continue_proc(void)
+ 170          {
+ 171   1        u8 bitmap = key;
+ 172   1      //-------------------- +键处理 -----------------------------
+ 173   1        if((bitmap & BTN_ADD) &&(key_mask &BTN_ADD))
+ 174   1        {
+ 175   2          is_disable_beep = 1; //连击禁止蜂鸣器响
+ 176   2          btn_add_proc(1);
+ 177   2          is_disable_beep = 0; //恢复蜂鸣器
+C51 COMPILER V9.60.0.0   KEYPAD_FUN                                                        08/07/2025 09:12:48 PAGE 4   
+
+ 178   2        }
+ 179   1      //-------------------- -键处理 -----------------------------
+ 180   1        if((bitmap & BTN_SUB) &&(key_mask &BTN_SUB))
+ 181   1        {
+ 182   2          is_disable_beep = 1; //连击禁止蜂鸣器响
+ 183   2          btn_sub_proc(1);
+ 184   2          is_disable_beep = 0; //恢复蜂鸣器
+ 185   2        }
+ 186   1      }
+ 187          
+ 188          
+ 189          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    777    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      7       7
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      1    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

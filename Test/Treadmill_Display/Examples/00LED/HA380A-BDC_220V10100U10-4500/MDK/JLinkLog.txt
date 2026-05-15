@@ -1,0 +1,56 @@
+T5328 000:006.558   SEGGER J-Link V7.22b Log File
+T5328 000:006.667   DLL Compiled: Jun 17 2021 17:22:49
+T5328 000:006.672   Logging started @ 2026-05-06 05:13
+T5328 000:006.676 - 6.678ms
+T5328 000:006.684 JLINK_SetWarnOutHandler(...)
+T5328 000:006.689 - 0.007ms
+T5328 000:006.694 JLINK_OpenEx(...)
+T5328 000:011.146   Looking for J-Link GUI Server exe at: D:\Software\DevelopmentTools\Keil\ARM\Segger\JLinkGUIServer.exe
+T5328 000:011.205   Looking for J-Link GUI Server exe at: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T5328 000:011.219   Forking J-Link GUI Server: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T5328 000:033.013   J-Link GUI Server info: "J-Link GUI server V7.96 "
+T5328 002:030.916   TELNET listener socket opened on port 19021
+T5328 002:031.094   WEBSRV Starting webserver
+T5328 002:031.298   WEBSRV Webserver running on local port 19080
+T5328 002:031.320 - 2024.631ms returns "O.K."
+T5328 002:031.356 JLINK_GetEmuCaps()
+T5328 002:031.370 - 0.019ms returns 0x98E61B83
+T5328 002:031.392 JLINK_TIF_GetAvailable(...)
+T5328 002:031.404 - 0.016ms
+T5328 002:031.421 JLINK_SetErrorOutHandler(...)
+T5328 002:031.433 - 0.017ms
+T5328 002:031.461 JLINK_ExecCommand("ProjectFile = "D:\Huey\BDC\Test\Treadmill_Display\Examples\00LED\HA380A-BDC_220V10100U10-4500\MDK\JLinkSettings.ini"", ...). 
+T5328 002:043.874   Device "CORTEX-M0" selected.
+T5328 002:044.222 - 12.767ms returns 0x00
+T5328 002:048.302 JLINK_ExecCommand("Device = CW32L010F8", ...). 
+T5328 002:050.431   Device "CORTEX-M0" selected.
+T5328 002:051.895 - 3.578ms returns 0x00
+T5328 002:051.916 JLINK_GetHardwareVersion()
+T5328 002:053.894 - 1.990ms returns 20100
+T5328 002:053.914 JLINK_GetDLLVersion()
+T5328 002:053.918 - 0.006ms returns 72202
+T5328 002:053.923 JLINK_GetOEMString(...)
+T5328 002:053.929 JLINK_GetFirmwareString(...)
+T5328 002:053.939 - 0.012ms
+T5328 002:059.839 JLINK_GetDLLVersion()
+T5328 002:059.858 - 0.021ms returns 72202
+T5328 002:059.864 JLINK_GetCompileDateTime()
+T5328 002:059.868 - 0.006ms
+T5328 002:062.138 JLINK_GetFirmwareString(...)
+T5328 002:062.150 - 0.014ms
+T5328 002:063.953 JLINK_GetHardwareVersion()
+T5328 002:063.963 - 0.012ms returns 20100
+T5328 002:065.721 JLINK_GetSN()
+T5328 002:065.732 - 0.012ms returns 1044601577
+T5328 002:067.684 JLINK_GetOEMString(...)
+T5328 002:069.787 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T5328 002:075.925 - 6.175ms returns 0x00
+T5328 002:075.990 JLINK_HasError()
+T5328 002:076.039 JLINK_SetSpeed(2000)
+T5328 002:077.945 - 1.941ms
+T5328 002:078.008 JLINK_GetId()
+T5328 002:891.430 - 813.447ms returns 0x00000000
+T5328 004:006.187 JLINK_Close()
+T5328 004:013.821 - 7.654ms
+T5328 004:013.844   
+T5328 004:013.869   Closed

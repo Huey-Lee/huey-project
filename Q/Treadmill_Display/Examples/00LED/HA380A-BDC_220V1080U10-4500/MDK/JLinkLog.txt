@@ -1,0 +1,56 @@
+T5FF4 000:009.131   SEGGER J-Link V7.22b Log File
+T5FF4 000:009.266   DLL Compiled: Jun 17 2021 17:22:49
+T5FF4 000:009.270   Logging started @ 2026-05-05 09:49
+T5FF4 000:009.274 - 9.276ms
+T5FF4 000:009.282 JLINK_SetWarnOutHandler(...)
+T5FF4 000:009.288 - 0.007ms
+T5FF4 000:009.293 JLINK_OpenEx(...)
+T5FF4 000:014.338   Looking for J-Link GUI Server exe at: D:\Software\DevelopmentTools\Keil\ARM\Segger\JLinkGUIServer.exe
+T5FF4 000:014.397   Looking for J-Link GUI Server exe at: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T5FF4 000:014.411   Forking J-Link GUI Server: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T5FF4 000:051.405   J-Link GUI Server info: "J-Link GUI server V7.96 "
+T5FF4 001:553.588   TELNET listener socket opened on port 19021
+T5FF4 001:553.750   WEBSRV Starting webserver
+T5FF4 001:553.877   WEBSRV Webserver running on local port 19080
+T5FF4 001:553.887 - 1544.596ms returns "O.K."
+T5FF4 001:553.905 JLINK_GetEmuCaps()
+T5FF4 001:553.912 - 0.009ms returns 0x98E61B83
+T5FF4 001:553.922 JLINK_TIF_GetAvailable(...)
+T5FF4 001:553.927 - 0.008ms
+T5FF4 001:553.957 JLINK_SetErrorOutHandler(...)
+T5FF4 001:553.963 - 0.008ms
+T5FF4 001:553.978 JLINK_ExecCommand("ProjectFile = "D:\Huey\BDC\2\Treadmill_Display\Examples\00LED\HA380A-BDC_220V1080U10-4500\MDK\JLinkSettings.ini"", ...). 
+T5FF4 001:569.880   Device "CORTEX-M0" selected.
+T5FF4 001:570.168 - 16.196ms returns 0x00
+T5FF4 001:572.453 JLINK_ExecCommand("Device = CW32L010F8", ...). 
+T5FF4 001:574.806   Device "CORTEX-M0" selected.
+T5FF4 001:577.890 - 5.428ms returns 0x00
+T5FF4 001:577.912 JLINK_GetHardwareVersion()
+T5FF4 001:580.151 - 2.252ms returns 20100
+T5FF4 001:580.177 JLINK_GetDLLVersion()
+T5FF4 001:580.182 - 0.007ms returns 72202
+T5FF4 001:580.189 JLINK_GetOEMString(...)
+T5FF4 001:581.553 JLINK_GetFirmwareString(...)
+T5FF4 001:581.568 - 0.032ms
+T5FF4 001:587.958 JLINK_GetDLLVersion()
+T5FF4 001:587.977 - 0.020ms returns 72202
+T5FF4 001:587.983 JLINK_GetCompileDateTime()
+T5FF4 001:587.987 - 0.006ms
+T5FF4 001:590.310 JLINK_GetFirmwareString(...)
+T5FF4 001:590.323 - 0.015ms
+T5FF4 001:592.210 JLINK_GetHardwareVersion()
+T5FF4 001:592.236 - 0.028ms returns 20100
+T5FF4 001:594.323 JLINK_GetSN()
+T5FF4 001:594.336 - 0.015ms returns 1044601577
+T5FF4 001:596.236 JLINK_GetOEMString(...)
+T5FF4 001:598.231 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T5FF4 001:604.290 - 6.070ms returns 0x00
+T5FF4 001:604.307 JLINK_HasError()
+T5FF4 001:604.320 JLINK_SetSpeed(2000)
+T5FF4 001:606.152 - 1.839ms
+T5FF4 001:606.165 JLINK_GetId()
+T5FF4 002:422.996 - 816.889ms returns 0x00000000
+T5FF4 003:593.150 JLINK_Close()
+T5FF4 003:608.449 - 15.318ms
+T5FF4 003:608.471   
+T5FF4 003:608.476   Closed

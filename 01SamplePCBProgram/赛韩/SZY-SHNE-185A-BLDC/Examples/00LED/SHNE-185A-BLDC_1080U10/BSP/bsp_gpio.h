@@ -1,0 +1,40 @@
+#ifndef __BSP_GPIO_H
+#define __BSP_GPIO_H
+
+#include "main.h"
+
+
+// TM1620 引脚宏定义
+#define TM1620_STB_PORT   CW_GPIOB
+#define TM1620_STB_PIN    GPIO_PIN_1
+
+#define TM1620_CLK_PORT   CW_GPIOA
+#define TM1620_CLK_PIN    GPIO_PIN_3
+
+#define TM1620_DIN_PORT   CW_GPIOA
+#define TM1620_DIN_PIN    GPIO_PIN_4
+
+
+// 433 接收引脚定义
+#define RF_REC_PORT     CW_GPIOB
+#define RF_REC_PIN      GPIO_PIN_0
+
+/* 安全锁：PB04 内部上拉；插头插上时钥匙口接 GND→读低为「闭合」；拔出→高为「断开」 */
+#define SAFETY_LOCK_PORT   CW_GPIOB
+#define SAFETY_LOCK_PIN    GPIO_PIN_4
+
+// GPIO 控制宏
+#define STB_HIGH()    GPIO_WritePin(TM1620_STB_PORT, TM1620_STB_PIN, GPIO_Pin_SET)
+#define STB_LOW()     GPIO_WritePin(TM1620_STB_PORT, TM1620_STB_PIN, GPIO_Pin_RESET)
+
+#define CLK_HIGH()    GPIO_WritePin(TM1620_CLK_PORT, TM1620_CLK_PIN, GPIO_Pin_SET)
+#define CLK_LOW()     GPIO_WritePin(TM1620_CLK_PORT, TM1620_CLK_PIN, GPIO_Pin_RESET)
+
+#define DIN_HIGH()    GPIO_WritePin(TM1620_DIN_PORT, TM1620_DIN_PIN, GPIO_Pin_SET)
+#define DIN_LOW()     GPIO_WritePin(TM1620_DIN_PORT, TM1620_DIN_PIN, GPIO_Pin_RESET)
+
+
+// 初始化函数
+void BSP_GPIO_Init(void);
+
+#endif

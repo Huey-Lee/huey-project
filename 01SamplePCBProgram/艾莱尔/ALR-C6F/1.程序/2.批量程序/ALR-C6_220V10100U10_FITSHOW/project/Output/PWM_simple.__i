@@ -1,0 +1,1 @@
+"..\bsp\PWM_simple.c" LARGE OPTIMIZE (7,SPEED) BROWSE INCDIR(..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\LST\PWM_simple.lst) TABS (2) OBJECT(.\Output\PWM_simple.obj)

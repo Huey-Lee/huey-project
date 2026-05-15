@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.0.0   PARAM                                                             12/12/2025 09:47:48 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE PARAM
+OBJECT MODULE PLACED IN .\Output\param.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\user\param.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(..\Li
+                    -brary\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\
+                    -LST\param.lst) TABS(2) OBJECT(.\Output\param.obj)
+
+line level    source
+
+   1          /*
+   2           * param.c
+   3           *
+   4           *  Created on: 2020Äê3ÔÂ9ÈÕ
+   5           *      Author: Administrator
+   6           */
+   7          #include "common.h"
+   8          #include "param.h"
+   9          
+  10          param_t param;
+  11          
+  12          
+  13          void param_init(void)
+  14          {
+  15   1        param.en=0;
+  16   1        param.index=0;
+  17   1        param.speed_adc=0;
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     10    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      4    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

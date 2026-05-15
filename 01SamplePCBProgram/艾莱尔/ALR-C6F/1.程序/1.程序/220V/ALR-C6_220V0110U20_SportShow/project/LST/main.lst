@@ -1,0 +1,325 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2025 09:12:48 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Output\main.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\user\main.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(..\Lib
+                    -rary\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\L
+                    -ST\main.lst) TABS(2) OBJECT(.\Output\main.obj)
+
+line level    source
+
+   1          /*
+   2           * main.c
+   3           *
+   4           * Created on: 2025Äê8ÔÂ5ÈÕ
+   5           * Author: huey
+   6           *
+   7           */
+   8          
+   9          #include "common.h"
+  10          #include "aip1628.h"
+  11          #include "led_disp.h"
+  12          #include "indecate.h"
+  13          #include "keypad.h"
+  14          #include "keypad_fun.h"
+  15          #include "pwm_simple.h"
+  16          #include "beep.h"
+  17          #include "uart.h"
+  18          #include "uart_frame.h"
+  19          #include "treadmills.h"
+  20          #include "param.h"
+  21          #include "decode.h"
+  22          #include "7_segment.h"
+  23          
+  24          
+  25          u8 down_control=0;
+  26          u16 no_key_cnt = 0; //ÎÞ°´¼ü¼ÆÊ±
+  27          
+  28          static bit poweron_send_flag = 0;
+  29          
+  30          extern UINT8  ms10_flag;
+  31          extern UINT8  ms100_flag;
+  32          extern UINT8  ms250_flag;
+  33          extern UINT8  ms500_flag;
+  34          extern UINT8  ms1000_flag;
+  35          extern void Timer0_Init(void);
+  36          
+  37          void MODIFY_HIRC_166(void)
+  38          {
+  39   1        unsigned char data hircmap0,hircmap1;
+  40   1        unsigned int trimvalue16bit;
+  41   1        /* Check if power on reset, modify HIRC */
+  42   1        if (PCON&SET_BIT4)
+  43   1        {
+  44   2          CKDIV = 0x00;
+  45   2          set_IAPEN;
+  46   2          IAPAL = 0x30;
+  47   2          IAPAH = 0x00;
+  48   2          IAPCN = READ_UID;
+  49   2          set_IAPGO;
+  50   2          hircmap0 = IAPFD;
+  51   2          IAPAL = 0x31;
+  52   2          IAPAH = 0x00;
+  53   2          set_IAPGO;
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2025 09:12:48 PAGE 2   
+
+  54   2          hircmap1 = IAPFD;
+  55   2          clr_IAPEN;
+  56   2          trimvalue16bit = ((hircmap0<<1)+(hircmap1&0x01));
+  57   2          trimvalue16bit = trimvalue16bit - 15;
+  58   2          hircmap1 = trimvalue16bit&0x01;
+  59   2          hircmap0 = trimvalue16bit>>1;
+  60   2          TA=0XAA;
+  61   2          TA=0X55;
+  62   2          RCTRIM0 = hircmap0;
+  63   2          TA=0XAA;
+  64   2          TA=0X55;
+  65   2          RCTRIM1 = hircmap1;
+  66   2      
+  67   2      
+  68   2          //CKDIV = 0x50;         //HIRC devider 160
+  69   2          //set_CLOEN;            //Check HIRC out wavefrom to confirm the HIRC modified
+  70   2          /* Clear power on flag */
+  71   2          PCON &= CLR_BIT4;
+  72   2        }
+  73   1      }
+  74          
+  75          
+  76          void send_default_param(void)
+  77          {
+  78   1        u8 i=0;
+  79   1        treadmills.param.speed_step = DEFAULT_SPEED_STEP;//10;
+  80   1        treadmills.param.speed_max = DEFAULT_SPEED_MAX;//800;
+  81   1        treadmills.param.voltage_max = DEFAULT_VOLTAGE_MAX;//174;
+  82   1        treadmills.param.voltage_min = DEFAULT_VOLTAGE_MIN;//43;
+  83   1        treadmills.param.over_current_max = DEFAULT_OVER_CURRENT_MAX;//120;
+  84   1        
+  85   1        treadmills.param.kiv[0] = DEFAULT_SET_KIV_1KM_VALUE;//20;
+  86   1        treadmills.param.kiv[1] = DEFAULT_SET_KIV_2KM_VALUE;//20;
+  87   1        treadmills.param.kiv[2] = DEFAULT_SET_KIV_3KM_VALUE;//15;
+  88   1        treadmills.param.kiv[3] = DEFAULT_SET_KIV_4KM_VALUE;//10;
+  89   1        treadmills.param.kiv[4] = DEFAULT_SET_KIV_5KM_VALUE;//8;
+  90   1        treadmills.param.kiv[5] = DEFAULT_SET_KIV_6KM_VALUE;//8;
+  91   1        treadmills.param.kiv[6] = DEFAULT_SET_KIV_7KM_VALUE;//6;
+  92   1        treadmills.param.kiv[7] = DEFAULT_SET_KIV_8KM_VALUE;//6;
+  93   1        treadmills.param.kiv[8] = DEFAULT_SET_KIV_9KM_VALUE;//6;
+  94   1        treadmills.param.kiv[9] = DEFAULT_SET_KIV_10KM_VALUE;//6;
+  95   1        treadmills.param.kiv[10] = DEFAULT_SET_KIV_11KM_VALUE;//6;
+  96   1        treadmills.param.kiv[11] = DEFAULT_SET_KIV_12KM_VALUE;//6;
+  97   1        
+  98   1        //****************ÉÏµç¾Í·¢ËÍ*************
+  99   1        for(i = 0; i< 100;i++)
+ 100   1        {
+ 101   2          NOP_15();
+ 102   2        }
+ 103   1        uart1_frame_tx(CMD_STATUS,STATUS_MOTOR_STOP);
+ 104   1        uart1_frame_tx(CMD_STATUS,STATUS_MOTOR_STOP);
+ 105   1        uart1_frame_tx(CMD_TREADMILLS_SPEED_MAX,treadmills.param.speed_max/10);//ºóÃæµÄÉèÖÃ²ÎÊý·¢ËÍµÄÊ±ºò»á°ÑÇ°Ã
+             -æµÄÒ»Í¬·¢ËÍ¸øÏÂ¿Ø
+ 106   1        uart1_frame_tx(CMD_VOLTAGE_MAX,treadmills.param.voltage_max);
+ 107   1        uart1_frame_tx(CMD_VOLTAGE_MIN,treadmills.param.voltage_min);
+ 108   1        uart1_frame_tx(CMD_OVER_CURRENT_MAX,treadmills.param.over_current_max);
+ 109   1        uart1_frame_tx(CMD_OVER_VALTAGE_MAX,240);
+ 110   1        uart1_frame_tx(CMD_STA_LEVEL,5);          //value chose betwen 1~5 , the higher the level , the faster the sta
+             -rting speed
+ 111   1        uart1_frame_tx(CMD_END_LEVEL,25);         //VALUE CHOSE BETWEN 2~25 , the higher the level , the faster the e
+             -nding   speed
+ 112   1        uart1_frame_tx(CMD_Accelerated_LEVEL,5);
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2025 09:12:48 PAGE 3   
+
+ 113   1        uart1_frame_tx(CMD_deceleration_LEVEL,5);
+ 114   1      
+ 115   1        for( i = 16; i < 28; i++)        //16 = CMD_KIV_1KM£¬ 27 = CMD_KIV_12KM;
+ 116   1        {
+ 117   2          uart1_frame_tx(i ,treadmills.param.kiv[i-16]); 
+ 118   2        }
+ 119   1      }
+ 120          
+ 121          extern u8 uart_time_error;
+ 122          bit poweron_flag = 1; 
+ 123          /*********************************************************************************************************
+             -***
+ 124          *    Main function
+ 125          **********************************************************************************************************
+             -**/
+ 126          void main (void)
+ 127          {
+ 128   1        u8 i = 0;
+ 129   1        static u8 send_cnt = 0;
+ 130   1        static u8 poweron_cnt = 0;
+ 131   1        
+ 132   1        NOP_15();
+ 133   1        MODIFY_HIRC_166();
+ 134   1        Set_All_GPIO_Quasi_Mode;
+ 135   1      
+ 136   1        /*
+ 137   1         * ×¼Ë«Ïò:     PxM1=0 PxM2=0
+ 138   1         * ÍÆÍì:       PxM1=0 PxM2=1
+ 139   1         * ¸ß×è¿¹ÊäÈë:  PxM1=1 PxM2=0
+ 140   1         * ¿ªÂ©:       PxM1=1 PxM2=1
+ 141   1         *
+ 142   1         */
+ 143   1        P0M1 =(1<<0) |(1<<1) |(0<<2) |(1<<3) |(1<<4) |(0<<5) |(0<<6) |(1<<7);
+ 144   1        P0M2 =(0<<0) |(0<<1) |(0<<2) |(0<<3) |(0<<4) |(1<<5) |(0<<6) |(0<<7);
+ 145   1      
+ 146   1        P1M1 =(1<<0) |(0<<1) |(0<<2) |(0<<3) |(0<<4) |(0<<5) |(0<<6) |(1<<7);
+ 147   1        P1M2 =(0<<0) |(0<<1) |(0<<2) |(0<<3) |(1<<4) |(0<<5) |(0<<6) |(0<<7);
+ 148   1      
+ 149   1        P3M1 =(1<<0);
+ 150   1        P3M2 =(0<<0);
+ 151   1        
+ 152   1        key_mask=0x00;//½ûÖ¹ËùÓÐ°´¼ü
+ 153   1       
+ 154   1        RF433M_Init();          //433Ä£¿éÒý½Å³õÊ¼»¯ 
+ 155   1        led_display_init();
+ 156   1        aip1628_init();
+ 157   1        pwm_init();
+ 158   1        uart_init();
+ 159   1        Timer0_Init();
+ 160   1        uart_frame_init();
+ 161   1      
+ 162   1        treadmills_init();
+ 163   1        param_init();
+ 164   1        ee_param_init();
+ 165   1        
+ 166   1      //  treadmills.status=STATUS_POWERON;  
+ 167   1        poweron_send_flag = 1;
+ 168   1        set_EA;       //¿ª×ÜÖÐ¶Ï
+ 169   1      
+ 170   1        beep_set(1,DEFAULT_ON_TICKS,DEFAULT_OFF_TICKS);
+ 171   1      
+ 172   1      
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2025 09:12:48 PAGE 4   
+
+ 173   1        while(1)
+ 174   1        {
+ 175   2          uart0_frame_loop();
+ 176   2          uart1_frame_loop();    
+ 177   2      
+ 178   2          //10ms ÖÜÆÚ´¦Àí³ÌÐò
+ 179   2          if(ms10_flag)
+ 180   2          {       
+ 181   3            ms10_flag=0;
+ 182   3            KeyPad_Scan();
+ 183   3            beep_sound_proc();
+ 184   3            boot_time();
+ 185   3          }
+ 186   2          
+ 187   2           //100ms ÖÜÆÚ´¦Àí³ÌÐò
+ 188   2            if(ms100_flag)
+ 189   2            {
+ 190   3              ms100_flag=0;
+ 191   3              seg_disp_proc();
+ 192   3              treadmills_disp_loop();
+ 193   3              treadmills_proc_loop();   
+ 194   3            }
+ 195   2            
+ 196   2            //250ms ÖÜÆÚ´¦Àí³ÌÐò
+ 197   2            if(ms250_flag)
+ 198   2            {
+ 199   3              ms250_flag=0;  
+ 200   3              communication_checkout(); 
+ 201   3      
+ 202   3              if(poweron_send_flag == 1)
+ 203   3              {
+ 204   4                send_cnt++;
+ 205   4                if( send_cnt >= 3)
+ 206   4                {
+ 207   5                  send_default_param();
+ 208   5                  send_cnt = 0;
+ 209   5                  poweron_send_flag = 0;              
+ 210   5                }          
+ 211   4              } 
+ 212   3            }
+ 213   2            
+ 214   2            //500ms ÖÜÆÚ´¦Àí³ÌÐò
+ 215   2            if(ms500_flag)
+ 216   2            {
+ 217   3              ms500_flag=0;
+ 218   3              if(poweron_flag == 1)
+ 219   3                {
+ 220   4                  key_mask = 0x00; 
+ 221   4                  poweron_cnt++;
+ 222   4                  if(poweron_cnt == 1)                        //È«ÁÁ2ÃëºóÏÔÊ¾°æ±¾ºÅ
+ 223   4                  {
+ 224   5                    set_bit_seg(0,SEG_U);               //ÏÔÊ¾U
+ 225   5                    set_bit_seg(1,NUM_1);     //°æ±¾ºÅ¸ßÎ»
+ 226   5                    set_bit_seg(2,NUM_0);     //°æ±¾ºÅµÍÎ»
+ 227   5                    set_bit_seg(3,SEG_ALL_OFF);               //Ç¿ÖÆ¹Ø±ÕÏÔÊ¾
+ 228   5                    set_dp1();                 //decimal point     
+ 229   5                  }            
+ 230   4                
+ 231   4                  if(poweron_cnt == 3)                        //È«ÁÁ2ÃëºóÏÔÊ¾°æ±¾ºÅ
+ 232   4                  {
+ 233   5                    set_bit_seg(0,SEG_C);               
+ 234   5                    set_bit_seg(1,seg_num[down_control / 10]);      //°æ±¾ºÅ¸ßÎ»
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2025 09:12:48 PAGE 5   
+
+ 235   5                    set_bit_seg(2,seg_num[down_control % 10]);      //°æ±¾ºÅµÍÎ»
+ 236   5                    set_bit_seg(3,SEG_ALL_OFF);               //Ç¿ÖÆ¹Ø±ÕÏÔÊ¾
+ 237   5                    set_dp1();                 //decimal point
+ 238   5                  }
+ 239   4                  if(poweron_cnt == 5)   //È«ÁÁ2ÃëºóÏÔÊ¾°æ±¾ºÅ
+ 240   4                  {
+ 241   5                     //ÉÏµçÈ«ÁÁ
+ 242   5                     treadmills.status=STATUS_FULL_DISPLAY;             
+ 243   5                  }
+ 244   4                  if(poweron_cnt == 7)   //È«ÁÁ2ÃëºóÏÔÊ¾°æ±¾ºÅ
+ 245   4                  {
+ 246   5                    treadmills.status=STATUS_POWERON;   
+ 247   5                                
+ 248   5                    poweron_flag = 0;
+ 249   5                    poweron_cnt = 0;
+ 250   5                  }
+ 251   4                }
+ 252   3                if(poweron_flag == 0)
+ 253   3                  {
+ 254   4                    key_mask=0xff;
+ 255   4                  }
+ 256   3                   
+ 257   3                if(treadmills.status!=STATUS_RUNNING)
+ 258   3                   {
+ 259   4                      no_key_cnt++;
+ 260   4                      if(no_key_cnt == 1200)   //´ý»úÊ±¼ä1200
+ 261   4                        {                   
+ 262   5                          set_seg_mode(SEG_MODE_NORMAL);
+ 263   5                          treadmills.status = STATUS_SLEEP_MODE;
+ 264   5                          no_key_cnt=0;
+ 265   5                        }
+ 266   4                    }
+ 267   3              }
+ 268   2      
+ 269   2            //1ÃëÖÜÆÚ ´¦Àí³ÌÐò
+ 270   2            if(ms1000_flag)
+ 271   2            {
+ 272   3              ms1000_flag=0;
+ 273   3              treadmills_param_calc();
+ 274   3      
+ 275   3              uart_time_error++;
+ 276   3              if(uart_time_error>5&&poweron_flag==0)
+ 277   3                {
+ 278   4                  treadmills.error_code=ERROR_06;
+ 279   4                  treadmills.status=STATUS_ERROR;
+ 280   4                }
+ 281   3            }
+ 282   2          // led update
+ 283   2          disp_update();
+ 284   2        }
+ 285   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    954    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      5       2
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2025 09:12:48 PAGE 6   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

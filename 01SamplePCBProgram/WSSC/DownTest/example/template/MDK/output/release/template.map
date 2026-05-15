@@ -1,0 +1,1321 @@
+Component: ARM Compiler 6.16 Tool: armlink [5dfeaa00]
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv.o ABSOLUTE
+    ../clib/division.s                       0x00000000   Number         0  aeabi_sdiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv_div0.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv0.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
+    ../fplib/microlib/f2d.c                  0x00000000   Number         0  f2d.o ABSOLUTE
+    ../fplib/microlib/fpadd.c                0x00000000   Number         0  fadd.o ABSOLUTE
+    ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  fcmple.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  fcmplt.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  fcmpge.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  fcmpgt.o ABSOLUTE
+    ../fplib/microlib/fpcmp.c                0x00000000   Number         0  dcmplt.o ABSOLUTE
+    ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixi.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixui.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  fflti.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    7_segment.c                              0x00000000   Number         0  7_segment.o ABSOLUTE
+    adc.c                                    0x00000000   Number         0  adc.o ABSOLUTE
+    adt.c                                    0x00000000   Number         0  adt.o ABSOLUTE
+    aip1628.c                                0x00000000   Number         0  aip1628.o ABSOLUTE
+    beep.c                                   0x00000000   Number         0  beep.o ABSOLUTE
+    bgr.c                                    0x00000000   Number         0  bgr.o ABSOLUTE
+    bt.c                                     0x00000000   Number         0  bt.o ABSOLUTE
+    crc.c                                    0x00000000   Number         0  crc.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    ddl.c                                    0x00000000   Number         0  ddl.o ABSOLUTE
+    decode.c                                 0x00000000   Number         0  decode.o ABSOLUTE
+    flash.c                                  0x00000000   Number         0  flash.o ABSOLUTE
+    gpio.c                                   0x00000000   Number         0  gpio.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    i2c.c                                    0x00000000   Number         0  i2c.o ABSOLUTE
+    indecate.c                               0x00000000   Number         0  indecate.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    interrupts_hc32f005.c                    0x00000000   Number         0  interrupts_hc32f005.o ABSOLUTE
+    keypad.c                                 0x00000000   Number         0  keypad.o ABSOLUTE
+    keypad_fun.c                             0x00000000   Number         0  keypad_fun.o ABSOLUTE
+    led_disp.c                               0x00000000   Number         0  led_disp.o ABSOLUTE
+    lpm.c                                    0x00000000   Number         0  lpm.o ABSOLUTE
+    lvd.c                                    0x00000000   Number         0  lvd.o ABSOLUTE
+    main.c                                   0x00000000   Number         0  main.o ABSOLUTE
+    my_flash.c                               0x00000000   Number         0  my_flash.o ABSOLUTE
+    my_gpio.c                                0x00000000   Number         0  my_gpio.o ABSOLUTE
+    my_pwm.c                                 0x00000000   Number         0  my_pwm.o ABSOLUTE
+    param.c                                  0x00000000   Number         0  param.o ABSOLUTE
+    pca.c                                    0x00000000   Number         0  pca.o ABSOLUTE
+    queue.c                                  0x00000000   Number         0  queue.o ABSOLUTE
+    ram.c                                    0x00000000   Number         0  ram.o ABSOLUTE
+    reset.c                                  0x00000000   Number         0  reset.o ABSOLUTE
+    spi.c                                    0x00000000   Number         0  spi.o ABSOLUTE
+    startup_hc32f005.s                       0x00000000   Number         0  startup_hc32f005.o ABSOLUTE
+    sysctrl.c                                0x00000000   Number         0  sysctrl.o ABSOLUTE
+    system_hc32f005.c                        0x00000000   Number         0  system_hc32f005.o ABSOLUTE
+    treadmills.c                             0x00000000   Number         0  treadmills.o ABSOLUTE
+    trim.c                                   0x00000000   Number         0  trim.o ABSOLUTE
+    uart.c                                   0x00000000   Number         0  uart.o ABSOLUTE
+    uart_frame.c                             0x00000000   Number         0  uart_frame.o ABSOLUTE
+    vc.c                                     0x00000000   Number         0  vc.o ABSOLUTE
+    wdt.c                                    0x00000000   Number         0  wdt.o ABSOLUTE
+    RESET                                    0x00000000   Section      192  startup_hc32f005.o(RESET)
+    .ARM.Collect$$$$00000000                 0x000000c0   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x000000c0   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x000000c4   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x000000c8   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x000000c8   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x000000c8   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    __lit__00000000                          0x000000d0   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .ARM.Collect$$$$0000000D                 0x000000d0   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x000000d0   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x000000d0   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    .text                                    0x000000d4   Section       60  startup_hc32f005.o(.text)
+    .text                                    0x00000110   Section        0  memseta.o(.text)
+    .text                                    0x00000134   Section        0  fadd.o(.text)
+    .text                                    0x000001e6   Section        0  fmul.o(.text)
+    .text                                    0x00000260   Section        0  dadd.o(.text)
+    .text                                    0x000003c4   Section        0  dmul.o(.text)
+    .text                                    0x00000494   Section        0  ddiv.o(.text)
+    .text                                    0x00000584   Section        0  fcmple.o(.text)
+    .text                                    0x000005a0   Section        0  fcmplt.o(.text)
+    .text                                    0x000005bc   Section        0  fcmpge.o(.text)
+    .text                                    0x000005d8   Section        0  fcmpgt.o(.text)
+    .text                                    0x000005f4   Section        0  dcmplt.o(.text)
+    .text                                    0x00000620   Section        0  fflti.o(.text)
+    .text                                    0x00000636   Section        0  ffltui.o(.text)
+    .text                                    0x00000644   Section        0  dfltui.o(.text)
+    .text                                    0x00000660   Section        0  ffixi.o(.text)
+    .text                                    0x00000692   Section        0  ffixui.o(.text)
+    .text                                    0x000006bc   Section        0  dfixui.o(.text)
+    .text                                    0x000006f8   Section        0  f2d.o(.text)
+    .text                                    0x00000720   Section        0  d2f.o(.text)
+    .text                                    0x00000758   Section        0  uidiv_div0.o(.text)
+    .text                                    0x00000796   Section        0  llshl.o(.text)
+    .text                                    0x000007b6   Section        0  llushr.o(.text)
+    .text                                    0x000007d8   Section        0  llsshr.o(.text)
+    .text                                    0x000007fe   Section        0  iusefp.o(.text)
+    .text                                    0x000007fe   Section        0  fepilogue.o(.text)
+    .text                                    0x00000880   Section        0  depilogue.o(.text)
+    .text                                    0x00000940   Section       36  init.o(.text)
+    [Anonymous Symbol]                       0x00000964   Section        0  interrupts_hc32f005.o(.text.ADC_IRQHandler)
+    [Anonymous Symbol]                       0x0000096c   Section        0  adt.o(.text.Adt_CHxXPortCfg)
+    [Anonymous Symbol]                       0x00000b6a   Section        0  adt.o(.text.Adt_Init)
+    [Anonymous Symbol]                       0x00000bd8   Section        0  adt.o(.text.Adt_SetCompareValue)
+    [Anonymous Symbol]                       0x00000c42   Section        0  adt.o(.text.Adt_SetPeriod)
+    [Anonymous Symbol]                       0x00000c56   Section        0  adt.o(.text.Adt_StartCount)
+    [Anonymous Symbol]                       0x00000c6c   Section        0  my_pwm.o(.text.App_AdvTimer4Init)
+    [Anonymous Symbol]                       0x00000cf8   Section        0  my_pwm.o(.text.App_AdvTimerPortInit)
+    [Anonymous Symbol]                       0x00000d30   Section        0  my_pwm.o(.text.App_BtTimerTest)
+    __arm_cp.3_0                             0x00000da0   Number         4  my_pwm.o(.text.App_BtTimerTest)
+    [Anonymous Symbol]                       0x00000da4   Section        0  my_pwm.o(.text.App_BtTimerTest2)
+    __arm_cp.4_0                             0x00000e14   Number         4  my_pwm.o(.text.App_BtTimerTest2)
+    __arm_cp.4_1                             0x00000e18   Number         4  my_pwm.o(.text.App_BtTimerTest2)
+    [Anonymous Symbol]                       0x00000e1c   Section        0  main.o(.text.App_ClkInit)
+    [Anonymous Symbol]                       0x00000e48   Section        0  my_pwm.o(.text.App_PcaInit)
+    __arm_cp.7_0                             0x00000e7c   Number         4  my_pwm.o(.text.App_PcaInit)
+    __arm_cp.7_1                             0x00000e80   Number         4  my_pwm.o(.text.App_PcaInit)
+    __arm_cp.7_2                             0x00000e84   Number         4  my_pwm.o(.text.App_PcaInit)
+    App_PortInit                             0x00000e89   Thumb Code    82  uart_frame.o(.text.App_PortInit)
+    [Anonymous Symbol]                       0x00000e88   Section        0  uart_frame.o(.text.App_PortInit)
+    [Anonymous Symbol]                       0x00000eda   Section        0  main.o(.text.App_Rch4MHzTo24MHz)
+    App_UartInit                             0x00000f19   Thumb Code    56  uart_frame.o(.text.App_UartInit)
+    [Anonymous Symbol]                       0x00000f18   Section        0  uart_frame.o(.text.App_UartInit)
+    __arm_cp.2_0                             0x00000f50   Number         4  uart_frame.o(.text.App_UartInit)
+    [Anonymous Symbol]                       0x00000f54   Section        0  bt.o(.text.Bt_ARRSet)
+    __arm_cp.7_0                             0x00000fbc   Number         4  bt.o(.text.Bt_ARRSet)
+    __arm_cp.7_2                             0x00000fc0   Number         4  bt.o(.text.Bt_ARRSet)
+    __arm_cp.7_3                             0x00000fc4   Number         4  bt.o(.text.Bt_ARRSet)
+    [Anonymous Symbol]                       0x00000fc8   Section        0  bt.o(.text.Bt_ClearIntFlag)
+    __arm_cp.1_0                             0x0000101c   Number         4  bt.o(.text.Bt_ClearIntFlag)
+    __arm_cp.1_1                             0x00001020   Number         4  bt.o(.text.Bt_ClearIntFlag)
+    __arm_cp.1_2                             0x00001024   Number         4  bt.o(.text.Bt_ClearIntFlag)
+    [Anonymous Symbol]                       0x00001028   Section        0  bt.o(.text.Bt_Cnt16Set)
+    __arm_cp.8_0                             0x00001090   Number         4  bt.o(.text.Bt_Cnt16Set)
+    __arm_cp.8_1                             0x00001094   Number         4  bt.o(.text.Bt_Cnt16Set)
+    __arm_cp.8_2                             0x00001098   Number         4  bt.o(.text.Bt_Cnt16Set)
+    __arm_cp.8_3                             0x0000109c   Number         4  bt.o(.text.Bt_Cnt16Set)
+    [Anonymous Symbol]                       0x000010a0   Section        0  bt.o(.text.Bt_EnableIrq)
+    [Anonymous Symbol]                       0x000010f8   Section        0  bt.o(.text.Bt_GetIntFlag)
+    __arm_cp.0_0                             0x00001158   Number         4  bt.o(.text.Bt_GetIntFlag)
+    __arm_cp.0_1                             0x0000115c   Number         4  bt.o(.text.Bt_GetIntFlag)
+    __arm_cp.0_2                             0x00001160   Number         4  bt.o(.text.Bt_GetIntFlag)
+    [Anonymous Symbol]                       0x00001164   Section        0  bt.o(.text.Bt_Init)
+    [Anonymous Symbol]                       0x000012f4   Section        0  bt.o(.text.Bt_Run)
+    __arm_cp.5_0                             0x00001348   Number         4  bt.o(.text.Bt_Run)
+    __arm_cp.5_1                             0x0000134c   Number         4  bt.o(.text.Bt_Run)
+    __arm_cp.5_2                             0x00001350   Number         4  bt.o(.text.Bt_Run)
+    [Anonymous Symbol]                       0x00001354   Section        0  interrupts_hc32f005.o(.text.CLKTRIM_IRQHandler)
+    [Anonymous Symbol]                       0x0000135c   Section        0  queue.o(.text.Create_Queue)
+    [Anonymous Symbol]                       0x0000137e   Section        0  interrupts_hc32f005.o(.text.DMAC_IRQHandler)
+    [Anonymous Symbol]                       0x00001386   Section        0  queue.o(.text.Denter_queue)
+    [Anonymous Symbol]                       0x000013d0   Section        0  interrupts_hc32f005.o(.text.EnableNvic)
+    [Anonymous Symbol]                       0x0000140a   Section        0  queue.o(.text.Enter_queue)
+    [Anonymous Symbol]                       0x00001454   Section        0  interrupts_hc32f005.o(.text.FLASH_RAM_IRQHandler)
+    [Anonymous Symbol]                       0x00001460   Section        0  flash.o(.text.Flash_Init)
+    __arm_cp.4_0                             0x00001558   Number         4  flash.o(.text.Flash_Init)
+    __arm_cp.4_4                             0x0000155c   Number         4  flash.o(.text.Flash_Init)
+    [Anonymous Symbol]                       0x00001560   Section        0  flash.o(.text.Flash_WaitCycle)
+    __arm_cp.12_0                            0x0000158c   Number         4  flash.o(.text.Flash_WaitCycle)
+    __arm_cp.12_1                            0x00001590   Number         4  flash.o(.text.Flash_WaitCycle)
+    __arm_cp.12_2                            0x00001594   Number         4  flash.o(.text.Flash_WaitCycle)
+    __arm_cp.12_3                            0x00001598   Number         4  flash.o(.text.Flash_WaitCycle)
+    [Anonymous Symbol]                       0x0000159c   Section        0  ddl.o(.text.GetBit)
+    [Anonymous Symbol]                       0x000015b2   Section        0  my_gpio.o(.text.GpioInit)
+    [Anonymous Symbol]                       0x0000163c   Section        0  gpio.o(.text.Gpio_GetInputIO)
+    __arm_cp.1_0                             0x00001654   Number         4  gpio.o(.text.Gpio_GetInputIO)
+    [Anonymous Symbol]                       0x00001658   Section        0  gpio.o(.text.Gpio_Init)
+    __arm_cp.0_0                             0x000016e8   Number         4  gpio.o(.text.Gpio_Init)
+    __arm_cp.0_3                             0x000016ec   Number         4  gpio.o(.text.Gpio_Init)
+    __arm_cp.0_4                             0x000016f0   Number         4  gpio.o(.text.Gpio_Init)
+    __arm_cp.0_5                             0x000016f4   Number         4  gpio.o(.text.Gpio_Init)
+    __arm_cp.0_6                             0x000016f8   Number         4  gpio.o(.text.Gpio_Init)
+    __arm_cp.0_7                             0x000016fc   Number         4  gpio.o(.text.Gpio_Init)
+    [Anonymous Symbol]                       0x00001700   Section        0  gpio.o(.text.Gpio_SetAfMode)
+    __arm_cp.6_0                             0x0000171c   Number         4  gpio.o(.text.Gpio_SetAfMode)
+    [Anonymous Symbol]                       0x00001720   Section        0  gpio.o(.text.Gpio_SfHClkOutputCfg)
+    __arm_cp.13_0                            0x00001754   Number         4  gpio.o(.text.Gpio_SfHClkOutputCfg)
+    [Anonymous Symbol]                       0x00001758   Section        0  gpio.o(.text.Gpio_WriteOutputIO)
+    __arm_cp.3_0                             0x00001780   Number         4  gpio.o(.text.Gpio_WriteOutputIO)
+    [Anonymous Symbol]                       0x00001784   Section        0  interrupts_hc32f005.o(.text.HardFault_Handler)
+    [Anonymous Symbol]                       0x0000179a   Section        0  interrupts_hc32f005.o(.text.I2C_IRQHandler)
+    Is_Empty_Queue                           0x000017a3   Thumb Code    40  queue.o(.text.Is_Empty_Queue)
+    [Anonymous Symbol]                       0x000017a2   Section        0  queue.o(.text.Is_Empty_Queue)
+    [Anonymous Symbol]                       0x000017ca   Section        0  queue.o(.text.Is_Full_Queue)
+    [Anonymous Symbol]                       0x00001800   Section        0  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_0                             0x00001938   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_1                             0x0000193c   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_2                             0x00001940   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_3                             0x00001944   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_4                             0x00001948   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_5                             0x0000194c   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_6                             0x00001950   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_7                             0x00001954   Number         4  keypad.o(.text.KeyPad_Scan)
+    __arm_cp.0_8                             0x00001958   Number         4  keypad.o(.text.KeyPad_Scan)
+    [Anonymous Symbol]                       0x0000195c   Section        0  interrupts_hc32f005.o(.text.LVD_IRQHandler)
+    [Anonymous Symbol]                       0x00001964   Section        0  interrupts_hc32f005.o(.text.PCA_IRQHandler)
+    [Anonymous Symbol]                       0x0000196c   Section        0  interrupts_hc32f005.o(.text.PCNT_IRQHandler)
+    [Anonymous Symbol]                       0x00001974   Section        0  interrupts_hc32f005.o(.text.PORT0_IRQHandler)
+    [Anonymous Symbol]                       0x0000197c   Section        0  interrupts_hc32f005.o(.text.PORT1_IRQHandler)
+    [Anonymous Symbol]                       0x00001984   Section        0  interrupts_hc32f005.o(.text.PORT2_IRQHandler)
+    [Anonymous Symbol]                       0x0000198c   Section        0  interrupts_hc32f005.o(.text.PORT3_IRQHandler)
+    [Anonymous Symbol]                       0x00001994   Section        0  decode.o(.text.RF433M_Init)
+    __arm_cp.0_0                             0x0000199c   Number         4  decode.o(.text.RF433M_Init)
+    [Anonymous Symbol]                       0x000019a0   Section        0  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_0                             0x00001dd0   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_1                             0x00001dd4   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_2                             0x00001dd8   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_3                             0x00001ddc   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_4                             0x00001de0   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_5                             0x00001de4   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_6                             0x00001de8   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_7                             0x00001dec   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_8                             0x00001df0   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_9                             0x00001df4   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_10                            0x00001df8   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_11                            0x00001dfc   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_12                            0x00001e00   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_13                            0x00001e04   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_14                            0x00001e08   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_15                            0x00001e0c   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_16                            0x00001e10   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_17                            0x00001e14   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    __arm_cp.1_18                            0x00001e18   Number         4  decode.o(.text.RF433M_RecevieDecode)
+    [Anonymous Symbol]                       0x00001e1c   Section        0  interrupts_hc32f005.o(.text.SPI_IRQHandler)
+    [Anonymous Symbol]                       0x00001e24   Section        0  ddl.o(.text.SetBit)
+    [Anonymous Symbol]                       0x00001e5a   Section        0  interrupts_hc32f005.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x00001e62   Section        0  sysctrl.o(.text.Sysctrl_ClkInit)
+    [Anonymous Symbol]                       0x00001ed0   Section        0  sysctrl.o(.text.Sysctrl_ClkSourceEnable)
+    __arm_cp.0_3                             0x00001ff4   Number         4  sysctrl.o(.text.Sysctrl_ClkSourceEnable)
+    [Anonymous Symbol]                       0x00001ff8   Section        0  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_0                             0x00002114   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_1                             0x00002118   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_3                             0x0000211c   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_4                             0x00002120   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_5                             0x00002124   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_6                             0x00002128   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    __arm_cp.6_10                            0x0000212c   Number         4  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    [Anonymous Symbol]                       0x00002130   Section        0  sysctrl.o(.text.Sysctrl_GetPClkFreq)
+    [Anonymous Symbol]                       0x00002154   Section        0  sysctrl.o(.text.Sysctrl_SetHCLKDiv)
+    [Anonymous Symbol]                       0x00002178   Section        0  sysctrl.o(.text.Sysctrl_SetPCLKDiv)
+    [Anonymous Symbol]                       0x0000219c   Section        0  sysctrl.o(.text.Sysctrl_SetPeripheralGate)
+    __arm_cp.15_0                            0x000021b8   Number         4  sysctrl.o(.text.Sysctrl_SetPeripheralGate)
+    [Anonymous Symbol]                       0x000021bc   Section        0  sysctrl.o(.text.Sysctrl_SetRCHTrim)
+    __arm_cp.12_1                            0x000021e0   Number         4  sysctrl.o(.text.Sysctrl_SetRCHTrim)
+    __arm_cp.12_2                            0x000021e4   Number         4  sysctrl.o(.text.Sysctrl_SetRCHTrim)
+    __arm_cp.12_3                            0x000021e8   Number         4  sysctrl.o(.text.Sysctrl_SetRCHTrim)
+    [Anonymous Symbol]                       0x000021ec   Section        0  sysctrl.o(.text.Sysctrl_SetRCLStableTime)
+    [Anonymous Symbol]                       0x00002210   Section        0  sysctrl.o(.text.Sysctrl_SetRCLTrim)
+    __arm_cp.14_0                            0x00002234   Number         4  sysctrl.o(.text.Sysctrl_SetRCLTrim)
+    __arm_cp.14_1                            0x00002238   Number         4  sysctrl.o(.text.Sysctrl_SetRCLTrim)
+    __arm_cp.14_2                            0x0000223c   Number         4  sysctrl.o(.text.Sysctrl_SetRCLTrim)
+    __arm_cp.14_3                            0x00002240   Number         4  sysctrl.o(.text.Sysctrl_SetRCLTrim)
+    [Anonymous Symbol]                       0x00002244   Section        0  sysctrl.o(.text.Sysctrl_SetXTHStableTime)
+    [Anonymous Symbol]                       0x00002264   Section        0  sysctrl.o(.text.Sysctrl_SysClkSwitch)
+    __arm_cp.5_0                             0x00002294   Number         4  sysctrl.o(.text.Sysctrl_SysClkSwitch)
+    [Anonymous Symbol]                       0x00002298   Section        0  sysctrl.o(.text.Sysctrl_XTHDriverCfg)
+    __arm_cp.2_0                             0x000022b8   Number         4  sysctrl.o(.text.Sysctrl_XTHDriverCfg)
+    [Anonymous Symbol]                       0x000022bc   Section        0  system_hc32f005.o(.text.SystemCoreClockUpdate)
+    __arm_cp.0_0                             0x000022c8   Number         4  system_hc32f005.o(.text.SystemCoreClockUpdate)
+    [Anonymous Symbol]                       0x000022cc   Section        0  system_hc32f005.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x000022d4   Section        0  interrupts_hc32f005.o(.text.TIM0_IRQHandler)
+    [Anonymous Symbol]                       0x000022dc   Section        0  interrupts_hc32f005.o(.text.TIM1_IRQHandler)
+    [Anonymous Symbol]                       0x000022e4   Section        0  interrupts_hc32f005.o(.text.TIM2_IRQHandler)
+    [Anonymous Symbol]                       0x000022ec   Section        0  interrupts_hc32f005.o(.text.TIM3_IRQHandler)
+    [Anonymous Symbol]                       0x000022f4   Section        0  interrupts_hc32f005.o(.text.TIM4_IRQHandler)
+    [Anonymous Symbol]                       0x000022fc   Section        0  interrupts_hc32f005.o(.text.TIM5_IRQHandler)
+    [Anonymous Symbol]                       0x00002304   Section        0  interrupts_hc32f005.o(.text.TIM6_IRQHandler)
+    [Anonymous Symbol]                       0x0000230c   Section        0  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_0                             0x000023e4   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_1                             0x000023e8   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_2                             0x000023ec   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_3                             0x000023f0   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_4                             0x000023f4   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_5                             0x000023f8   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_6                             0x000023fc   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_7                             0x00002400   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_8                             0x00002404   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_9                             0x00002408   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_10                            0x0000240c   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_11                            0x00002410   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    __arm_cp.5_12                            0x00002414   Number         4  my_pwm.o(.text.Tim0_IRQHandler)
+    [Anonymous Symbol]                       0x00002418   Section        0  my_pwm.o(.text.Tim2_IRQHandler)
+    [Anonymous Symbol]                       0x00002434   Section        0  interrupts_hc32f005.o(.text.UART0_IRQHandler)
+    [Anonymous Symbol]                       0x0000243c   Section        0  interrupts_hc32f005.o(.text.UART1_IRQHandler)
+    [Anonymous Symbol]                       0x00002444   Section        0  uart_frame.o(.text.UART_Send_Buf)
+    [Anonymous Symbol]                       0x00002478   Section        0  uart_frame.o(.text.Uart1_IRQHandler)
+    __arm_cp.3_1                             0x000024b8   Number         4  uart_frame.o(.text.Uart1_IRQHandler)
+    __arm_cp.3_2                             0x000024bc   Number         4  uart_frame.o(.text.Uart1_IRQHandler)
+    [Anonymous Symbol]                       0x000024c0   Section        0  uart.o(.text.Uart_ClrStatus)
+    [Anonymous Symbol]                       0x000024dc   Section        0  uart.o(.text.Uart_EnableFunc)
+    [Anonymous Symbol]                       0x000024f6   Section        0  uart.o(.text.Uart_EnableIrq)
+    [Anonymous Symbol]                       0x00002510   Section        0  uart.o(.text.Uart_GetStatus)
+    [Anonymous Symbol]                       0x00002536   Section        0  uart.o(.text.Uart_Init)
+    [Anonymous Symbol]                       0x00002560   Section        0  uart.o(.text.Uart_ReceiveData)
+    [Anonymous Symbol]                       0x0000256e   Section        0  uart.o(.text.Uart_SendDataPoll)
+    [Anonymous Symbol]                       0x000025a8   Section        0  uart.o(.text.Uart_SetBaudRate)
+    [Anonymous Symbol]                       0x0000261c   Section        0  interrupts_hc32f005.o(.text.VC0_IRQHandler)
+    [Anonymous Symbol]                       0x00002624   Section        0  interrupts_hc32f005.o(.text.VC1_IRQHandler)
+    [Anonymous Symbol]                       0x0000262c   Section        0  interrupts_hc32f005.o(.text.WDT_IRQHandler)
+    _SysctrlUnlock                           0x00002635   Thumb Code    12  sysctrl.o(.text._SysctrlUnlock)
+    [Anonymous Symbol]                       0x00002634   Section        0  sysctrl.o(.text._SysctrlUnlock)
+    __arm_cp.1_0                             0x00002640   Number         4  sysctrl.o(.text._SysctrlUnlock)
+    __arm_cp.1_1                             0x00002644   Number         4  sysctrl.o(.text._SysctrlUnlock)
+    __arm_cp.1_2                             0x00002648   Number         4  sysctrl.o(.text._SysctrlUnlock)
+    _UartBaudCfg                             0x0000264d   Thumb Code   132  uart_frame.o(.text._UartBaudCfg)
+    [Anonymous Symbol]                       0x0000264c   Section        0  uart_frame.o(.text._UartBaudCfg)
+    __arm_cp.10_0                            0x000026d0   Number         4  uart_frame.o(.text._UartBaudCfg)
+    __NVIC_ClearPendingIRQ                   0x000026d5   Thumb Code    32  interrupts_hc32f005.o(.text.__NVIC_ClearPendingIRQ)
+    [Anonymous Symbol]                       0x000026d4   Section        0  interrupts_hc32f005.o(.text.__NVIC_ClearPendingIRQ)
+    __arm_cp.1_0                             0x000026f4   Number         4  interrupts_hc32f005.o(.text.__NVIC_ClearPendingIRQ)
+    __NVIC_DisableIRQ                        0x000026f9   Thumb Code    40  interrupts_hc32f005.o(.text.__NVIC_DisableIRQ)
+    [Anonymous Symbol]                       0x000026f8   Section        0  interrupts_hc32f005.o(.text.__NVIC_DisableIRQ)
+    __arm_cp.4_0                             0x00002720   Number         4  interrupts_hc32f005.o(.text.__NVIC_DisableIRQ)
+    __NVIC_EnableIRQ                         0x00002725   Thumb Code    32  interrupts_hc32f005.o(.text.__NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x00002724   Section        0  interrupts_hc32f005.o(.text.__NVIC_EnableIRQ)
+    __arm_cp.3_0                             0x00002744   Number         4  interrupts_hc32f005.o(.text.__NVIC_EnableIRQ)
+    __NVIC_SetPriority                       0x00002749   Thumb Code   112  interrupts_hc32f005.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x00002748   Section        0  interrupts_hc32f005.o(.text.__NVIC_SetPriority)
+    __arm_cp.2_0                             0x000027b8   Number         4  interrupts_hc32f005.o(.text.__NVIC_SetPriority)
+    __arm_cp.2_1                             0x000027bc   Number         4  interrupts_hc32f005.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x000027c0   Section        0  aip1628.o(.text.aip1628_init)
+    [Anonymous Symbol]                       0x0000280a   Section        0  aip1628.o(.text.aip1628_write_byte)
+    [Anonymous Symbol]                       0x0000284c   Section        0  beep.o(.text.beep_force_stop)
+    [Anonymous Symbol]                       0x0000285c   Section        0  beep.o(.text.beep_set)
+    __arm_cp.1_0                             0x000028c4   Number         4  beep.o(.text.beep_set)
+    [Anonymous Symbol]                       0x000028c8   Section        0  beep.o(.text.beep_sound_proc)
+    __arm_cp.2_0                             0x00002954   Number         4  beep.o(.text.beep_sound_proc)
+    __arm_cp.2_1                             0x00002958   Number         4  beep.o(.text.beep_sound_proc)
+    __arm_cp.2_2                             0x0000295c   Number         4  beep.o(.text.beep_sound_proc)
+    __arm_cp.2_3                             0x00002960   Number         4  beep.o(.text.beep_sound_proc)
+    __arm_cp.2_4                             0x00002964   Number         4  beep.o(.text.beep_sound_proc)
+    [Anonymous Symbol]                       0x00002968   Section        0  treadmills.o(.text.boot_time)
+    __arm_cp.1_1                             0x000029f8   Number         4  treadmills.o(.text.boot_time)
+    __arm_cp.1_2                             0x000029fc   Number         4  treadmills.o(.text.boot_time)
+    btn_add_proc                             0x00002a01   Thumb Code   356  keypad_fun.o(.text.btn_add_proc)
+    [Anonymous Symbol]                       0x00002a00   Section        0  keypad_fun.o(.text.btn_add_proc)
+    __arm_cp.1_2                             0x00002b64   Number         4  keypad_fun.o(.text.btn_add_proc)
+    __arm_cp.1_3                             0x00002b68   Number         4  keypad_fun.o(.text.btn_add_proc)
+    __arm_cp.1_4                             0x00002b6c   Number         4  keypad_fun.o(.text.btn_add_proc)
+    __arm_cp.1_5                             0x00002b70   Number         4  keypad_fun.o(.text.btn_add_proc)
+    btn_sub_proc                             0x00002b75   Thumb Code   352  keypad_fun.o(.text.btn_sub_proc)
+    [Anonymous Symbol]                       0x00002b74   Section        0  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_0                             0x00002cd4   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_1                             0x00002cd8   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_2                             0x00002cdc   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_3                             0x00002ce0   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_4                             0x00002ce4   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_5                             0x00002ce8   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_6                             0x00002cec   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_7                             0x00002cf0   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    __arm_cp.2_8                             0x00002cf4   Number         4  keypad_fun.o(.text.btn_sub_proc)
+    [Anonymous Symbol]                       0x00002cf8   Section        0  uart_frame.o(.text.cmd_proc)
+    __arm_cp.6_0                             0x00002e4c   Number         4  uart_frame.o(.text.cmd_proc)
+    __arm_cp.6_1                             0x00002e50   Number         4  uart_frame.o(.text.cmd_proc)
+    __arm_cp.6_2                             0x00002e54   Number         4  uart_frame.o(.text.cmd_proc)
+    __arm_cp.6_3                             0x00002e58   Number         4  uart_frame.o(.text.cmd_proc)
+    [Anonymous Symbol]                       0x00002e5c   Section        0  ddl.o(.text.ddl_memclr)
+    [Anonymous Symbol]                       0x00002e90   Section        0  ddl.o(.text.delay1ms)
+    __arm_cp.8_0                             0x00002ef4   Number         4  ddl.o(.text.delay1ms)
+    __arm_cp.8_1                             0x00002ef8   Number         4  ddl.o(.text.delay1ms)
+    __arm_cp.8_2                             0x00002efc   Number         4  ddl.o(.text.delay1ms)
+    __arm_cp.8_3                             0x00002f00   Number         4  ddl.o(.text.delay1ms)
+    __arm_cp.8_4                             0x00002f04   Number         4  ddl.o(.text.delay1ms)
+    [Anonymous Symbol]                       0x00002f08   Section        0  indecate.o(.text.disp_update)
+    __arm_cp.0_0                             0x00002f58   Number         4  indecate.o(.text.disp_update)
+    [Anonymous Symbol]                       0x00002f5c   Section        0  my_flash.o(.text.flash_init)
+    [Anonymous Symbol]                       0x00002f68   Section        0  keypad_fun.o(.text.keypad_continue_proc)
+    __arm_cp.4_2                             0x00002fd0   Number         4  keypad_fun.o(.text.keypad_continue_proc)
+    [Anonymous Symbol]                       0x00002fd4   Section        0  keypad_fun.o(.text.keypad_short_proc)
+    __arm_cp.0_0                             0x000031d0   Number         4  keypad_fun.o(.text.keypad_short_proc)
+    __arm_cp.0_1                             0x000031d4   Number         4  keypad_fun.o(.text.keypad_short_proc)
+    __arm_cp.0_2                             0x000031d8   Number         4  keypad_fun.o(.text.keypad_short_proc)
+    __arm_cp.0_3                             0x000031dc   Number         4  keypad_fun.o(.text.keypad_short_proc)
+    __arm_cp.0_5                             0x000031e0   Number         4  keypad_fun.o(.text.keypad_short_proc)
+    __arm_cp.0_6                             0x000031e4   Number         4  keypad_fun.o(.text.keypad_short_proc)
+    [Anonymous Symbol]                       0x000031e8   Section        0  led_disp.o(.text.led_display_init)
+    __arm_cp.0_1                             0x000031f8   Number         4  led_disp.o(.text.led_display_init)
+    [Anonymous Symbol]                       0x000031fc   Section        0  main.o(.text.main)
+    __arm_cp.9_0                             0x00003300   Number         4  main.o(.text.main)
+    __arm_cp.9_2                             0x00003304   Number         4  main.o(.text.main)
+    __arm_cp.9_3                             0x00003308   Number         4  main.o(.text.main)
+    __arm_cp.9_4                             0x0000330c   Number         4  main.o(.text.main)
+    __arm_cp.9_5                             0x00003310   Number         4  main.o(.text.main)
+    __arm_cp.9_6                             0x00003314   Number         4  main.o(.text.main)
+    __arm_cp.9_7                             0x00003318   Number         4  main.o(.text.main)
+    __arm_cp.9_8                             0x0000331c   Number         4  main.o(.text.main)
+    [Anonymous Symbol]                       0x00003320   Section        0  param.o(.text.param_init)
+    __arm_cp.0_0                             0x00003330   Number         4  param.o(.text.param_init)
+    [Anonymous Symbol]                       0x00003334   Section        0  my_flash.o(.text.read_beep_status)
+    [Anonymous Symbol]                       0x00003344   Section        0  my_flash.o(.text.save_param)
+    __arm_cp.3_0                             0x00003360   Number         4  my_flash.o(.text.save_param)
+    __arm_cp.3_1                             0x00003364   Number         4  my_flash.o(.text.save_param)
+    __arm_cp.3_2                             0x00003368   Number         4  my_flash.o(.text.save_param)
+    [Anonymous Symbol]                       0x0000336c   Section        0  led_disp.o(.text.seg_disp_proc)
+    __arm_cp.9_2                             0x00003544   Number         4  led_disp.o(.text.seg_disp_proc)
+    __arm_cp.9_4                             0x00003548   Number         4  led_disp.o(.text.seg_disp_proc)
+    [Anonymous Symbol]                       0x0000354c   Section        0  aip1628.o(.text.set_aip1628_lighte_scale)
+    [Anonymous Symbol]                       0x00003580   Section        0  led_disp.o(.text.set_bit_seg)
+    __arm_cp.2_0                             0x000035a0   Number         4  led_disp.o(.text.set_bit_seg)
+    [Anonymous Symbol]                       0x000035a4   Section        0  my_pwm.o(.text.set_pwm_beep)
+    __arm_cp.9_0                             0x000035c0   Number         4  my_pwm.o(.text.set_pwm_beep)
+    __arm_cp.9_1                             0x000035c4   Number         4  my_pwm.o(.text.set_pwm_beep)
+    [Anonymous Symbol]                       0x000035c8   Section        0  led_disp.o(.text.set_seg_mode)
+    __arm_cp.1_0                             0x000035e4   Number         4  led_disp.o(.text.set_seg_mode)
+    __arm_cp.1_1                             0x000035e8   Number         4  led_disp.o(.text.set_seg_mode)
+    [Anonymous Symbol]                       0x000035ec   Section        0  led_disp.o(.text.set_seg_temp)
+    [Anonymous Symbol]                       0x0000367c   Section        0  led_disp.o(.text.set_seg_two)
+    __arm_cp.4_1                             0x0000370c   Number         4  led_disp.o(.text.set_seg_two)
+    [Anonymous Symbol]                       0x00003710   Section        0  led_disp.o(.text.set_seg_two_sc)
+    __arm_cp.5_1                             0x000037a0   Number         4  led_disp.o(.text.set_seg_two_sc)
+    __arm_cp.5_2                             0x000037a4   Number         4  led_disp.o(.text.set_seg_two_sc)
+    [Anonymous Symbol]                       0x000037a8   Section        0  led_disp.o(.text.set_seg_two_sp)
+    __arm_cp.6_0                             0x00003838   Number         4  led_disp.o(.text.set_seg_two_sp)
+    __arm_cp.6_1                             0x0000383c   Number         4  led_disp.o(.text.set_seg_two_sp)
+    __arm_cp.6_2                             0x00003840   Number         4  led_disp.o(.text.set_seg_two_sp)
+    [Anonymous Symbol]                       0x00003844   Section        0  main.o(.text.task_1000ms)
+    __arm_cp.8_1                             0x000038b4   Number         4  main.o(.text.task_1000ms)
+    __arm_cp.8_2                             0x000038b8   Number         4  main.o(.text.task_1000ms)
+    __arm_cp.8_3                             0x000038bc   Number         4  main.o(.text.task_1000ms)
+    [Anonymous Symbol]                       0x000038c0   Section        0  main.o(.text.task_100ms)
+    [Anonymous Symbol]                       0x000038d0   Section        0  main.o(.text.task_10ms)
+    [Anonymous Symbol]                       0x000038e0   Section        0  main.o(.text.task_250ms)
+    [Anonymous Symbol]                       0x00003964   Section        0  main.o(.text.task_300ms)
+    __arm_cp.6_0                             0x00003990   Number         4  main.o(.text.task_300ms)
+    __arm_cp.6_1                             0x00003994   Number         4  main.o(.text.task_300ms)
+    [Anonymous Symbol]                       0x00003998   Section        0  main.o(.text.task_500ms)
+    [Anonymous Symbol]                       0x000039b4   Section        0  treadmills.o(.text.treadmills_disp_loop)
+    __arm_cp.5_0                             0x00003ac4   Number         4  treadmills.o(.text.treadmills_disp_loop)
+    __arm_cp.5_1                             0x00003ac8   Number         4  treadmills.o(.text.treadmills_disp_loop)
+    __arm_cp.5_2                             0x00003acc   Number         4  treadmills.o(.text.treadmills_disp_loop)
+    [Anonymous Symbol]                       0x00003ad0   Section        0  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_0                             0x00003ea8   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_1                             0x00003eac   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_2                             0x00003eb0   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_3                             0x00003eb4   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_4                             0x00003eb8   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_5                             0x00003ebc   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_7                             0x00003ec0   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_8                             0x00003ec4   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_9                             0x00003ec8   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_10                            0x00003ecc   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_11                            0x00003ed0   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_12                            0x00003ed4   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_13                            0x00003ed8   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_14                            0x00003edc   Number         4  treadmills.o(.text.treadmills_display)
+    __arm_cp.2_15                            0x00003ee0   Number         4  treadmills.o(.text.treadmills_display)
+    [Anonymous Symbol]                       0x00003ee4   Section        0  treadmills.o(.text.treadmills_init)
+    __arm_cp.0_0                             0x00003f08   Number         4  treadmills.o(.text.treadmills_init)
+    [Anonymous Symbol]                       0x00003f0c   Section        0  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_0                             0x00004150   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_1                             0x00004154   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_2                             0x00004158   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_3                             0x0000415c   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_4                             0x00004160   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_5                             0x00004164   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_6                             0x00004168   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_7                             0x0000416c   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_8                             0x00004170   Number         4  treadmills.o(.text.treadmills_param_calc)
+    __arm_cp.4_9                             0x00004174   Number         4  treadmills.o(.text.treadmills_param_calc)
+    [Anonymous Symbol]                       0x00004178   Section        0  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_19                            0x000041ec   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_25                            0x00004628   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_28                            0x00004634   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_29                            0x00004638   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_32                            0x00004644   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_33                            0x00004648   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_0                             0x000048bc   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_2                             0x000048c0   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_3                             0x000048c4   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_4                             0x000048c8   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_5                             0x000048cc   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_6                             0x000048d0   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_7                             0x000048d4   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_8                             0x000048d8   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_9                             0x000048dc   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_11                            0x000048e0   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    __arm_cp.3_12                            0x000048e4   Number         4  treadmills.o(.text.treadmills_proc_loop)
+    [Anonymous Symbol]                       0x000048e8   Section        0  uart_frame.o(.text.uart0_init)
+    __arm_cp.0_0                             0x00004914   Number         4  uart_frame.o(.text.uart0_init)
+    [Anonymous Symbol]                       0x00004918   Section        0  uart_frame.o(.text.uart_frame_init)
+    __arm_cp.5_1                             0x00004928   Number         4  uart_frame.o(.text.uart_frame_init)
+    [Anonymous Symbol]                       0x0000492c   Section        0  uart_frame.o(.text.uart_frame_loop)
+    __arm_cp.8_0                             0x00004a28   Number         4  uart_frame.o(.text.uart_frame_loop)
+    __arm_cp.8_1                             0x00004a2c   Number         4  uart_frame.o(.text.uart_frame_loop)
+    __arm_cp.8_2                             0x00004a30   Number         4  uart_frame.o(.text.uart_frame_loop)
+    __arm_cp.8_3                             0x00004a34   Number         4  uart_frame.o(.text.uart_frame_loop)
+    __arm_cp.8_4                             0x00004a38   Number         4  uart_frame.o(.text.uart_frame_loop)
+    [Anonymous Symbol]                       0x00004a3c   Section        0  uart_frame.o(.text.uart_frame_tx)
+    [Anonymous Symbol]                       0x00004ac0   Section        0  uart_frame.o(.text.uart_frame_tx_d1)
+    __arm_cp.7_0                             0x00004b4c   Number         4  uart_frame.o(.text.uart_frame_tx_d1)
+    wt_byte                                  0x00004b51   Thumb Code   100  aip1628.o(.text.wt_byte)
+    [Anonymous Symbol]                       0x00004b50   Section        0  aip1628.o(.text.wt_byte)
+    i.__ARM_clz                              0x00004bb4   Section        0  depilogue.o(i.__ARM_clz)
+    i.__scatterload_copy                     0x00004be2   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00004bf0   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00004bf2   Section       14  handlers.o(i.__scatterload_zeroinit)
+    [Anonymous Symbol]                       0x00004c00   Section        0  sysctrl.o(.rodata..L__const.Sysctrl_GetHClkFreq.u32hcr_tbl)
+    boot_disp_tab                            0x00004c14   Data           3  treadmills.o(.rodata.boot_disp_tab)
+    [Anonymous Symbol]                       0x00004c14   Section        0  treadmills.o(.rodata.boot_disp_tab)
+    [Anonymous Symbol]                       0x00004c18   Section        0  sysctrl.o(.rodata.cst4)
+    disp_seq                                 0x00004c1c   Data           4  treadmills.o(.rodata.disp_seq)
+    [Anonymous Symbol]                       0x00004c1c   Section        0  treadmills.o(.rodata.disp_seq)
+    run_disp_tab                             0x00004c40   Data           3  treadmills.o(.rodata.run_disp_tab)
+    [Anonymous Symbol]                       0x00004c40   Section        0  treadmills.o(.rodata.run_disp_tab)
+    cmd_proc.prev_lower_st                   0x20000004   Data           1  uart_frame.o(.data.cmd_proc.prev_lower_st)
+    [Anonymous Symbol]                       0x20000004   Section        0  uart_frame.o(.data.cmd_proc.prev_lower_st)
+    cmd_proc.sync_speed_max_seen             0x20000006   Data           2  uart_frame.o(.data.cmd_proc.sync_speed_max_seen)
+    [Anonymous Symbol]                       0x20000006   Section        0  uart_frame.o(.data.cmd_proc.sync_speed_max_seen)
+    _mode                                    0x2000000a   Data           1  led_disp.o(.bss._mode)
+    [Anonymous Symbol]                       0x2000000a   Section        0  led_disp.o(.bss._mode)
+    buf                                      0x2000000d   Data           8  led_disp.o(.bss.buf)
+    [Anonymous Symbol]                       0x2000000d   Section        0  led_disp.o(.bss.buf)
+    cnt                                      0x20000015   Data           1  led_disp.o(.bss.cnt)
+    [Anonymous Symbol]                       0x20000015   Section        0  led_disp.o(.bss.cnt)
+    cnt                                      0x20000016   Data           1  beep.o(.bss.cnt)
+    [Anonymous Symbol]                       0x20000016   Section        0  beep.o(.bss.cnt)
+    cnt1                                     0x20000018   Data           2  my_pwm.o(.bss.cnt1)
+    [Anonymous Symbol]                       0x20000018   Section        0  my_pwm.o(.bss.cnt1)
+    cnt2                                     0x2000001a   Data           2  my_pwm.o(.bss.cnt2)
+    [Anonymous Symbol]                       0x2000001a   Section        0  my_pwm.o(.bss.cnt2)
+    cnt25                                    0x2000001c   Data           2  my_pwm.o(.bss.cnt25)
+    [Anonymous Symbol]                       0x2000001c   Section        0  my_pwm.o(.bss.cnt25)
+    cnt3                                     0x2000001e   Data           2  my_pwm.o(.bss.cnt3)
+    [Anonymous Symbol]                       0x2000001e   Section        0  my_pwm.o(.bss.cnt3)
+    cnt4                                     0x20000020   Data           2  my_pwm.o(.bss.cnt4)
+    [Anonymous Symbol]                       0x20000020   Section        0  my_pwm.o(.bss.cnt4)
+    cnt5                                     0x20000022   Data           2  my_pwm.o(.bss.cnt5)
+    [Anonymous Symbol]                       0x20000022   Section        0  my_pwm.o(.bss.cnt5)
+    new                                      0x20000043   Data           1  keypad.o(.bss.new)
+    [Anonymous Symbol]                       0x20000043   Section        0  keypad.o(.bss.new)
+    off                                      0x20000046   Data           2  beep.o(.bss.off)
+    [Anonymous Symbol]                       0x20000046   Section        0  beep.o(.bss.off)
+    old                                      0x20000048   Data           1  keypad.o(.bss.old)
+    [Anonymous Symbol]                       0x20000048   Section        0  keypad.o(.bss.old)
+    on                                       0x2000004a   Data           2  beep.o(.bss.on)
+    [Anonymous Symbol]                       0x2000004a   Section        0  beep.o(.bss.on)
+    ptrseg                                   0x20000054   Data           4  led_disp.o(.bss.ptrseg)
+    [Anonymous Symbol]                       0x20000054   Section        0  led_disp.o(.bss.ptrseg)
+    send_cnt                                 0x2000019d   Data           1  main.o(.bss.send_cnt)
+    [Anonymous Symbol]                       0x2000019d   Section        0  main.o(.bss.send_cnt)
+    ticks                                    0x200001b4   Data           2  beep.o(.bss.ticks)
+    [Anonymous Symbol]                       0x200001b4   Section        0  beep.o(.bss.ticks)
+    treadmills_disp_loop.cnt                 0x200001e8   Data           1  treadmills.o(.bss.treadmills_disp_loop.cnt)
+    [Anonymous Symbol]                       0x200001e8   Section        0  treadmills.o(.bss.treadmills_disp_loop.cnt)
+    treadmills_param_calc.distance           0x200001ec   Data           4  treadmills.o(.bss.treadmills_param_calc.distance)
+    [Anonymous Symbol]                       0x200001ec   Section        0  treadmills.o(.bss.treadmills_param_calc.distance)
+    treadmills_proc_loop.cnt                 0x200001f0   Data           1  treadmills.o(.bss.treadmills_proc_loop.cnt)
+    [Anonymous Symbol]                       0x200001f0   Section        0  treadmills.o(.bss.treadmills_proc_loop.cnt)
+    treadmills_proc_loop.proc_prev_status    0x200001f1   Data           1  treadmills.o(.bss.treadmills_proc_loop.proc_prev_status)
+    [Anonymous Symbol]                       0x200001f1   Section        0  treadmills.o(.bss.treadmills_proc_loop.proc_prev_status)
+    treadmills_proc_loop.timeout             0x200001f2   Data           1  treadmills.o(.bss.treadmills_proc_loop.timeout)
+    [Anonymous Symbol]                       0x200001f2   Section        0  treadmills.o(.bss.treadmills_proc_loop.timeout)
+    treadmills_proc_loop.val                 0x200001f3   Data           1  treadmills.o(.bss.treadmills_proc_loop.val)
+    [Anonymous Symbol]                       0x200001f3   Section        0  treadmills.o(.bss.treadmills_proc_loop.val)
+    uart_frame_loop.step                     0x20000205   Data           1  uart_frame.o(.bss.uart_frame_loop.step)
+    [Anonymous Symbol]                       0x20000205   Section        0  uart_frame.o(.bss.uart_frame_loop.step)
+    uart_frame_loop.sum_calc                 0x20000206   Data           1  uart_frame.o(.bss.uart_frame_loop.sum_calc)
+    [Anonymous Symbol]                       0x20000206   Section        0  uart_frame.o(.bss.uart_frame_loop.sum_calc)
+    w_cnt                                    0x20000219   Data           1  main.o(.bss.w_cnt)
+    [Anonymous Symbol]                       0x20000219   Section        0  main.o(.bss.w_cnt)
+    STACK                                    0x20000220   Section      512  startup_hc32f005.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$WCHAR32$ENUMINT$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x00000000   Data           0  startup_hc32f005.o(RESET)
+    Adc_IRQHandler                            - Undefined Weak Reference
+    ClkTrim_IRQHandler                        - Undefined Weak Reference
+    Dmac_IRQHandler                           - Undefined Weak Reference
+    Flash_IRQHandler                          - Undefined Weak Reference
+    I2c_IRQHandler                            - Undefined Weak Reference
+    Lvd_IRQHandler                            - Undefined Weak Reference
+    Pca_IRQHandler                            - Undefined Weak Reference
+    Pcnt_IRQHandler                           - Undefined Weak Reference
+    Port0_IRQHandler                          - Undefined Weak Reference
+    Port1_IRQHandler                          - Undefined Weak Reference
+    Port2_IRQHandler                          - Undefined Weak Reference
+    Port3_IRQHandler                          - Undefined Weak Reference
+    Ram_IRQHandler                            - Undefined Weak Reference
+    Spi_IRQHandler                            - Undefined Weak Reference
+    SysTick_IRQHandler                        - Undefined Weak Reference
+    Tim1_IRQHandler                           - Undefined Weak Reference
+    Tim3_IRQHandler                           - Undefined Weak Reference
+    Tim4_IRQHandler                           - Undefined Weak Reference
+    Tim5_IRQHandler                           - Undefined Weak Reference
+    Tim6_IRQHandler                           - Undefined Weak Reference
+    Uart0_IRQHandler                          - Undefined Weak Reference
+    Vc0_IRQHandler                            - Undefined Weak Reference
+    Vc1_IRQHandler                            - Undefined Weak Reference
+    Wdt_IRQHandler                            - Undefined Weak Reference
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    __Vectors_End                            0x000000c0   Data           0  startup_hc32f005.o(RESET)
+    __Vectors_Size                           0x000000c0   Number         0  startup_hc32f005.o ABSOLUTE
+    __main                                   0x000000c1   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x000000c1   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x000000c5   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x000000c9   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x000000c9   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x000000c9   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x000000c9   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x000000d1   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x000000d1   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    Reset_Handler                            0x000000d5   Thumb Code    26  startup_hc32f005.o(.text)
+    NMI_Handler                              0x000000ef   Thumb Code     2  startup_hc32f005.o(.text)
+    SVC_Handler                              0x000000f3   Thumb Code     2  startup_hc32f005.o(.text)
+    PendSV_Handler                           0x000000f5   Thumb Code     2  startup_hc32f005.o(.text)
+    Dummy_Handler                            0x000000f9   Thumb Code     0  startup_hc32f005.o(.text)
+    LPTIM_IRQHandler                         0x000000f9   Thumb Code     0  startup_hc32f005.o(.text)
+    LPUART_IRQHandler                        0x000000f9   Thumb Code     0  startup_hc32f005.o(.text)
+    RTC_IRQHandler                           0x000000f9   Thumb Code     0  startup_hc32f005.o(.text)
+    __aeabi_memset                           0x00000111   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x00000111   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x00000111   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x0000011f   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x0000011f   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x0000011f   Thumb Code     0  memseta.o(.text)
+    _memset$wrapper                          0x00000123   Thumb Code    18  memseta.o(.text)
+    __aeabi_fadd                             0x00000135   Thumb Code   162  fadd.o(.text)
+    __aeabi_fsub                             0x000001d7   Thumb Code     8  fadd.o(.text)
+    __aeabi_frsub                            0x000001df   Thumb Code     8  fadd.o(.text)
+    __aeabi_fmul                             0x000001e7   Thumb Code   122  fmul.o(.text)
+    __aeabi_dadd                             0x00000261   Thumb Code   328  dadd.o(.text)
+    __aeabi_dsub                             0x000003a9   Thumb Code    12  dadd.o(.text)
+    __aeabi_drsub                            0x000003b5   Thumb Code    12  dadd.o(.text)
+    __aeabi_dmul                             0x000003c5   Thumb Code   202  dmul.o(.text)
+    __aeabi_ddiv                             0x00000495   Thumb Code   234  ddiv.o(.text)
+    __aeabi_fcmple                           0x00000585   Thumb Code    28  fcmple.o(.text)
+    __aeabi_fcmplt                           0x000005a1   Thumb Code    28  fcmplt.o(.text)
+    __aeabi_fcmpge                           0x000005bd   Thumb Code    28  fcmpge.o(.text)
+    __aeabi_fcmpgt                           0x000005d9   Thumb Code    28  fcmpgt.o(.text)
+    __aeabi_dcmplt                           0x000005f5   Thumb Code    44  dcmplt.o(.text)
+    __aeabi_i2f                              0x00000621   Thumb Code    22  fflti.o(.text)
+    __aeabi_ui2f                             0x00000637   Thumb Code    14  ffltui.o(.text)
+    __aeabi_ui2d                             0x00000645   Thumb Code    24  dfltui.o(.text)
+    __aeabi_f2iz                             0x00000661   Thumb Code    50  ffixi.o(.text)
+    __aeabi_f2uiz                            0x00000693   Thumb Code    40  ffixui.o(.text)
+    __aeabi_d2uiz                            0x000006bd   Thumb Code    50  dfixui.o(.text)
+    __aeabi_f2d                              0x000006f9   Thumb Code    40  f2d.o(.text)
+    __aeabi_d2f                              0x00000721   Thumb Code    56  d2f.o(.text)
+    __aeabi_uidiv                            0x00000759   Thumb Code     0  uidiv_div0.o(.text)
+    __aeabi_uidivmod                         0x00000759   Thumb Code    62  uidiv_div0.o(.text)
+    __aeabi_llsl                             0x00000797   Thumb Code    32  llshl.o(.text)
+    _ll_shift_l                              0x00000797   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x000007b7   Thumb Code    34  llushr.o(.text)
+    _ll_ushift_r                             0x000007b7   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x000007d9   Thumb Code    38  llsshr.o(.text)
+    _ll_sshift_r                             0x000007d9   Thumb Code     0  llsshr.o(.text)
+    __I$use$fp                               0x000007ff   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x000007ff   Thumb Code    16  fepilogue.o(.text)
+    _float_epilogue                          0x0000080f   Thumb Code   114  fepilogue.o(.text)
+    _double_round                            0x00000881   Thumb Code    26  depilogue.o(.text)
+    _double_epilogue                         0x0000089b   Thumb Code   164  depilogue.o(.text)
+    __scatterload                            0x00000941   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000941   Thumb Code     0  init.o(.text)
+    ADC_IRQHandler                           0x00000965   Thumb Code     8  interrupts_hc32f005.o(.text.ADC_IRQHandler)
+    Adt_CHxXPortCfg                          0x0000096d   Thumb Code   510  adt.o(.text.Adt_CHxXPortCfg)
+    Adt_Init                                 0x00000b6b   Thumb Code   110  adt.o(.text.Adt_Init)
+    Adt_SetCompareValue                      0x00000bd9   Thumb Code   106  adt.o(.text.Adt_SetCompareValue)
+    Adt_SetPeriod                            0x00000c43   Thumb Code    20  adt.o(.text.Adt_SetPeriod)
+    Adt_StartCount                           0x00000c57   Thumb Code    20  adt.o(.text.Adt_StartCount)
+    App_AdvTimer4Init                        0x00000c6d   Thumb Code   140  my_pwm.o(.text.App_AdvTimer4Init)
+    App_AdvTimerPortInit                     0x00000cf9   Thumb Code    56  my_pwm.o(.text.App_AdvTimerPortInit)
+    App_BtTimerTest                          0x00000d31   Thumb Code   112  my_pwm.o(.text.App_BtTimerTest)
+    App_BtTimerTest2                         0x00000da5   Thumb Code   112  my_pwm.o(.text.App_BtTimerTest2)
+    App_ClkInit                              0x00000e1d   Thumb Code    44  main.o(.text.App_ClkInit)
+    App_PcaInit                              0x00000e49   Thumb Code    52  my_pwm.o(.text.App_PcaInit)
+    App_Rch4MHzTo24MHz                       0x00000edb   Thumb Code    60  main.o(.text.App_Rch4MHzTo24MHz)
+    Bt_ARRSet                                0x00000f55   Thumb Code   104  bt.o(.text.Bt_ARRSet)
+    Bt_ClearIntFlag                          0x00000fc9   Thumb Code    84  bt.o(.text.Bt_ClearIntFlag)
+    Bt_Cnt16Set                              0x00001029   Thumb Code   104  bt.o(.text.Bt_Cnt16Set)
+    Bt_EnableIrq                             0x000010a1   Thumb Code    88  bt.o(.text.Bt_EnableIrq)
+    Bt_GetIntFlag                            0x000010f9   Thumb Code    96  bt.o(.text.Bt_GetIntFlag)
+    Bt_Init                                  0x00001165   Thumb Code   400  bt.o(.text.Bt_Init)
+    Bt_Run                                   0x000012f5   Thumb Code    84  bt.o(.text.Bt_Run)
+    CLKTRIM_IRQHandler                       0x00001355   Thumb Code     8  interrupts_hc32f005.o(.text.CLKTRIM_IRQHandler)
+    Create_Queue                             0x0000135d   Thumb Code    34  queue.o(.text.Create_Queue)
+    DMAC_IRQHandler                          0x0000137f   Thumb Code     8  interrupts_hc32f005.o(.text.DMAC_IRQHandler)
+    Denter_queue                             0x00001387   Thumb Code    74  queue.o(.text.Denter_queue)
+    EnableNvic                               0x000013d1   Thumb Code    58  interrupts_hc32f005.o(.text.EnableNvic)
+    Enter_queue                              0x0000140b   Thumb Code    74  queue.o(.text.Enter_queue)
+    FLASH_RAM_IRQHandler                     0x00001455   Thumb Code    12  interrupts_hc32f005.o(.text.FLASH_RAM_IRQHandler)
+    Flash_Init                               0x00001461   Thumb Code   248  flash.o(.text.Flash_Init)
+    Flash_WaitCycle                          0x00001561   Thumb Code    44  flash.o(.text.Flash_WaitCycle)
+    GetBit                                   0x0000159d   Thumb Code    22  ddl.o(.text.GetBit)
+    GpioInit                                 0x000015b3   Thumb Code   138  my_gpio.o(.text.GpioInit)
+    Gpio_GetInputIO                          0x0000163d   Thumb Code    24  gpio.o(.text.Gpio_GetInputIO)
+    Gpio_Init                                0x00001659   Thumb Code   144  gpio.o(.text.Gpio_Init)
+    Gpio_SetAfMode                           0x00001701   Thumb Code    28  gpio.o(.text.Gpio_SetAfMode)
+    Gpio_SfHClkOutputCfg                     0x00001721   Thumb Code    52  gpio.o(.text.Gpio_SfHClkOutputCfg)
+    Gpio_WriteOutputIO                       0x00001759   Thumb Code    40  gpio.o(.text.Gpio_WriteOutputIO)
+    HardFault_Handler                        0x00001785   Thumb Code    22  interrupts_hc32f005.o(.text.HardFault_Handler)
+    I2C_IRQHandler                           0x0000179b   Thumb Code     8  interrupts_hc32f005.o(.text.I2C_IRQHandler)
+    Is_Full_Queue                            0x000017cb   Thumb Code    54  queue.o(.text.Is_Full_Queue)
+    KeyPad_Scan                              0x00001801   Thumb Code   312  keypad.o(.text.KeyPad_Scan)
+    LVD_IRQHandler                           0x0000195d   Thumb Code     8  interrupts_hc32f005.o(.text.LVD_IRQHandler)
+    PCA_IRQHandler                           0x00001965   Thumb Code     8  interrupts_hc32f005.o(.text.PCA_IRQHandler)
+    PCNT_IRQHandler                          0x0000196d   Thumb Code     8  interrupts_hc32f005.o(.text.PCNT_IRQHandler)
+    PORT0_IRQHandler                         0x00001975   Thumb Code     8  interrupts_hc32f005.o(.text.PORT0_IRQHandler)
+    PORT1_IRQHandler                         0x0000197d   Thumb Code     8  interrupts_hc32f005.o(.text.PORT1_IRQHandler)
+    PORT2_IRQHandler                         0x00001985   Thumb Code     8  interrupts_hc32f005.o(.text.PORT2_IRQHandler)
+    PORT3_IRQHandler                         0x0000198d   Thumb Code     8  interrupts_hc32f005.o(.text.PORT3_IRQHandler)
+    RF433M_Init                              0x00001995   Thumb Code     8  decode.o(.text.RF433M_Init)
+    RF433M_RecevieDecode                     0x000019a1   Thumb Code  1072  decode.o(.text.RF433M_RecevieDecode)
+    SPI_IRQHandler                           0x00001e1d   Thumb Code     8  interrupts_hc32f005.o(.text.SPI_IRQHandler)
+    SetBit                                   0x00001e25   Thumb Code    54  ddl.o(.text.SetBit)
+    SysTick_Handler                          0x00001e5b   Thumb Code     8  interrupts_hc32f005.o(.text.SysTick_Handler)
+    Sysctrl_ClkInit                          0x00001e63   Thumb Code   110  sysctrl.o(.text.Sysctrl_ClkInit)
+    Sysctrl_ClkSourceEnable                  0x00001ed1   Thumb Code   292  sysctrl.o(.text.Sysctrl_ClkSourceEnable)
+    Sysctrl_GetHClkFreq                      0x00001ff9   Thumb Code   284  sysctrl.o(.text.Sysctrl_GetHClkFreq)
+    Sysctrl_GetPClkFreq                      0x00002131   Thumb Code    36  sysctrl.o(.text.Sysctrl_GetPClkFreq)
+    Sysctrl_SetHCLKDiv                       0x00002155   Thumb Code    36  sysctrl.o(.text.Sysctrl_SetHCLKDiv)
+    Sysctrl_SetPCLKDiv                       0x00002179   Thumb Code    36  sysctrl.o(.text.Sysctrl_SetPCLKDiv)
+    Sysctrl_SetPeripheralGate                0x0000219d   Thumb Code    28  sysctrl.o(.text.Sysctrl_SetPeripheralGate)
+    Sysctrl_SetRCHTrim                       0x000021bd   Thumb Code    36  sysctrl.o(.text.Sysctrl_SetRCHTrim)
+    Sysctrl_SetRCLStableTime                 0x000021ed   Thumb Code    36  sysctrl.o(.text.Sysctrl_SetRCLStableTime)
+    Sysctrl_SetRCLTrim                       0x00002211   Thumb Code    36  sysctrl.o(.text.Sysctrl_SetRCLTrim)
+    Sysctrl_SetXTHStableTime                 0x00002245   Thumb Code    32  sysctrl.o(.text.Sysctrl_SetXTHStableTime)
+    Sysctrl_SysClkSwitch                     0x00002265   Thumb Code    48  sysctrl.o(.text.Sysctrl_SysClkSwitch)
+    Sysctrl_XTHDriverCfg                     0x00002299   Thumb Code    32  sysctrl.o(.text.Sysctrl_XTHDriverCfg)
+    SystemCoreClockUpdate                    0x000022bd   Thumb Code    12  system_hc32f005.o(.text.SystemCoreClockUpdate)
+    SystemInit                               0x000022cd   Thumb Code     8  system_hc32f005.o(.text.SystemInit)
+    TIM0_IRQHandler                          0x000022d5   Thumb Code     8  interrupts_hc32f005.o(.text.TIM0_IRQHandler)
+    TIM1_IRQHandler                          0x000022dd   Thumb Code     8  interrupts_hc32f005.o(.text.TIM1_IRQHandler)
+    TIM2_IRQHandler                          0x000022e5   Thumb Code     8  interrupts_hc32f005.o(.text.TIM2_IRQHandler)
+    TIM3_IRQHandler                          0x000022ed   Thumb Code     8  interrupts_hc32f005.o(.text.TIM3_IRQHandler)
+    TIM4_IRQHandler                          0x000022f5   Thumb Code     8  interrupts_hc32f005.o(.text.TIM4_IRQHandler)
+    TIM5_IRQHandler                          0x000022fd   Thumb Code     8  interrupts_hc32f005.o(.text.TIM5_IRQHandler)
+    TIM6_IRQHandler                          0x00002305   Thumb Code     8  interrupts_hc32f005.o(.text.TIM6_IRQHandler)
+    Tim0_IRQHandler                          0x0000230d   Thumb Code   216  my_pwm.o(.text.Tim0_IRQHandler)
+    Tim2_IRQHandler                          0x00002419   Thumb Code    28  my_pwm.o(.text.Tim2_IRQHandler)
+    UART0_IRQHandler                         0x00002435   Thumb Code     8  interrupts_hc32f005.o(.text.UART0_IRQHandler)
+    UART1_IRQHandler                         0x0000243d   Thumb Code     8  interrupts_hc32f005.o(.text.UART1_IRQHandler)
+    UART_Send_Buf                            0x00002445   Thumb Code    52  uart_frame.o(.text.UART_Send_Buf)
+    Uart1_IRQHandler                         0x00002479   Thumb Code    64  uart_frame.o(.text.Uart1_IRQHandler)
+    Uart_ClrStatus                           0x000024c1   Thumb Code    28  uart.o(.text.Uart_ClrStatus)
+    Uart_EnableFunc                          0x000024dd   Thumb Code    26  uart.o(.text.Uart_EnableFunc)
+    Uart_EnableIrq                           0x000024f7   Thumb Code    26  uart.o(.text.Uart_EnableIrq)
+    Uart_GetStatus                           0x00002511   Thumb Code    38  uart.o(.text.Uart_GetStatus)
+    Uart_Init                                0x00002537   Thumb Code    42  uart.o(.text.Uart_Init)
+    Uart_ReceiveData                         0x00002561   Thumb Code    14  uart.o(.text.Uart_ReceiveData)
+    Uart_SendDataPoll                        0x0000256f   Thumb Code    56  uart.o(.text.Uart_SendDataPoll)
+    Uart_SetBaudRate                         0x000025a9   Thumb Code   116  uart.o(.text.Uart_SetBaudRate)
+    VC0_IRQHandler                           0x0000261d   Thumb Code     8  interrupts_hc32f005.o(.text.VC0_IRQHandler)
+    VC1_IRQHandler                           0x00002625   Thumb Code     8  interrupts_hc32f005.o(.text.VC1_IRQHandler)
+    WDT_IRQHandler                           0x0000262d   Thumb Code     8  interrupts_hc32f005.o(.text.WDT_IRQHandler)
+    aip1628_init                             0x000027c1   Thumb Code    74  aip1628.o(.text.aip1628_init)
+    aip1628_write_byte                       0x0000280b   Thumb Code    64  aip1628.o(.text.aip1628_write_byte)
+    beep_force_stop                          0x0000284d   Thumb Code    16  beep.o(.text.beep_force_stop)
+    beep_set                                 0x0000285d   Thumb Code   104  beep.o(.text.beep_set)
+    beep_sound_proc                          0x000028c9   Thumb Code   140  beep.o(.text.beep_sound_proc)
+    boot_time                                0x00002969   Thumb Code   144  treadmills.o(.text.boot_time)
+    cmd_proc                                 0x00002cf9   Thumb Code   340  uart_frame.o(.text.cmd_proc)
+    ddl_memclr                               0x00002e5d   Thumb Code    50  ddl.o(.text.ddl_memclr)
+    delay1ms                                 0x00002e91   Thumb Code   100  ddl.o(.text.delay1ms)
+    disp_update                              0x00002f09   Thumb Code    80  indecate.o(.text.disp_update)
+    flash_init                               0x00002f5d   Thumb Code    10  my_flash.o(.text.flash_init)
+    keypad_continue_proc                     0x00002f69   Thumb Code   104  keypad_fun.o(.text.keypad_continue_proc)
+    keypad_short_proc                        0x00002fd5   Thumb Code   508  keypad_fun.o(.text.keypad_short_proc)
+    led_display_init                         0x000031e9   Thumb Code    16  led_disp.o(.text.led_display_init)
+    main                                     0x000031fd   Thumb Code   260  main.o(.text.main)
+    param_init                               0x00003321   Thumb Code    16  param.o(.text.param_init)
+    read_beep_status                         0x00003335   Thumb Code    16  my_flash.o(.text.read_beep_status)
+    save_param                               0x00003345   Thumb Code    28  my_flash.o(.text.save_param)
+    seg_disp_proc                            0x0000336d   Thumb Code   472  led_disp.o(.text.seg_disp_proc)
+    set_aip1628_lighte_scale                 0x0000354d   Thumb Code    50  aip1628.o(.text.set_aip1628_lighte_scale)
+    set_bit_seg                              0x00003581   Thumb Code    32  led_disp.o(.text.set_bit_seg)
+    set_pwm_beep                             0x000035a5   Thumb Code    28  my_pwm.o(.text.set_pwm_beep)
+    set_seg_mode                             0x000035c9   Thumb Code    28  led_disp.o(.text.set_seg_mode)
+    set_seg_temp                             0x000035ed   Thumb Code   144  led_disp.o(.text.set_seg_temp)
+    set_seg_two                              0x0000367d   Thumb Code   144  led_disp.o(.text.set_seg_two)
+    set_seg_two_sc                           0x00003711   Thumb Code   144  led_disp.o(.text.set_seg_two_sc)
+    set_seg_two_sp                           0x000037a9   Thumb Code   144  led_disp.o(.text.set_seg_two_sp)
+    task_1000ms                              0x00003845   Thumb Code   112  main.o(.text.task_1000ms)
+    task_100ms                               0x000038c1   Thumb Code    16  main.o(.text.task_100ms)
+    task_10ms                                0x000038d1   Thumb Code    16  main.o(.text.task_10ms)
+    task_250ms                               0x000038e1   Thumb Code   132  main.o(.text.task_250ms)
+    task_300ms                               0x00003965   Thumb Code    44  main.o(.text.task_300ms)
+    task_500ms                               0x00003999   Thumb Code    28  main.o(.text.task_500ms)
+    treadmills_disp_loop                     0x000039b5   Thumb Code   272  treadmills.o(.text.treadmills_disp_loop)
+    treadmills_display                       0x00003ad1   Thumb Code   984  treadmills.o(.text.treadmills_display)
+    treadmills_init                          0x00003ee5   Thumb Code    36  treadmills.o(.text.treadmills_init)
+    treadmills_param_calc                    0x00003f0d   Thumb Code   580  treadmills.o(.text.treadmills_param_calc)
+    treadmills_proc_loop                     0x00004179   Thumb Code  1860  treadmills.o(.text.treadmills_proc_loop)
+    uart0_init                               0x000048e9   Thumb Code    44  uart_frame.o(.text.uart0_init)
+    uart_frame_init                          0x00004919   Thumb Code    16  uart_frame.o(.text.uart_frame_init)
+    uart_frame_loop                          0x0000492d   Thumb Code   252  uart_frame.o(.text.uart_frame_loop)
+    uart_frame_tx                            0x00004a3d   Thumb Code   132  uart_frame.o(.text.uart_frame_tx)
+    uart_frame_tx_d1                         0x00004ac1   Thumb Code   140  uart_frame.o(.text.uart_frame_tx_d1)
+    __ARM_clz                                0x00004bb5   Thumb Code    46  depilogue.o(i.__ARM_clz)
+    __scatterload_copy                       0x00004be3   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00004bf1   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00004bf3   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    pu32PcgTimer4M                           0x00004c20   Data          32  flash.o(.rodata.pu32PcgTimer4M)
+    seg_num                                  0x00004c43   Data          13  7_segment.o(.rodata.seg_num)
+    Region$$Table$$Base                      0x00004c50   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00004c70   Number         0  anon$$obj.o(Region$$Table)
+    SystemCoreClock                          0x20000000   Data           4  system_hc32f005.o(.data.SystemCoreClock)
+    FOHA_cont_cnt                            0x20000008   Data           1  keypad.o(.bss.FOHA_cont_cnt)
+    PAUSE_FLAG                               0x20000009   Data           1  keypad_fun.o(.bss.PAUSE_FLAG)
+    booktime_cnt                             0x2000000b   Data           1  treadmills.o(.bss.booktime_cnt)
+    booktime_en                              0x2000000c   Data           1  treadmills.o(.bss.booktime_en)
+    delay_add                                0x20000024   Data           1  keypad.o(.bss.delay_add)
+    ee_param                                 0x20000025   Data           2  my_flash.o(.bss.ee_param)
+    error_times                              0x20000027   Data           1  treadmills.o(.bss.error_times)
+    first_code1                              0x20000028   Data           1  decode.o(.bss.first_code1)
+    first_code2                              0x20000029   Data           1  decode.o(.bss.first_code2)
+    first_code3                              0x2000002a   Data           1  decode.o(.bss.first_code3)
+    high_width_cnt                           0x2000002c   Data           2  decode.o(.bss.high_width_cnt)
+    indecate                                 0x2000002e   Data           5  indecate.o(.bss.indecate)
+    indecate_update_flag                     0x20000033   Data           1  indecate.o(.bss.indecate_update_flag)
+    is_disable_beep                          0x20000034   Data           1  beep.o(.bss.is_disable_beep)
+    key                                      0x20000035   Data           1  keypad.o(.bss.key)
+    key_delay_dede                           0x20000036   Data           2  keypad.o(.bss.key_delay_dede)
+    key_mask                                 0x20000038   Data           1  keypad.o(.bss.key_mask)
+    key_value                                0x20000039   Data           1  decode.o(.bss.key_value)
+    low_width_cnt                            0x2000003a   Data           2  decode.o(.bss.low_width_cnt)
+    main_tesk                                0x2000003c   Data           1  main.o(.bss.main_tesk)
+    ms1000_flag                              0x2000003d   Data           1  my_pwm.o(.bss.ms1000_flag)
+    ms100_flag                               0x2000003e   Data           1  my_pwm.o(.bss.ms100_flag)
+    ms10_flag                                0x2000003f   Data           1  my_pwm.o(.bss.ms10_flag)
+    ms250_flag                               0x20000040   Data           1  my_pwm.o(.bss.ms250_flag)
+    ms300_flag                               0x20000041   Data           1  my_pwm.o(.bss.ms300_flag)
+    ms500_flag                               0x20000042   Data           1  my_pwm.o(.bss.ms500_flag)
+    no_key_cnt                               0x20000044   Data           2  main.o(.bss.no_key_cnt)
+    old_bit                                  0x20000049   Data           1  decode.o(.bss.old_bit)
+    param                                    0x2000004c   Data           4  param.o(.bss.param)
+    poweron_send_flag                        0x20000050   Data           1  main.o(.bss.poweron_send_flag)
+    rec_bit_cnt                              0x20000058   Data           1  decode.o(.bss.rec_bit_cnt)
+    rf_ok                                    0x20000059   Data           1  decode.o(.bss.rf_ok)
+    rf_ok_first                              0x2000005a   Data           1  decode.o(.bss.rf_ok_first)
+    rf_ok_second                             0x2000005b   Data           1  decode.o(.bss.rf_ok_second)
+    rx_buf                                   0x2000005c   Data         300  uart_frame.o(.bss.rx_buf)
+    rx_queue                                 0x20000188   Data          16  uart_frame.o(.bss.rx_queue)
+    s_tim                                    0x20000198   Data           2  decode.o(.bss.s_tim)
+    second_code1                             0x2000019a   Data           1  decode.o(.bss.second_code1)
+    second_code2                             0x2000019b   Data           1  decode.o(.bss.second_code2)
+    second_code3                             0x2000019c   Data           1  decode.o(.bss.second_code3)
+    storage_data                             0x200001a0   Data          16  my_flash.o(.bss.storage_data)
+    syn_ok                                   0x200001b0   Data           1  decode.o(.bss.syn_ok)
+    temp_code1                               0x200001b1   Data           1  decode.o(.bss.temp_code1)
+    temp_code2                               0x200001b2   Data           1  decode.o(.bss.temp_code2)
+    temp_code3                               0x200001b3   Data           1  decode.o(.bss.temp_code3)
+    tl_flag                                  0x200001b6   Data           1  keypad.o(.bss.tl_flag)
+    treadmills                               0x200001b8   Data          48  treadmills.o(.bss.treadmills)
+    uart_frame                               0x200001f4   Data          17  uart_frame.o(.bss.uart_frame)
+    uart_time_error                          0x20000207   Data           1  my_pwm.o(.bss.uart_time_error)
+    uart_tx_frame                            0x20000208   Data          17  uart_frame.o(.bss.uart_tx_frame)
+    write_flag                               0x2000021a   Data           1  keypad_fun.o(.bss.write_flag)
+    __initial_sp                             0x20000420   Data           0  startup_hc32f005.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x000000c1
+
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00004c78, Max: 0x00008000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004c70, Max: 0x00008000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x000000c0   Data   RO            3    RESET               startup_hc32f005.o
+    0x000000c0   0x000000c0   0x00000000   Code   RO         1139  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x000000c0   0x000000c0   0x00000004   Code   RO         1184    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x000000c4   0x000000c4   0x00000004   Code   RO         1187    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         1189    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x000000c8   0x000000c8   0x00000000   Code   RO         1191    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x000000c8   0x000000c8   0x00000008   Code   RO         1192    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO         1194    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x000000d0   0x000000d0   0x00000000   Code   RO         1196    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x000000d0   0x000000d0   0x00000004   Code   RO         1185    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x000000d4   0x000000d4   0x0000003c   Code   RO            4    .text               startup_hc32f005.o
+    0x00000110   0x00000110   0x00000024   Code   RO         1146    .text               mc_p.l(memseta.o)
+    0x00000134   0x00000134   0x000000b2   Code   RO         1148    .text               mf_p.l(fadd.o)
+    0x000001e6   0x000001e6   0x0000007a   Code   RO         1150    .text               mf_p.l(fmul.o)
+    0x00000260   0x00000260   0x00000164   Code   RO         1152    .text               mf_p.l(dadd.o)
+    0x000003c4   0x000003c4   0x000000d0   Code   RO         1154    .text               mf_p.l(dmul.o)
+    0x00000494   0x00000494   0x000000f0   Code   RO         1156    .text               mf_p.l(ddiv.o)
+    0x00000584   0x00000584   0x0000001c   Code   RO         1158    .text               mf_p.l(fcmple.o)
+    0x000005a0   0x000005a0   0x0000001c   Code   RO         1160    .text               mf_p.l(fcmplt.o)
+    0x000005bc   0x000005bc   0x0000001c   Code   RO         1162    .text               mf_p.l(fcmpge.o)
+    0x000005d8   0x000005d8   0x0000001c   Code   RO         1164    .text               mf_p.l(fcmpgt.o)
+    0x000005f4   0x000005f4   0x0000002c   Code   RO         1166    .text               mf_p.l(dcmplt.o)
+    0x00000620   0x00000620   0x00000016   Code   RO         1168    .text               mf_p.l(fflti.o)
+    0x00000636   0x00000636   0x0000000e   Code   RO         1170    .text               mf_p.l(ffltui.o)
+    0x00000644   0x00000644   0x0000001c   Code   RO         1172    .text               mf_p.l(dfltui.o)
+    0x00000660   0x00000660   0x00000032   Code   RO         1174    .text               mf_p.l(ffixi.o)
+    0x00000692   0x00000692   0x00000028   Code   RO         1176    .text               mf_p.l(ffixui.o)
+    0x000006ba   0x000006ba   0x00000002   PAD
+    0x000006bc   0x000006bc   0x0000003c   Code   RO         1178    .text               mf_p.l(dfixui.o)
+    0x000006f8   0x000006f8   0x00000028   Code   RO         1180    .text               mf_p.l(f2d.o)
+    0x00000720   0x00000720   0x00000038   Code   RO         1182    .text               mf_p.l(d2f.o)
+    0x00000758   0x00000758   0x0000003e   Code   RO         1200    .text               mc_p.l(uidiv_div0.o)
+    0x00000796   0x00000796   0x00000020   Code   RO         1206    .text               mc_p.l(llshl.o)
+    0x000007b6   0x000007b6   0x00000022   Code   RO         1208    .text               mc_p.l(llushr.o)
+    0x000007d8   0x000007d8   0x00000026   Code   RO         1210    .text               mc_p.l(llsshr.o)
+    0x000007fe   0x000007fe   0x00000000   Code   RO         1212    .text               mc_p.l(iusefp.o)
+    0x000007fe   0x000007fe   0x00000082   Code   RO         1213    .text               mf_p.l(fepilogue.o)
+    0x00000880   0x00000880   0x000000be   Code   RO         1215    .text               mf_p.l(depilogue.o)
+    0x0000093e   0x0000093e   0x00000002   PAD
+    0x00000940   0x00000940   0x00000024   Code   RO         1219    .text               mc_p.l(init.o)
+    0x00000964   0x00000964   0x00000008   Code   RO           61    .text.ADC_IRQHandler  interrupts_hc32f005.o
+    0x0000096c   0x0000096c   0x000001fe   Code   RO          572    .text.Adt_CHxXPortCfg  adt.o
+    0x00000b6a   0x00000b6a   0x0000006e   Code   RO          594    .text.Adt_Init      adt.o
+    0x00000bd8   0x00000bd8   0x0000006a   Code   RO          620    .text.Adt_SetCompareValue  adt.o
+    0x00000c42   0x00000c42   0x00000014   Code   RO          612    .text.Adt_SetPeriod  adt.o
+    0x00000c56   0x00000c56   0x00000014   Code   RO          598    .text.Adt_StartCount  adt.o
+    0x00000c6a   0x00000c6a   0x00000002   PAD
+    0x00000c6c   0x00000c6c   0x0000008c   Code   RO          163    .text.App_AdvTimer4Init  my_pwm.o
+    0x00000cf8   0x00000cf8   0x00000038   Code   RO          161    .text.App_AdvTimerPortInit  my_pwm.o
+    0x00000d30   0x00000d30   0x00000074   Code   RO          167    .text.App_BtTimerTest  my_pwm.o
+    0x00000da4   0x00000da4   0x00000078   Code   RO          169    .text.App_BtTimerTest2  my_pwm.o
+    0x00000e1c   0x00000e1c   0x0000002c   Code   RO           94    .text.App_ClkInit   main.o
+    0x00000e48   0x00000e48   0x00000040   Code   RO          175    .text.App_PcaInit   my_pwm.o
+    0x00000e88   0x00000e88   0x00000052   Code   RO          370    .text.App_PortInit  uart_frame.o
+    0x00000eda   0x00000eda   0x0000003c   Code   RO           96    .text.App_Rch4MHzTo24MHz  main.o
+    0x00000f16   0x00000f16   0x00000002   PAD
+    0x00000f18   0x00000f18   0x0000003c   Code   RO          372    .text.App_UartInit  uart_frame.o
+    0x00000f54   0x00000f54   0x00000074   Code   RO          674    .text.Bt_ARRSet     bt.o
+    0x00000fc8   0x00000fc8   0x00000060   Code   RO          662    .text.Bt_ClearIntFlag  bt.o
+    0x00001028   0x00001028   0x00000078   Code   RO          676    .text.Bt_Cnt16Set   bt.o
+    0x000010a0   0x000010a0   0x00000058   Code   RO          664    .text.Bt_EnableIrq  bt.o
+    0x000010f8   0x000010f8   0x0000006c   Code   RO          660    .text.Bt_GetIntFlag  bt.o
+    0x00001164   0x00001164   0x00000190   Code   RO          668    .text.Bt_Init       bt.o
+    0x000012f4   0x000012f4   0x00000060   Code   RO          670    .text.Bt_Run        bt.o
+    0x00001354   0x00001354   0x00000008   Code   RO           73    .text.CLKTRIM_IRQHandler  interrupts_hc32f005.o
+    0x0000135c   0x0000135c   0x00000022   Code   RO          438    .text.Create_Queue  queue.o
+    0x0000137e   0x0000137e   0x00000008   Code   RO           33    .text.DMAC_IRQHandler  interrupts_hc32f005.o
+    0x00001386   0x00001386   0x0000004a   Code   RO          444    .text.Denter_queue  queue.o
+    0x000013d0   0x000013d0   0x0000003a   Code   RO           11    .text.EnableNvic    interrupts_hc32f005.o
+    0x0000140a   0x0000140a   0x0000004a   Code   RO          442    .text.Enter_queue   queue.o
+    0x00001454   0x00001454   0x0000000c   Code   RO           71    .text.FLASH_RAM_IRQHandler  interrupts_hc32f005.o
+    0x00001460   0x00001460   0x00000100   Code   RO          753    .text.Flash_Init    flash.o
+    0x00001560   0x00001560   0x0000003c   Code   RO          769    .text.Flash_WaitCycle  flash.o
+    0x0000159c   0x0000159c   0x00000016   Code   RO          736    .text.GetBit        ddl.o
+    0x000015b2   0x000015b2   0x0000008a   Code   RO          153    .text.GpioInit      my_gpio.o
+    0x0000163c   0x0000163c   0x0000001c   Code   RO          783    .text.Gpio_GetInputIO  gpio.o
+    0x00001658   0x00001658   0x000000a8   Code   RO          781    .text.Gpio_Init     gpio.o
+    0x00001700   0x00001700   0x00000020   Code   RO          793    .text.Gpio_SetAfMode  gpio.o
+    0x00001720   0x00001720   0x00000038   Code   RO          807    .text.Gpio_SfHClkOutputCfg  gpio.o
+    0x00001758   0x00001758   0x0000002c   Code   RO          787    .text.Gpio_WriteOutputIO  gpio.o
+    0x00001784   0x00001784   0x00000016   Code   RO           21    .text.HardFault_Handler  interrupts_hc32f005.o
+    0x0000179a   0x0000179a   0x00000008   Code   RO           43    .text.I2C_IRQHandler  interrupts_hc32f005.o
+    0x000017a2   0x000017a2   0x00000028   Code   RO          446    .text.Is_Empty_Queue  queue.o
+    0x000017ca   0x000017ca   0x00000036   Code   RO          440    .text.Is_Full_Queue  queue.o
+    0x00001800   0x00001800   0x0000015c   Code   RO          332    .text.KeyPad_Scan   keypad.o
+    0x0000195c   0x0000195c   0x00000008   Code   RO           69    .text.LVD_IRQHandler  interrupts_hc32f005.o
+    0x00001964   0x00001964   0x00000008   Code   RO           57    .text.PCA_IRQHandler  interrupts_hc32f005.o
+    0x0000196c   0x0000196c   0x00000008   Code   RO           63    .text.PCNT_IRQHandler  interrupts_hc32f005.o
+    0x00001974   0x00001974   0x00000008   Code   RO           25    .text.PORT0_IRQHandler  interrupts_hc32f005.o
+    0x0000197c   0x0000197c   0x00000008   Code   RO           27    .text.PORT1_IRQHandler  interrupts_hc32f005.o
+    0x00001984   0x00001984   0x00000008   Code   RO           29    .text.PORT2_IRQHandler  interrupts_hc32f005.o
+    0x0000198c   0x0000198c   0x00000008   Code   RO           31    .text.PORT3_IRQHandler  interrupts_hc32f005.o
+    0x00001994   0x00001994   0x0000000c   Code   RO          405    .text.RF433M_Init   decode.o
+    0x000019a0   0x000019a0   0x0000047c   Code   RO          407    .text.RF433M_RecevieDecode  decode.o
+    0x00001e1c   0x00001e1c   0x00000008   Code   RO           41    .text.SPI_IRQHandler  interrupts_hc32f005.o
+    0x00001e24   0x00001e24   0x00000036   Code   RO          734    .text.SetBit        ddl.o
+    0x00001e5a   0x00001e5a   0x00000008   Code   RO           23    .text.SysTick_Handler  interrupts_hc32f005.o
+    0x00001e62   0x00001e62   0x0000006e   Code   RO          997    .text.Sysctrl_ClkInit  sysctrl.o
+    0x00001ed0   0x00001ed0   0x00000128   Code   RO          981    .text.Sysctrl_ClkSourceEnable  sysctrl.o
+    0x00001ff8   0x00001ff8   0x00000138   Code   RO          993    .text.Sysctrl_GetHClkFreq  sysctrl.o
+    0x00002130   0x00002130   0x00000024   Code   RO          995    .text.Sysctrl_GetPClkFreq  sysctrl.o
+    0x00002154   0x00002154   0x00000024   Code   RO          999    .text.Sysctrl_SetHCLKDiv  sysctrl.o
+    0x00002178   0x00002178   0x00000024   Code   RO         1001    .text.Sysctrl_SetPCLKDiv  sysctrl.o
+    0x0000219c   0x0000219c   0x00000020   Code   RO         1011    .text.Sysctrl_SetPeripheralGate  sysctrl.o
+    0x000021bc   0x000021bc   0x00000030   Code   RO         1005    .text.Sysctrl_SetRCHTrim  sysctrl.o
+    0x000021ec   0x000021ec   0x00000024   Code   RO          989    .text.Sysctrl_SetRCLStableTime  sysctrl.o
+    0x00002210   0x00002210   0x00000034   Code   RO         1009    .text.Sysctrl_SetRCLTrim  sysctrl.o
+    0x00002244   0x00002244   0x00000020   Code   RO          987    .text.Sysctrl_SetXTHStableTime  sysctrl.o
+    0x00002264   0x00002264   0x00000034   Code   RO          991    .text.Sysctrl_SysClkSwitch  sysctrl.o
+    0x00002298   0x00002298   0x00000024   Code   RO          985    .text.Sysctrl_XTHDriverCfg  sysctrl.o
+    0x000022bc   0x000022bc   0x00000010   Code   RO           82    .text.SystemCoreClockUpdate  system_hc32f005.o
+    0x000022cc   0x000022cc   0x00000008   Code   RO           84    .text.SystemInit    system_hc32f005.o
+    0x000022d4   0x000022d4   0x00000008   Code   RO           45    .text.TIM0_IRQHandler  interrupts_hc32f005.o
+    0x000022dc   0x000022dc   0x00000008   Code   RO           47    .text.TIM1_IRQHandler  interrupts_hc32f005.o
+    0x000022e4   0x000022e4   0x00000008   Code   RO           49    .text.TIM2_IRQHandler  interrupts_hc32f005.o
+    0x000022ec   0x000022ec   0x00000008   Code   RO           35    .text.TIM3_IRQHandler  interrupts_hc32f005.o
+    0x000022f4   0x000022f4   0x00000008   Code   RO           51    .text.TIM4_IRQHandler  interrupts_hc32f005.o
+    0x000022fc   0x000022fc   0x00000008   Code   RO           53    .text.TIM5_IRQHandler  interrupts_hc32f005.o
+    0x00002304   0x00002304   0x00000008   Code   RO           55    .text.TIM6_IRQHandler  interrupts_hc32f005.o
+    0x0000230c   0x0000230c   0x0000010c   Code   RO          171    .text.Tim0_IRQHandler  my_pwm.o
+    0x00002418   0x00002418   0x0000001c   Code   RO          173    .text.Tim2_IRQHandler  my_pwm.o
+    0x00002434   0x00002434   0x00000008   Code   RO           37    .text.UART0_IRQHandler  interrupts_hc32f005.o
+    0x0000243c   0x0000243c   0x00000008   Code   RO           39    .text.UART1_IRQHandler  interrupts_hc32f005.o
+    0x00002444   0x00002444   0x00000034   Code   RO          376    .text.UART_Send_Buf  uart_frame.o
+    0x00002478   0x00002478   0x00000048   Code   RO          374    .text.Uart1_IRQHandler  uart_frame.o
+    0x000024c0   0x000024c0   0x0000001c   Code   RO         1077    .text.Uart_ClrStatus  uart.o
+    0x000024dc   0x000024dc   0x0000001a   Code   RO         1067    .text.Uart_EnableFunc  uart.o
+    0x000024f6   0x000024f6   0x0000001a   Code   RO         1051    .text.Uart_EnableIrq  uart.o
+    0x00002510   0x00002510   0x00000026   Code   RO         1073    .text.Uart_GetStatus  uart.o
+    0x00002536   0x00002536   0x0000002a   Code   RO         1087    .text.Uart_Init     uart.o
+    0x00002560   0x00002560   0x0000000e   Code   RO         1085    .text.Uart_ReceiveData  uart.o
+    0x0000256e   0x0000256e   0x00000038   Code   RO         1079    .text.Uart_SendDataPoll  uart.o
+    0x000025a6   0x000025a6   0x00000002   PAD
+    0x000025a8   0x000025a8   0x00000074   Code   RO         1065    .text.Uart_SetBaudRate  uart.o
+    0x0000261c   0x0000261c   0x00000008   Code   RO           65    .text.VC0_IRQHandler  interrupts_hc32f005.o
+    0x00002624   0x00002624   0x00000008   Code   RO           67    .text.VC1_IRQHandler  interrupts_hc32f005.o
+    0x0000262c   0x0000262c   0x00000008   Code   RO           59    .text.WDT_IRQHandler  interrupts_hc32f005.o
+    0x00002634   0x00002634   0x00000018   Code   RO          983    .text._SysctrlUnlock  sysctrl.o
+    0x0000264c   0x0000264c   0x00000088   Code   RO          388    .text._UartBaudCfg  uart_frame.o
+    0x000026d4   0x000026d4   0x00000024   Code   RO           13    .text.__NVIC_ClearPendingIRQ  interrupts_hc32f005.o
+    0x000026f8   0x000026f8   0x0000002c   Code   RO           19    .text.__NVIC_DisableIRQ  interrupts_hc32f005.o
+    0x00002724   0x00002724   0x00000024   Code   RO           17    .text.__NVIC_EnableIRQ  interrupts_hc32f005.o
+    0x00002748   0x00002748   0x00000078   Code   RO           15    .text.__NVIC_SetPriority  interrupts_hc32f005.o
+    0x000027c0   0x000027c0   0x0000004a   Code   RO          214    .text.aip1628_init  aip1628.o
+    0x0000280a   0x0000280a   0x00000040   Code   RO          202    .text.aip1628_write_byte  aip1628.o
+    0x0000284a   0x0000284a   0x00000002   PAD
+    0x0000284c   0x0000284c   0x00000010   Code   RO          271    .text.beep_force_stop  beep.o
+    0x0000285c   0x0000285c   0x0000006c   Code   RO          273    .text.beep_set      beep.o
+    0x000028c8   0x000028c8   0x000000a0   Code   RO          275    .text.beep_sound_proc  beep.o
+    0x00002968   0x00002968   0x00000098   Code   RO          291    .text.boot_time     treadmills.o
+    0x00002a00   0x00002a00   0x00000174   Code   RO          351    .text.btn_add_proc  keypad_fun.o
+    0x00002b74   0x00002b74   0x00000184   Code   RO          353    .text.btn_sub_proc  keypad_fun.o
+    0x00002cf8   0x00002cf8   0x00000164   Code   RO          380    .text.cmd_proc      uart_frame.o
+    0x00002e5c   0x00002e5c   0x00000032   Code   RO          712    .text.ddl_memclr    ddl.o
+    0x00002e8e   0x00002e8e   0x00000002   PAD
+    0x00002e90   0x00002e90   0x00000078   Code   RO          726    .text.delay1ms      ddl.o
+    0x00002f08   0x00002f08   0x00000054   Code   RO          261    .text.disp_update   indecate.o
+    0x00002f5c   0x00002f5c   0x0000000a   Code   RO          132    .text.flash_init    my_flash.o
+    0x00002f66   0x00002f66   0x00000002   PAD
+    0x00002f68   0x00002f68   0x0000006c   Code   RO          357    .text.keypad_continue_proc  keypad_fun.o
+    0x00002fd4   0x00002fd4   0x00000214   Code   RO          349    .text.keypad_short_proc  keypad_fun.o
+    0x000031e8   0x000031e8   0x00000014   Code   RO          229    .text.led_display_init  led_disp.o
+    0x000031fc   0x000031fc   0x00000124   Code   RO          112    .text.main          main.o
+    0x00003320   0x00003320   0x00000014   Code   RO          323    .text.param_init    param.o
+    0x00003334   0x00003334   0x00000010   Code   RO          140    .text.read_beep_status  my_flash.o
+    0x00003344   0x00003344   0x00000028   Code   RO          138    .text.save_param    my_flash.o
+    0x0000336c   0x0000336c   0x000001e0   Code   RO          247    .text.seg_disp_proc  led_disp.o
+    0x0000354c   0x0000354c   0x00000032   Code   RO          208    .text.set_aip1628_lighte_scale  aip1628.o
+    0x0000357e   0x0000357e   0x00000002   PAD
+    0x00003580   0x00003580   0x00000024   Code   RO          233    .text.set_bit_seg   led_disp.o
+    0x000035a4   0x000035a4   0x00000024   Code   RO          179    .text.set_pwm_beep  my_pwm.o
+    0x000035c8   0x000035c8   0x00000024   Code   RO          231    .text.set_seg_mode  led_disp.o
+    0x000035ec   0x000035ec   0x00000090   Code   RO          243    .text.set_seg_temp  led_disp.o
+    0x0000367c   0x0000367c   0x00000094   Code   RO          237    .text.set_seg_two   led_disp.o
+    0x00003710   0x00003710   0x00000098   Code   RO          239    .text.set_seg_two_sc  led_disp.o
+    0x000037a8   0x000037a8   0x0000009c   Code   RO          241    .text.set_seg_two_sp  led_disp.o
+    0x00003844   0x00003844   0x0000007c   Code   RO          110    .text.task_1000ms   main.o
+    0x000038c0   0x000038c0   0x00000010   Code   RO          102    .text.task_100ms    main.o
+    0x000038d0   0x000038d0   0x00000010   Code   RO          100    .text.task_10ms     main.o
+    0x000038e0   0x000038e0   0x00000084   Code   RO          104    .text.task_250ms    main.o
+    0x00003964   0x00003964   0x00000034   Code   RO          106    .text.task_300ms    main.o
+    0x00003998   0x00003998   0x0000001c   Code   RO          108    .text.task_500ms    main.o
+    0x000039b4   0x000039b4   0x0000011c   Code   RO          299    .text.treadmills_disp_loop  treadmills.o
+    0x00003ad0   0x00003ad0   0x00000414   Code   RO          293    .text.treadmills_display  treadmills.o
+    0x00003ee4   0x00003ee4   0x00000028   Code   RO          289    .text.treadmills_init  treadmills.o
+    0x00003f0c   0x00003f0c   0x0000026c   Code   RO          297    .text.treadmills_param_calc  treadmills.o
+    0x00004178   0x00004178   0x00000770   Code   RO          295    .text.treadmills_proc_loop  treadmills.o
+    0x000048e8   0x000048e8   0x00000030   Code   RO          368    .text.uart0_init    uart_frame.o
+    0x00004918   0x00004918   0x00000014   Code   RO          378    .text.uart_frame_init  uart_frame.o
+    0x0000492c   0x0000492c   0x00000110   Code   RO          384    .text.uart_frame_loop  uart_frame.o
+    0x00004a3c   0x00004a3c   0x00000084   Code   RO          386    .text.uart_frame_tx  uart_frame.o
+    0x00004ac0   0x00004ac0   0x00000090   Code   RO          382    .text.uart_frame_tx_d1  uart_frame.o
+    0x00004b50   0x00004b50   0x00000064   Code   RO          204    .text.wt_byte       aip1628.o
+    0x00004bb4   0x00004bb4   0x0000002e   Code   RO         1217    i.__ARM_clz         mf_p.l(depilogue.o)
+    0x00004be2   0x00004be2   0x0000000e   Code   RO         1223    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00004bf0   0x00004bf0   0x00000002   Code   RO         1224    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00004bf2   0x00004bf2   0x0000000e   Code   RO         1225    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00004c00   0x00004c00   0x00000014   Data   RO         1017    .rodata..L__const.Sysctrl_GetHClkFreq.u32hcr_tbl  sysctrl.o
+    0x00004c14   0x00004c14   0x00000003   Data   RO          309    .rodata.boot_disp_tab  treadmills.o
+    0x00004c17   0x00004c17   0x00000001   PAD
+    0x00004c18   0x00004c18   0x00000004   Data   RO         1018    .rodata.cst4        sysctrl.o
+    0x00004c1c   0x00004c1c   0x00000004   Data   RO          315    .rodata.disp_seq    treadmills.o
+    0x00004c20   0x00004c20   0x00000020   Data   RO          773    .rodata.pu32PcgTimer4M  flash.o
+    0x00004c40   0x00004c40   0x00000003   Data   RO          310    .rodata.run_disp_tab  treadmills.o
+    0x00004c43   0x00004c43   0x0000000d   Data   RO          223    .rodata.seg_num     7_segment.o
+    0x00004c50   0x00004c50   0x00000020   Data   RO         1222    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00004c70, Size: 0x00000420, Max: 0x00001000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00004c70   0x00000004   Data   RW           86    .data.SystemCoreClock  system_hc32f005.o
+    0x20000004   0x00004c74   0x00000001   Data   RW          393    .data.cmd_proc.prev_lower_st  uart_frame.o
+    0x20000005   0x00004c75   0x00000001   PAD
+    0x20000006   0x00004c76   0x00000002   Data   RW          392    .data.cmd_proc.sync_speed_max_seen  uart_frame.o
+    0x20000008        -       0x00000001   Zero   RW          334    .bss.FOHA_cont_cnt  keypad.o
+    0x20000009        -       0x00000001   Zero   RW          360    .bss.PAUSE_FLAG     keypad_fun.o
+    0x2000000a        -       0x00000001   Zero   RW          250    .bss._mode          led_disp.o
+    0x2000000b        -       0x00000001   Zero   RW          304    .bss.booktime_cnt   treadmills.o
+    0x2000000c        -       0x00000001   Zero   RW          303    .bss.booktime_en    treadmills.o
+    0x2000000d        -       0x00000008   Zero   RW          253    .bss.buf            led_disp.o
+    0x20000015        -       0x00000001   Zero   RW          251    .bss.cnt            led_disp.o
+    0x20000016        -       0x00000001   Zero   RW          278    .bss.cnt            beep.o
+    0x20000017   0x00004c78   0x00000001   PAD
+    0x20000018        -       0x00000002   Zero   RW          187    .bss.cnt1           my_pwm.o
+    0x2000001a        -       0x00000002   Zero   RW          188    .bss.cnt2           my_pwm.o
+    0x2000001c        -       0x00000002   Zero   RW          189    .bss.cnt25          my_pwm.o
+    0x2000001e        -       0x00000002   Zero   RW          190    .bss.cnt3           my_pwm.o
+    0x20000020        -       0x00000002   Zero   RW          191    .bss.cnt4           my_pwm.o
+    0x20000022        -       0x00000002   Zero   RW          192    .bss.cnt5           my_pwm.o
+    0x20000024        -       0x00000001   Zero   RW          338    .bss.delay_add      keypad.o
+    0x20000025        -       0x00000002   Zero   RW          145    .bss.ee_param       my_flash.o
+    0x20000027        -       0x00000001   Zero   RW          301    .bss.error_times    treadmills.o
+    0x20000028        -       0x00000001   Zero   RW          422    .bss.first_code1    decode.o
+    0x20000029        -       0x00000001   Zero   RW          423    .bss.first_code2    decode.o
+    0x2000002a        -       0x00000001   Zero   RW          424    .bss.first_code3    decode.o
+    0x2000002b   0x00004c78   0x00000001   PAD
+    0x2000002c        -       0x00000002   Zero   RW          415    .bss.high_width_cnt  decode.o
+    0x2000002e        -       0x00000005   Zero   RW          264    .bss.indecate       indecate.o
+    0x20000033        -       0x00000001   Zero   RW          263    .bss.indecate_update_flag  indecate.o
+    0x20000034        -       0x00000001   Zero   RW          277    .bss.is_disable_beep  beep.o
+    0x20000035        -       0x00000001   Zero   RW          335    .bss.key            keypad.o
+    0x20000036        -       0x00000002   Zero   RW          340    .bss.key_delay_dede  keypad.o
+    0x20000038        -       0x00000001   Zero   RW          337    .bss.key_mask       keypad.o
+    0x20000039        -       0x00000001   Zero   RW          410    .bss.key_value      decode.o
+    0x2000003a        -       0x00000002   Zero   RW          413    .bss.low_width_cnt  decode.o
+    0x2000003c        -       0x00000001   Zero   RW          115    .bss.main_tesk      main.o
+    0x2000003d        -       0x00000001   Zero   RW          186    .bss.ms1000_flag    my_pwm.o
+    0x2000003e        -       0x00000001   Zero   RW          182    .bss.ms100_flag     my_pwm.o
+    0x2000003f        -       0x00000001   Zero   RW          181    .bss.ms10_flag      my_pwm.o
+    0x20000040        -       0x00000001   Zero   RW          183    .bss.ms250_flag     my_pwm.o
+    0x20000041        -       0x00000001   Zero   RW          184    .bss.ms300_flag     my_pwm.o
+    0x20000042        -       0x00000001   Zero   RW          185    .bss.ms500_flag     my_pwm.o
+    0x20000043        -       0x00000001   Zero   RW          341    .bss.new            keypad.o
+    0x20000044        -       0x00000002   Zero   RW          116    .bss.no_key_cnt     main.o
+    0x20000046        -       0x00000002   Zero   RW          280    .bss.off            beep.o
+    0x20000048        -       0x00000001   Zero   RW          342    .bss.old            keypad.o
+    0x20000049        -       0x00000001   Zero   RW          414    .bss.old_bit        decode.o
+    0x2000004a        -       0x00000002   Zero   RW          279    .bss.on             beep.o
+    0x2000004c        -       0x00000004   Zero   RW          325    .bss.param          param.o
+    0x20000050        -       0x00000001   Zero   RW          114    .bss.poweron_send_flag  main.o
+    0x20000051   0x00004c78   0x00000003   PAD
+    0x20000054        -       0x00000004   Zero   RW          249    .bss.ptrseg         led_disp.o
+    0x20000058        -       0x00000001   Zero   RW          416    .bss.rec_bit_cnt    decode.o
+    0x20000059        -       0x00000001   Zero   RW          409    .bss.rf_ok          decode.o
+    0x2000005a        -       0x00000001   Zero   RW          421    .bss.rf_ok_first    decode.o
+    0x2000005b        -       0x00000001   Zero   RW          429    .bss.rf_ok_second   decode.o
+    0x2000005c        -       0x0000012c   Zero   RW          391    .bss.rx_buf         uart_frame.o
+    0x20000188        -       0x00000010   Zero   RW          390    .bss.rx_queue       uart_frame.o
+    0x20000198        -       0x00000002   Zero   RW          425    .bss.s_tim          decode.o
+    0x2000019a        -       0x00000001   Zero   RW          426    .bss.second_code1   decode.o
+    0x2000019b        -       0x00000001   Zero   RW          427    .bss.second_code2   decode.o
+    0x2000019c        -       0x00000001   Zero   RW          428    .bss.second_code3   decode.o
+    0x2000019d        -       0x00000001   Zero   RW          121    .bss.send_cnt       main.o
+    0x2000019e   0x00004c78   0x00000002   PAD
+    0x200001a0        -       0x00000010   Zero   RW          144    .bss.storage_data   my_flash.o
+    0x200001b0        -       0x00000001   Zero   RW          417    .bss.syn_ok         decode.o
+    0x200001b1        -       0x00000001   Zero   RW          418    .bss.temp_code1     decode.o
+    0x200001b2        -       0x00000001   Zero   RW          419    .bss.temp_code2     decode.o
+    0x200001b3        -       0x00000001   Zero   RW          420    .bss.temp_code3     decode.o
+    0x200001b4        -       0x00000002   Zero   RW          281    .bss.ticks          beep.o
+    0x200001b6        -       0x00000001   Zero   RW          339    .bss.tl_flag        keypad.o
+    0x200001b7   0x00004c78   0x00000001   PAD
+    0x200001b8        -       0x00000030   Zero   RW          302    .bss.treadmills     treadmills.o
+    0x200001e8        -       0x00000001   Zero   RW          314    .bss.treadmills_disp_loop.cnt  treadmills.o
+    0x200001e9   0x00004c78   0x00000003   PAD
+    0x200001ec        -       0x00000004   Zero   RW          311    .bss.treadmills_param_calc.distance  treadmills.o
+    0x200001f0        -       0x00000001   Zero   RW          305    .bss.treadmills_proc_loop.cnt  treadmills.o
+    0x200001f1        -       0x00000001   Zero   RW          308    .bss.treadmills_proc_loop.proc_prev_status  treadmills.o
+    0x200001f2        -       0x00000001   Zero   RW          306    .bss.treadmills_proc_loop.timeout  treadmills.o
+    0x200001f3        -       0x00000001   Zero   RW          307    .bss.treadmills_proc_loop.val  treadmills.o
+    0x200001f4        -       0x00000011   Zero   RW          394    .bss.uart_frame     uart_frame.o
+    0x20000205        -       0x00000001   Zero   RW          395    .bss.uart_frame_loop.step  uart_frame.o
+    0x20000206        -       0x00000001   Zero   RW          396    .bss.uart_frame_loop.sum_calc  uart_frame.o
+    0x20000207        -       0x00000001   Zero   RW          194    .bss.uart_time_error  my_pwm.o
+    0x20000208        -       0x00000011   Zero   RW          397    .bss.uart_tx_frame  uart_frame.o
+    0x20000219        -       0x00000001   Zero   RW          122    .bss.w_cnt          main.o
+    0x2000021a        -       0x00000001   Zero   RW          359    .bss.write_flag     keypad_fun.o
+    0x2000021b   0x00004c78   0x00000005   PAD
+    0x20000220        -       0x00000200   Zero   RW            1    STACK               startup_hc32f005.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+         0          0         13          0          0        523   7_segment.o
+       766          0          0          0          0      31484   adt.o
+       288          0          0          0          0       2043   aip1628.o
+       284         24          0          0          8       1232   beep.o
+      1024         64          0          0          0       5769   bt.o
+       246         20          0          0          0       3373   ddl.o
+      1160        188          0          0         22       2450   decode.o
+       316         24         32          0          0       6994   flash.o
+       328         40          0          0          0      21008   gpio.o
+        84          4          0          0          6       1026   indecate.o
+       528         20          0          0          0       5430   interrupts_hc32f005.o
+       348         36          0          0          9       1048   keypad.o
+      1400         80          0          0          2       2587   keypad_fun.o
+      1172         64          0          0         14       3193   led_disp.o
+       764         52          0          0          6       4500   main.o
+        66         12          0          0         18       1775   my_flash.o
+       138          0          0          0          0       2024   my_gpio.o
+       828         84          0          0         19      20362   my_pwm.o
+        20          4          0          0          4        769   param.o
+       276          0          0          0          0       1582   queue.o
+        60         22        192          0        512        612   startup_hc32f005.o
+      1138         84         24          0          0      23312   sysctrl.o
+        24          4          0          4          0        711   system_hc32f005.o
+      4044        296         10          0         60       5680   treadmills.o
+       346         16          0          0          0       6238   uart.o
+      1374         64          0          3        352       8959   uart_frame.o
+
+    ----------------------------------------------------------------------
+     17036       1202        304          8       1048     164684   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        14          0          1          1         16          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        36          8          0          0          0         68   init.o
+         0          0          0          0          0          0   iusefp.o
+        32          0          0          0          0         68   llshl.o
+        38          0          0          0          0         68   llsshr.o
+        34          0          0          0          0         68   llushr.o
+        36          0          0          0          0        100   memseta.o
+        62          0          0          0          0         72   uidiv_div0.o
+        56          0          0          0          0         68   d2f.o
+       356          4          0          0          0        140   dadd.o
+        44          0          0          0          0         68   dcmplt.o
+       240          6          0          0          0         84   ddiv.o
+       236          0          0          0          0        216   depilogue.o
+        60         10          0          0          0         68   dfixui.o
+        28          4          0          0          0         68   dfltui.o
+       208          6          0          0          0         88   dmul.o
+        40          0          0          0          0         60   f2d.o
+       178          0          0          0          0        108   fadd.o
+        28          0          0          0          0         60   fcmpge.o
+        28          0          0          0          0         60   fcmpgt.o
+        28          0          0          0          0         60   fcmple.o
+        28          0          0          0          0         60   fcmplt.o
+       130          0          0          0          0        144   fepilogue.o
+        50          0          0          0          0         60   ffixi.o
+        40          0          0          0          0         60   ffixui.o
+        22          0          0          0          0         68   fflti.o
+        14          0          0          0          0         68   ffltui.o
+       122          0          0          0          0         72   fmul.o
+
+    ----------------------------------------------------------------------
+      2228         46          0          0          0       2124   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       288         16          0          0          0        444   mc_p.l
+      1936         30          0          0          0       1680   mf_p.l
+
+    ----------------------------------------------------------------------
+      2228         46          0          0          0       2124   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     19264       1248        304          8       1048     165444   Grand Totals
+     19264       1248        304          8       1048     165444   ELF Image Totals
+     19264       1248        304          8          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                19568 (  19.11kB)
+    Total RW  Size (RW Data + ZI Data)              1056 (   1.03kB)
+    Total ROM Size (Code + RO Data + RW Data)      19576 (  19.12kB)
+
+==============================================================================
+

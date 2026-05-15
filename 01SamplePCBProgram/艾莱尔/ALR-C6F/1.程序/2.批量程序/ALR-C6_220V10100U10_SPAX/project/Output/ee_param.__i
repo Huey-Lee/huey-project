@@ -1,0 +1,1 @@
+"..\bsp\ee_param.c" LARGE OPTIMIZE (7,SPEED) BROWSE INCDIR(..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRINT(.\LST\ee_param.lst) TABS (2) OBJECT(.\Output\ee_param.obj)

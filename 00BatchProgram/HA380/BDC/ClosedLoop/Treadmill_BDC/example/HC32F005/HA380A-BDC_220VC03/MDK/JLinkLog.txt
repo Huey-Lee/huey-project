@@ -1,0 +1,56 @@
+T3654 000:008.032   SEGGER J-Link V7.22b Log File
+T3654 000:008.140   DLL Compiled: Jun 17 2021 17:22:49
+T3654 000:008.145   Logging started @ 2026-05-05 10:22
+T3654 000:008.150 - 8.152ms
+T3654 000:008.158 JLINK_SetWarnOutHandler(...)
+T3654 000:008.164 - 0.008ms
+T3654 000:008.169 JLINK_OpenEx(...)
+T3654 000:013.361   Looking for J-Link GUI Server exe at: D:\Software\DevelopmentTools\Keil\ARM\Segger\JLinkGUIServer.exe
+T3654 000:013.425   Looking for J-Link GUI Server exe at: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T3654 000:013.438   Forking J-Link GUI Server: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T3654 000:055.195   J-Link GUI Server info: "J-Link GUI server V7.96 "
+T3654 001:373.397   TELNET listener socket opened on port 19021
+T3654 001:373.514   WEBSRV Starting webserver
+T3654 001:373.636   WEBSRV Webserver running on local port 19080
+T3654 001:373.646 - 1365.479ms returns "O.K."
+T3654 001:373.665 JLINK_GetEmuCaps()
+T3654 001:373.672 - 0.009ms returns 0x98E61B83
+T3654 001:373.683 JLINK_TIF_GetAvailable(...)
+T3654 001:373.688 - 0.008ms
+T3654 001:373.697 JLINK_SetErrorOutHandler(...)
+T3654 001:373.702 - 0.008ms
+T3654 001:373.719 JLINK_ExecCommand("ProjectFile = "D:\Huey\BDC\0BatchProgram\HA380\ClosedLoop\Treadmill_BDC\example\HC32F005\HA380A-BDC_220VC03\MDK\JLinkSettings.ini"", ...). 
+T3654 001:388.792   Device "CORTEX-M0" selected.
+T3654 001:389.157 - 15.444ms returns 0x00
+T3654 001:391.199 JLINK_ExecCommand("Device = HC32F005C6PA", ...). 
+T3654 001:393.280   Device "CORTEX-M0" selected.
+T3654 001:396.848 - 5.644ms returns 0x00
+T3654 001:396.871 JLINK_GetHardwareVersion()
+T3654 001:398.216 - 1.354ms returns 20100
+T3654 001:398.232 JLINK_GetDLLVersion()
+T3654 001:398.236 - 0.006ms returns 72202
+T3654 001:398.241 JLINK_GetOEMString(...)
+T3654 001:398.247 JLINK_GetFirmwareString(...)
+T3654 001:398.257 - 0.011ms
+T3654 001:404.986 JLINK_GetDLLVersion()
+T3654 001:405.005 - 0.020ms returns 72202
+T3654 001:405.011 JLINK_GetCompileDateTime()
+T3654 001:405.015 - 0.006ms
+T3654 001:406.916 JLINK_GetFirmwareString(...)
+T3654 001:406.928 - 0.013ms
+T3654 001:408.778 JLINK_GetHardwareVersion()
+T3654 001:408.791 - 0.014ms returns 20100
+T3654 001:410.623 JLINK_GetSN()
+T3654 001:410.635 - 0.013ms returns 1044601577
+T3654 001:412.449 JLINK_GetOEMString(...)
+T3654 001:414.225 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T3654 001:420.323 - 6.109ms returns 0x00
+T3654 001:420.341 JLINK_HasError()
+T3654 001:420.355 JLINK_SetSpeed(500)
+T3654 001:422.215 - 1.868ms
+T3654 001:422.230 JLINK_GetId()
+T3654 001:795.361 - 373.154ms returns 0x00000000
+T3654 002:946.257 JLINK_Close()
+T3654 002:958.904 - 12.666ms
+T3654 002:958.926   
+T3654 002:958.931   Closed

@@ -1,0 +1,26 @@
+".\Output\STARTUP.obj",
+".\Output\7_segment.obj",
+".\Output\aip1628.obj",
+".\Output\indecate.obj",
+".\Output\led_disp.obj",
+".\Output\keypad.obj",
+".\Output\keypad_fun.obj",
+".\Output\beep.obj",
+".\Output\main.obj",
+".\Output\queue.obj",
+".\Output\uart_frame.obj",
+".\Output\treadmills.obj",
+".\Output\param.obj",
+".\Output\programe.obj",
+".\Output\decode.obj",
+".\Output\isr.obj",
+".\Output\PWM_simple.obj",
+".\Output\Timer01_M1.obj",
+".\Output\uart.obj",
+".\Output\ee_param.obj",
+".\Output\IAP_EEPROM.obj",
+".\Output\Delay.obj",
+".\Output\Common.obj" 
+TO ".\Output\PBJ_SK_2.4G" 
+PRINT(".\LST\PBJ_SK_2.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

@@ -1,0 +1,498 @@
+Dependencies for Project 'project', Target 'Project': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (..\..\..\..\IdeSupport\MDK\startup_cw32l010.s)(0x691BD39B)(--cpu Cortex-M0+ -g --pd "__MICROLIB SETA 1"-I.\RTE\_Project-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\WHXY\CW32L010_DFP\1.0.2\Device\Include--pd "__UVISION_VERSION SETA 535"--pd "_RTE_ SETA 1"--pd "_RTE_ SETA 1"-o .\objects\startup_cw32l010.o--depend .\objects\startup_cw32l010.d)
+F (..\..\..\..\Libraries\src\system_cw32l010.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/system_cw32l010.o -MD)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+F (..\USER\src\main.c)(0x6A03C6E5)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/main.o -MD)
+I (..\USER\src\..\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\SYSTEM\sys_scheduler.h)(0x6A02D59D)
+I (..\BSP\bsp_timer.h)(0x6A00C2D2)
+I (..\BSP\bsp_uart.h)(0x6A031461)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\SYSTEM\sys_aerobuf.h)(0x69BD5760)
+I (..\BSP\bsp_gpio.h)(0x6A02D59D)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_gpio_keys.h)(0x6A03CE5A)
+I (..\PLATFORM\plat_ble.h)(0x6A03C6E5)
+I (..\PLATFORM\treadmills.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_hr_tm998.h)(0x6A03CBC9)
+F (..\USER\src\interrupts_cw32l010.c)(0x6A03C6E6)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/interrupts_cw32l010.o -MD)
+I (..\USER\src\..\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\PLATFORM\plat_hr_tm998.h)(0x6A03CBC9)
+I (..\USER\inc\main.h)(0x69D6885B)
+F (..\..\..\..\Libraries\src\cw32l010_sysctrl.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_sysctrl.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+F (..\..\..\..\Libraries\src\cw32l010_gpio.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_gpio.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+F (..\..\..\..\Libraries\src\cw32l010_btim.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_btim.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+F (..\..\..\..\Libraries\src\cw32l010_adc.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_adc.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\cw32l010_adc.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+F (..\..\..\..\Libraries\src\cw32l010_atim.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_atim.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_atim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+F (..\..\..\..\Libraries\src\cw32l010_flash.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_flash.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_flash.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+F (..\..\..\..\Libraries\src\cw32l010_gtim.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_gtim.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+F (..\..\..\..\Libraries\src\cw32l010_systick.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_systick.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_systick.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+F (..\..\..\..\Libraries\src\cw32l010_uart.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/cw32l010_uart.o -MD)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+F (..\SYSTEM\sys_scheduler.c)(0x6A032552)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/sys_scheduler.o -MD)
+I (..\SYSTEM\sys_scheduler.h)(0x6A02D59D)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\PLATFORM\plat_ble.h)(0x6A03C6E5)
+I (..\PLATFORM\treadmills.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_aerolink.h)(0x69D6F2B2)
+I (..\PLATFORM\plat_keylink.h)(0x6A03C6E5)
+F (..\SYSTEM\sys_aerobuf.c)(0x69D29667)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/sys_aerobuf.o -MD)
+I (..\SYSTEM\sys_aerobuf.h)(0x69BD5760)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+F (..\BSP\bsp_uart.c)(0x6A03254D)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/bsp_uart.o -MD)
+I (..\BSP\bsp_uart.h)(0x6A031461)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\SYSTEM\sys_aerobuf.h)(0x69BD5760)
+F (..\BSP\bsp_timer.c)(0x6A03C6E5)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/bsp_timer.o -MD)
+I (..\PLATFORM\plat_hr_tm998.h)(0x6A03CBC9)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\BSP\bsp_timer.h)(0x6A00C2D2)
+I (..\SYSTEM\sys_scheduler.h)(0x6A02D59D)
+F (..\BSP\bsp_gpio.c)(0x6A02D59D)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/bsp_gpio.o -MD)
+I (..\BSP\bsp_gpio.h)(0x6A02D59D)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+F (..\PLATFORM\treadmills.c)(0x6A03C6E5)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/treadmills.o -MD)
+I (..\PLATFORM\treadmills.h)(0x6A03C6E5)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_gpio_keys.h)(0x6A03CE5A)
+I (..\PLATFORM\plat_aerolink.h)(0x69D6F2B2)
+I (..\PLATFORM\plat_ble.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_keylink.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_hr_tm998.h)(0x6A03CBC9)
+F (..\PLATFORM\plat_touchkey.c)(0x6A03C6E5)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_touchkey.o -MD)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010_adc.h)(0x691BD39B)
+F (..\PLATFORM\plat_gpio_keys.c)(0x6A03CE5A)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_gpio_keys.o -MD)
+I (..\PLATFORM\plat_gpio_keys.h)(0x6A03CE5A)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+F (..\PLATFORM\plat_aerolink.c)(0x69D6F642)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_aerolink.o -MD)
+I (..\PLATFORM\plat_aerolink.h)(0x69D6F2B2)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\SYSTEM\sys_aerobuf.h)(0x69BD5760)
+I (..\BSP\bsp_uart.h)(0x6A031461)
+F (..\PLATFORM\plat_keylink.c)(0x6A03C6E5)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_keylink.o -MD)
+I (..\PLATFORM\plat_keylink.h)(0x6A03C6E5)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\BSP\bsp_uart.h)(0x6A031461)
+I (..\SYSTEM\sys_aerobuf.h)(0x69BD5760)
+I (..\PLATFORM\treadmills.h)(0x6A03C6E5)
+I (..\PLATFORM\plat_ble.h)(0x6A03C6E5)
+F (..\PLATFORM\plat_hr_tm998.c)(0x6A03CBD2)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_hr_tm998.o -MD)
+I (..\PLATFORM\plat_hr_tm998.h)(0x6A03CBC9)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\PLATFORM\treadmills.h)(0x6A03C6E5)
+F (..\PLATFORM\plat_ble.c)(0x6A03C6E5)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_ble.o -MD)
+I (..\PLATFORM\plat_ble.h)(0x6A03C6E5)
+I (..\USER\inc\main.h)(0x69D6885B)
+I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\assert.h)(0x603507D0)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)
+I (..\..\..\..\Libraries\inc\system_cw32l010.h)(0x691BD39B)
+I (..\USER\inc\interrupts_cw32l010.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_btim.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_sysctrl.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
+I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\PLATFORM\plat_touchkey.h)(0x6A03C6E5)
+I (..\BSP\bsp_uart.h)(0x6A031461)
+I (..\SYSTEM\sys_aerobuf.h)(0x69BD5760)
+I (..\PLATFORM\plat_keylink.h)(0x6A03C6E5)
+I (..\PLATFORM\treadmills.h)(0x6A03C6E5)
+F (..\readme.txt)(0x691BD39B)()
+F (..\..\..\..\Utilities\retarget.c)(0x691BD39B)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/retarget.o -MD)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
+I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armclang.h)(0x60D3E8E2)

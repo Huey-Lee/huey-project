@@ -1,0 +1,69 @@
+C51 COMPILER V9.60.0.0   INDECATE                                                          08/07/2025 09:12:47 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE INDECATE
+OBJECT MODULE PLACED IN .\Output\indecate.obj
+COMPILER INVOKED BY: D:\Software\Keil_V5\C51\C51\BIN\C51.EXE ..\driver\indecate.c LARGE OPTIMIZE(7,SPEED) BROWSE INCDIR(
+                    -..\Library\Device\Include;..\Library\StdDriver\inc;..\user;..\driver;..\bsp;..\Include;..\common) DEBUG OBJECTEXTEND PRI
+                    -NT(.\LST\indecate.lst) TABS(2) OBJECT(.\Output\indecate.obj)
+
+line level    source
+
+   1          /*
+   2           * indecate.c
+   3           *
+   4           *  Created on: 2018Äê8ÔÂ1ÈÕ
+   5           *      Author: Administrator
+   6           */
+   7          #include "common.h"
+   8          #include "indecate.h"
+   9          #include "aip1628.h"
+  10          #include "7_segment.h"
+  11          #include "treadmills.h"
+  12          
+  13          indecate_t   indecate;
+  14          
+  15          u8  indecate_update_flag=0;
+  16          
+  17          
+  18          void disp_update(void)
+  19          {
+  20   1        aip1628_init();
+  21   1        if(indecate_update_flag)
+  22   1        {
+  23   2          indecate_update_flag=0;
+  24   2          
+  25   2          if(treadmills.error_code==0)
+  26   2          {
+  27   3            aip1628_write_byte(0,indecate.seg[0]);      //COM1
+  28   3            aip1628_write_byte(2,indecate.seg[1]);      //COM2
+  29   3            aip1628_write_byte(4,indecate.seg[2]);      //COM3
+  30   3            aip1628_write_byte(6,indecate.seg[3]);      //COM4
+  31   3            aip1628_write_byte(8,((u8*)&indecate)[4]);  //COM5
+  32   3          }
+  33   2          else
+  34   2          {
+  35   3            aip1628_write_byte(0,SEG_ALL_OFF);      //COM1
+  36   3            aip1628_write_byte(2,SEG_E);      //COM2
+  37   3            aip1628_write_byte(4,seg_num[0]); //COM3
+  38   3            aip1628_write_byte(6,seg_num[treadmills.error_code]);//COM4
+  39   3            aip1628_write_byte(8,0x00);       //COM5
+  40   3          }
+  41   2        }
+  42   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    119    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      6    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.0.0   INDECATE                                                          08/07/2025 09:12:47 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
