@@ -1,52 +1,60 @@
 #!/bin/bash
 
+# Define colors for output
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 RED='\033[0;31m'
-NC='\033[0m'
+NC='\033[0m' # No Color
 
-echo -e "${YELLOW}>>> 开始同步代码到 GitHub 和 Gitee...${NC}"
+echo -e "${YELLOW}>>> Starting code sync to GitHub and Gitee...${NC}"
 
-# 1. 尝试删除可能存在的非法 nul 文件
+# 1. Clean up invalid system filenames (Windows specific)
 if [ -f "nul" ]; then
     rm -f "nul"
 fi
 
-# 2. 检查是否有文件变动
+# 2. Check for changes
 if [ -z "$(git status --porcelain)" ]; then
-    echo -e "${GREEN}没有任何文件修改，无需同步。${NC}"
+    echo -e "${GREEN}No changes detected. Nothing to sync.${NC}"
     sleep 2
     exit
 fi
 
-# 3. 添加更改到暂存区并检查是否成功
+# 3. Add changes to staging area
 if git add .; then
-    echo -e "${GREEN}已成功添加更改到暂存区${NC}"
+    echo -e "${GREEN}Changes added to staging area successfully.${NC}"
 else
-    echo -e "${RED}添加文件失败！请检查是否有非法文件名（如 nul）。${NC}"
-    pause
+    echo -e "${RED}Failed to add files! Check for invalid filenames.${NC}"
+    read -p "Press Enter to exit..."
     exit 1
 fi
 
-# 4. 让用户输入备注
-echo -e "${YELLOW}请输入修改备注 (直接回车将使用默认备注):${NC}"
+# 4. Prompt for commit message
+echo -e "${YELLOW}Enter commit message (Press Enter for default):${NC}"
 read msg
+
+# Use default message if input is empty
 if [ -z "$msg" ]; then
     msg="Update: $(date +'%Y-%m-%d %H:%M:%S')"
 fi
 
-# 5. 提交
+# 5. Commit changes
 git commit -m "$msg"
 
-# 6. 推送
-echo -e "${YELLOW}正在推送到双平台...${NC}"
+# 6. Push to remotes
+echo -e "${YELLOW}Pushing to remote repositories...${NC}"
 if git push origin master; then
     echo -e "${GREEN}====================================${NC}"
-    echo -e "${GREEN}   同步成功！代码已飞向 GitHub/Gitee ${NC}"
+    echo -e "${GREEN}      SYNC SUCCESSFUL!              ${NC}"
+    echo -e "${GREEN}  Code uploaded to GitHub & Gitee   ${NC}"
     echo -e "${GREEN}====================================${NC}"
 else
-    echo -e "${RED}同步失败，请检查网络或 SSH 配置！${NC}"
+    echo -e "${RED}====================================${NC}"
+    echo -e "${RED}      SYNC FAILED!                  ${NC}"
+    echo -e "${RED}  Check network or SSH config       ${NC}"
+    echo -e "${RED}====================================${NC}"
 fi
 
-echo -e "${YELLOW}窗口将在 3 秒后自动关闭...${NC}"
+# Exit countdown
+echo -e "${YELLOW}Closing in 3 seconds...${NC}"
 sleep 3
