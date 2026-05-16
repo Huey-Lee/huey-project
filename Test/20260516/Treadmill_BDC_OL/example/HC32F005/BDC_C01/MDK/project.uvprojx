@@ -499,16 +499,6 @@
               <FilePath>..\source\ringfifo.c</FilePath>
             </File>
             <File>
-              <FileName>point_fun.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\point_fun.c</FilePath>
-            </File>
-            <File>
-              <FileName>queue.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\source\queue.c</FilePath>
-            </File>
-            <File>
               <FileName>uart_frame.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\source\uart_frame.c</FilePath>

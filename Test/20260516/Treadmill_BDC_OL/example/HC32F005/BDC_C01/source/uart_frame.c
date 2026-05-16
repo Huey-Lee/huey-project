@@ -1,6 +1,5 @@
 /* uart_frame.c  上控通信：帧收发、命令解析、参数下发 */
 #include "uart_frame.h"
-#include "queue.h"
 #include "motor.h"
 #include "uart.h"
 #include "user_usart.h"
@@ -38,8 +37,8 @@ void uart_sync_rx_voltage_max_from_motor(void)
     rx_setparam.voltage_max = motor.adjust_max_voltage;
 }
 
-T_QUEUE rx_queue;                  /* 串口接收环形队列 */
-u8      rx_buf[RX_BUFF_SIZE];      /* 接收缓冲区（135 字节） */
+ringfifo_t rx_fifo;                /* 串口 RX：ISR putin / 主循环 get */
+u8         rx_buf[RX_BUFF_SIZE];   /* 接收缓冲（长度须为 2^n，与 ringfifo 一致） */
 uart_frame_t uart_frame;           /* 当前正在解析的接收帧 */
 uart_frame_t uart_tx_frame;        /* 待发送帧 */
 extern u8 relay_wait_en;
@@ -47,7 +46,7 @@ extern u8 relay_wait_en;
 /* 初始化帧头/帧尾和接收队列 */
 void uart_frame_init(void)
 {
-    Create_Queue(&rx_queue, &rx_buf[0], RX_BUFF_SIZE);
+    ringfifo_init(&rx_fifo, &rx_buf[0], RX_BUFF_SIZE);
     /* 上电后与 ctr_init 默认值一致，避免 vmax=0 时校验异常 */
     rx_setparam.treadmills_speed_max = 100u;
     rx_setparam.voltage_max          = 90u;
@@ -121,10 +120,10 @@ void uart_frame_loop(void)
 {
     static u8  sm = 0, len = 0;
     static u8 *ptr;
-    u8 dat, ret;
+    u8 dat;
 
-    ret = Denter_queue(&rx_queue, &dat);
-    if (!ret) return;  /* 队列为空，本次无数据 */
+    if (ringfifo_get(&rx_fifo, &dat, 1u) != 1)
+        return;  /* 无数据 */
 
     /* 任意状态收到帧头则重置状态机
      * 【Bug修复】不在此处清超时计数：单个 0x7F 可能是线路噪声，
@@ -479,6 +478,6 @@ void Uart1_IRQHandler(void)
     if (TRUE == Uart_GetStatus(M0P_UART1, UartRC)) {
         Uart_ClrStatus(M0P_UART1, UartRC);
         reg = Uart_ReceiveData(M0P_UART1);
-        Enter_queue(&rx_queue, reg);
+        ringfifo_putin(&rx_fifo, &reg, 1u);
     }
 }

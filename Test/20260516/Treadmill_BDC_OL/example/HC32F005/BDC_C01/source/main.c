@@ -11,7 +11,6 @@
 #include "user_usart.h"
 #include "user_timer.h"
 #include "user_adc.h"
-#include "point_fun.h"
 #include "user_gpio.h"
 #include "uart_frame.h"
 #include "motor_drive.h"
@@ -107,7 +106,7 @@ int32_t main(void)
     user_timer_init();  /* TIM0 继电器 / TIM2 ADC / TIM6 PWM（PER 见 motor.h）*/
     user_adc_init();    /* ADC 扫描模式初始化（CH1/CH2 母线电压） */
     user_gpio_init();   /* 其他 GPIO（继电器控制等） */
-    MAIN_INIT(100);     /* 控制器 + 电机参数默认值初始化（ctr_init + 通信初始化） */
+    ctr_init();         /* 控制器 / 电机默认参数 */
 
     /* ── 主循环 ──────────────────────────────────────────────────────────── */
     while (1) {

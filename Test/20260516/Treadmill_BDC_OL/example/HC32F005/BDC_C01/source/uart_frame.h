@@ -1,11 +1,13 @@
 /* uart_frame.h - display protocol, frame struct, RX buffer. */
 #ifndef USER_UART_FRAME_H_
 #define USER_UART_FRAME_H_
-#include "queue.h"
+#include "ddl.h"      /* u8/u16/u32；原由 queue.h 间接包含 */
+#include "ringfifo.h"
 
 #define UART0 0
 
-#define RX_BUFF_SIZE   (135)
+/* ringfifo 按 2^n 寻址；128 与原 byte-queue（135 槽、保留 1 判满）有效深度接近 */
+#define RX_BUFF_SIZE   (128)
 #define START_OF_FRAME  (0X7F)
 #define END_OF_FRAME    (0X7E)
 
@@ -95,7 +97,7 @@ typedef struct _ee_param_t
 
 
 
-extern T_QUEUE rx_queue;
+extern ringfifo_t rx_fifo;
 extern uart_frame_t uart_frame;
 extern uart_frame_t uart_tx_frame;
 
