@@ -27,10 +27,6 @@ void Select_Init(void)
 }
 
 
-
-
-
-
 int MAIN_INIT(int argc)
 {
 	int ret;

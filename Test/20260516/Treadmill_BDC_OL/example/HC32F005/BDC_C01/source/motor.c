@@ -14,16 +14,15 @@
 #include "uart_frame.h"
 #include "motor_drive.h"
 
-extern uint16_t ZHANKONBI;  /* 逻辑斩波量：越大越弱输出；ISR 写比较值用 OUT_PUT=PER−ZHANKONBI */
+extern uint16_t ZHANKONBI;  /* 电压闭环刻度：实测与负载端电压同向；ISR 写 OUT_PUT=PER−ZN 入比较寄存器 */
 extern u8       waitforamoment;
 
 ctr_t   ctr;    /* 控制器状态机（主状态） */
 volatile motor_t motor;  /* volatile：主环与 ADC 节拍 ISR 共享，避免优化掉关键序 */
 
-u16 dynamic_e02_limit_v        = E02_LIMIT_110V_V;
-u16 dynamic_e05_abs_volt_limit = E05_ABS_VOLT_110V;
 u8  motor_grid_profile_known   = 0u;
 u8  motor_grid_env_220         = 0u;
+u16 dynamic_e05_abs_volt_limit = E05_ABS_VOLT_110V;
 
 /* MT_START 握手兜底：连续低负载拍数计数（瞬时减零偏，与 motor_drive 口径一致） */
 static u8 s_start_fb_esc_ok;
@@ -79,6 +78,7 @@ void ctr_init(void)
     motor.I_offset           = 0;    /* 上电零偏校准结果（100 次均值） */
     motor_grid_profile_known = 0u;
     motor_grid_env_220       = 0u;
+    dynamic_e05_abs_volt_limit = E05_ABS_VOLT_110V;
     /* 电压–速度线性：90V@10km − vmin@1km，分母 adjust_speed_max−100 */
     motor_recalc_voltage_param_from_cmd();
     motor_drive_boot_sync_limits();
@@ -229,7 +229,7 @@ void ctr_proc_loop(void)
             motor_wait_adc_batch_u32(base + (u32)i + 1u);
             val_up   = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_up);
             val_down = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_down);
-            if ((val_up > val_down + dynamic_e02_limit_v) || (val_down > val_up + dynamic_e02_limit_v))
+            if ((val_up > val_down + 70u) || (val_down > val_up + 70u))
                 er02_code++;
             if ((val_up < 10u) && (val_down < 10u))
                 gate_dual_low_cnt++;
@@ -267,7 +267,7 @@ void ctr_proc_loop(void)
                 motor_wait_adc_batch_u32(base + (u32)i + 1u);
                 val_up   = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_up);
                 val_down = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_down);
-                if ((val_up > val_down + dynamic_e02_limit_v) || (val_down > val_up + dynamic_e02_limit_v))
+                if ((val_up > val_down + 70u) || (val_down > val_up + 70u))
                     er02_code++;
                 if ((val_up < 10u) && (val_down < 10u))
                     gate_dual_low_cnt++;
@@ -292,12 +292,11 @@ void ctr_proc_loop(void)
 
     case STATUS_TO_RUN:
         motor.adjust_set_voltage   = speed_param[0].voltage;
-        /* 初始 kick = CMD_STA_LEVEL 的 start_valtage（ADC_cmd）；可低于 vmin，由 MT_START 分段抬到 vmin */
-        motor.adjust_now_voltage = (u16)(motor.start_valtage + 0.5f);
+        /* 阶段 A：初始电压斜坡 = start_kick（与 CMD_STA_LEVEL 同量纲） */
+        motor.adjust_now_voltage   = (u16)motor.start_valtage;
+        ZHANKONBI = MT_START_PWM;
 
         if (M0P_ADTIM6->GCONR_f.START == 0 || M0P_TIM0->CR_f.CTEN == 0) {
-            /* 满占空：桥臂关断态/零输出，合闸与充电期避免异常占空 */
-            ZHANKONBI = MOTOR_PWM_PERIOD_TICKS;
             motor.status             = STATUS_MT_START;
             motor.cur_speed_scale    = motor.sta_speed_scale;
             motor.start_tim          = 0;
@@ -310,9 +309,7 @@ void ctr_proc_loop(void)
             delay1ms(500);
 
             tim6run();
-            /* 电容充电与 TIM6 触发 ADC 稳定后再锁母线，减轻分母过小导致的占空冲顶 */
-            delay1ms(300);
-            /* 母线分母：多次取样平均，躲开合闸浪涌顶点 */
+            /* 母线分母：PWM 动起来后多次取样取偏小值，躲开合闸浪涌顶点 */
             motor_drive_on_to_run_capture_bus_average();
 
             {
@@ -320,14 +317,12 @@ void ctr_proc_loop(void)
 
                 motor_grid_profile_known = 1u;
                 if (v_bus_now > BUS_V_220V_THRESHOLD_V) {
-                    motor_grid_env_220           = 1u;
-                    dynamic_e02_limit_v        = E02_LIMIT_220V_V;
+                    motor_grid_env_220         = 1u;
                     dynamic_e05_abs_volt_limit = E05_ABS_VOLT_220V;
                     if (motor.adjust_max_voltage > MAX_RUN_V_220V)
                         motor.adjust_max_voltage = MAX_RUN_V_220V;
                 } else {
-                    motor_grid_env_220           = 0u;
-                    dynamic_e02_limit_v        = E02_LIMIT_110V_V;
+                    motor_grid_env_220         = 0u;
                     dynamic_e05_abs_volt_limit = E05_ABS_VOLT_110V;
                     if (motor.adjust_max_voltage > MAX_RUN_V_110V)
                         motor.adjust_max_voltage = MAX_RUN_V_110V;
@@ -336,10 +331,8 @@ void ctr_proc_loop(void)
             uart_sync_rx_voltage_max_from_motor();
             motor_recalc_voltage_param_from_cmd();
             motor_drive_boot_sync_limits();
-            ZHANKONBI = MT_START_PWM;
+
             /* 占空由 motor_drive_isr 线性写入 ZHANKONBI（电压 Q8 微步 + V×mul>>SHIFT） */
-        } else {
-            ZHANKONBI = MT_START_PWM;
         }
         ctr.status = CTR_STATUS_CLEARED;
         break;
@@ -644,4 +637,4 @@ void motor_speed(void)
             }
         }
     }
-}
+}//

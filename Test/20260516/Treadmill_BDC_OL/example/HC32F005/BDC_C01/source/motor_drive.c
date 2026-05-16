@@ -1,58 +1,10 @@
-/* motor_drive.c — 开环驱动 + IR；占空按 Vcmd_phys/Vbus_phys×PER（GET_PHYSICAL_V）电压闭环映射；E03 与 C03 同类逻辑。
+/* motor_drive.c — 开环驱动 + IR；占空：dt=Vcmd_phys/Vbus_phys×PER，ZHANKONBI=dt（与实测负载电压同向）；Tim6 写 OUT_PUT=PER−ZN。
  * 全速过流：oc_lim_full_mirror（≈上位 CMD 全速阈）；慢行/起步堵转：全速 ×(410/1024)≈全速÷2.5。
  * E05 本板为母线比值法 checkout_bus_overvoltage_e05。 */
 
 #include "motor.h"
 #include "motor_drive.h"
 #include "user_timer.h"
-
-/* 与旧版/精简 motor.h 共存：缺省时补齐 motor_drive.c 所需宏（若 motor.h 已定义则不受影响）。 */
-#ifndef MOTOR_KIV_SOFT_BLEND_END_BELOW_SCALE
-#define MOTOR_KIV_SOFT_BLEND_END_BELOW_SCALE (300u)
-#endif
-#ifndef MOTOR_KIV_SOFT_BLEND_AT_END_Q12
-#define MOTOR_KIV_SOFT_BLEND_AT_END_Q12 (2048u)
-#endif
-#ifndef MOTOR_KIV_SOFT_BLEND_FULL_AT_SCALE
-#define MOTOR_KIV_SOFT_BLEND_FULL_AT_SCALE (430u)
-#endif
-#ifndef MOTOR_KIV_BOOST_CAP_LOWSPD_ADC
-#define MOTOR_KIV_BOOST_CAP_LOWSPD_ADC (165)
-#endif
-#ifndef MOTOR_KIV_BOOST_CAP_RUN_ADC
-#define MOTOR_KIV_BOOST_CAP_RUN_ADC (300)
-#endif
-#ifndef CURRENT_20A0
-#define CURRENT_20A0 (548u)
-#endif
-#ifndef OVER_CURRENT_MAX
-#define OVER_CURRENT_MAX (CURRENT_20A0)
-#endif
-#ifndef MOTOR_STALL_OC_Q_BITS
-#define MOTOR_STALL_OC_Q_BITS (10u)
-#endif
-#ifndef MOTOR_STALL_OC_Q_MUL
-#define MOTOR_STALL_OC_Q_MUL (410u)
-#endif
-#ifndef MOTOR_STALL_OC_ADC_FROM_FULL
-#define MOTOR_STALL_OC_ADC_FROM_FULL(lim_) \
-    ((u16)(((u32)(lim_) * (u32)MOTOR_STALL_OC_Q_MUL) >> (u32)MOTOR_STALL_OC_Q_BITS))
-#endif
-#ifndef OVER_CURRENT_MAX_LOW_SPEED
-#define OVER_CURRENT_MAX_LOW_SPEED (MOTOR_STALL_OC_ADC_FROM_FULL(OVER_CURRENT_MAX))
-#endif
-#ifndef PROT_OC_LIM_FULL_ISR_NEED_TICKS
-#define PROT_OC_LIM_FULL_ISR_NEED_TICKS (200u)
-#endif
-#ifndef PROT_OC_SLOWSTALL_MAIN_NEED_TICKS
-#define PROT_OC_SLOWSTALL_MAIN_NEED_TICKS (20u)
-#endif
-#ifndef C03_START_STALL_MAINLOOP_TICKS
-#define C03_START_STALL_MAINLOOP_TICKS (60u)
-#endif
-#ifndef MOTOR_OC_LOW_BAND_SPEED_SCALE_MAX
-#define MOTOR_OC_LOW_BAND_SPEED_SCALE_MAX (200u)
-#endif
 
 extern uint16_t ZHANKONBI;
 
@@ -123,30 +75,20 @@ static void motor_drive_refresh_vbus_duty_lin(void)
     /* 占空由 voltage_adc_to_pwm_ticks_lin() 按 GET_PHYSICAL_V(valtage_up) 即时计算；本函数保留供 boot_sync 兼容。 */
 }
 
-/* 电压闭环映射：由 Vcmd/Vbus 得**导通分量** dt，再 ZHANKONBI=PER−dt（硬件写 OUT_PUT=PER−ZHANKONBI，ZN 大为弱输出）
- * MT_START：母线用合闸快照 motor_vbus_adc，避免 M+ 在继电器/电容暂态时采样飘低 → 占空被压没（表显 0V） */
+/* 电压闭环：dt≈(Vcmd_phys/Vbus_phys)×PER，本板实测 **ZHANKONBI 与负载端电压同向**，直接写 ZHANKONBI=dt（勿用 PER−dt）。 */
 static u16 voltage_adc_to_pwm_ticks_lin(u32 v_adc)
 {
     float v_cmd_V;
     float v_bus_V;
     float r;
     u32   dt;
-    u32   per = (u32)MOTOR_PWM_PERIOD_TICKS;
-    u16   bus_adc_src;
 
     if (v_adc > 65535u)
         v_adc = 65535u;
 
     v_cmd_V = MOTOR_ADC_CMD_TO_DISPLAY_VOLT_FLT((u16)v_adc);
 
-    if (motor.status == STATUS_MT_START) {
-        bus_adc_src = (motor_vbus_adc > 4095u) ? 4095u : (u16)motor_vbus_adc;
-        if (bus_adc_src < (u16)SAFE_MIN_VBUS_ADC)
-            bus_adc_src = (u16)MOTOR_VBUS_ADC_FALLBACK_DEN;
-    } else
-        bus_adc_src = motor.valtage_up;
-
-    v_bus_V = GET_PHYSICAL_V(bus_adc_src);
+    v_bus_V = GET_PHYSICAL_V(motor.valtage_up);
     if (v_bus_V < MOTOR_VBUS_PHYSICAL_MIN_VALID_V)
         v_bus_V = MOTOR_VBUS_PHYSICAL_FALLBACK_V;
 
@@ -165,8 +107,7 @@ static u16 voltage_adc_to_pwm_ticks_lin(u32 v_adc)
     if (dt > 0u && dt < (u32)MT_START_ABSMIN_DUTY)
         dt = (u32)MT_START_ABSMIN_DUTY;
 
-    /* ZHANKONBI：大号=关断态；与 MT_START_PWM 小=强 Kick、自检写 PER=弱/关 一致 */
-    return (u16)(per - dt);
+    return (u16)dt;
 }
 
 static u32 s_I_lp_acc = 0u;
@@ -376,7 +317,7 @@ void motor_drive_isr(void)
 #define MOTOR_IOFF_RECAL_PWM_PCT  (2u)
 #endif
     if ((motor.status == STATUS_MT_RUN || motor.status == STATUS_MT_STOP) &&
-        (((u32)MOTOR_PWM_PERIOD_TICKS - (u32)ZHANKONBI) * 100u
+        ((u32)ZHANKONBI * 100u
          <= (u32)MOTOR_PWM_PERIOD_TICKS * (u32)MOTOR_IOFF_RECAL_PWM_PCT)) {
         motor.I_offset =
             (u16)(((u32)motor.I_offset * 127u + (u32)motor.valtage_cur + 64u) >> 7);
