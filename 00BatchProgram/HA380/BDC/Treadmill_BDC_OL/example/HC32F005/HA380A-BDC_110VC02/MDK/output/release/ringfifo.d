@@ -1,9 +1,0 @@
-.\output\release\ringfifo.o: ..\source\ringfifo.c
-.\output\release\ringfifo.o: ..\source\ringfifo.h
-.\output\release\ringfifo.o: ..\..\..\..\mcu\common\hc32f005.h
-.\output\release\ringfifo.o: D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h
-.\output\release\ringfifo.o: D:\Software\DevelopmentTools\Keil\ARM\ARMCC\Bin\..\include\stdint.h
-.\output\release\ringfifo.o: D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h
-.\output\release\ringfifo.o: D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h
-.\output\release\ringfifo.o: D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h
-.\output\release\ringfifo.o: D:\Software\DevelopmentTools\Keil\ARM\ARMCC\Bin\..\include\string.h

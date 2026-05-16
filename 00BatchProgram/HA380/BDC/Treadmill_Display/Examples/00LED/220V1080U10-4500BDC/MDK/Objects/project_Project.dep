@@ -41,7 +41,7 @@ I (..\BSP\bsp_uart.h)(0x69E7838D)
 I (..\USER\inc\main.h)(0x69DDE98D)
 I (..\SYSTEM\sys_aerobuf.h)(0x69DDEAEE)
 I (..\PLATFORM\led_driver.h)(0x69DE4E40)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 I (..\BSP\bsp_gpio.h)(0x69DDEAEE)
 I (..\PLATFORM\plat_beep.h)(0x69EC5BED)
 I (..\PLATFORM\ui_display.h)(0x69DE4FB9)
@@ -225,7 +225,7 @@ I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
 I (..\PLATFORM\led_driver.h)(0x69DE4E40)
 I (..\PLATFORM\plat_segment.h)(0x69DE4DC6)
 I (..\PLATFORM\plat_keyfun.h)(0x69DDEAEE)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 I (..\PLATFORM\plat_aerolink.h)(0x69E8F399)
 F (..\SYSTEM\sys_aerobuf.c)(0x69DDEAEE)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/sys_aerobuf.o -MD)
 I (..\SYSTEM\sys_aerobuf.h)(0x69DDEAEE)
@@ -255,7 +255,7 @@ I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
 I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
 I (..\SYSTEM\sys_aerobuf.h)(0x69DDEAEE)
 I (..\PLATFORM\led_driver.h)(0x69DE4E40)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 F (..\BSP\bsp_timer.c)(0x69FD3CB4)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/bsp_timer.o -MD)
 I (..\BSP\bsp_timer.h)(0x69BD6E1E)
 I (..\..\..\..\Libraries\inc\cw32l010.h)(0x691BD39B)
@@ -326,7 +326,7 @@ I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
 I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
 I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
 F (..\PLATFORM\treadmills.c)(0x69EC5BED)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/treadmills.o -MD)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 I (..\USER\inc\main.h)(0x69DDE98D)
 I (..\..\..\..\Libraries\inc\base_types.h)(0x691BD39B)
 I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
@@ -424,7 +424,7 @@ I (..\..\..\..\Libraries\inc\cw32l010_gpio.h)(0x691BD39B)
 I (..\..\..\..\Libraries\inc\cw32l010_uart.h)(0x691BD39B)
 I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
 I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 I (..\BSP\bsp_pwm.h)(0x69BE9CF2)
 F (..\PLATFORM\plat_keyfun.c)(0x69EC5BED)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_keyfun.o -MD)
 I (..\PLATFORM\plat_keyfun.h)(0x69DDEAEE)
@@ -450,7 +450,7 @@ I (..\..\..\..\Libraries\inc\cw32l010_gtim.h)(0x691BD39B)
 I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
 I (..\PLATFORM\plat_rf.h)(0x69DDEAEE)
 I (..\PLATFORM\plat_beep.h)(0x69EC5BED)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 F (..\PLATFORM\plat_aerolink.c)(0x69E8F399)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/plat_aerolink.o -MD)
 I (..\PLATFORM\plat_aerolink.h)(0x69E8F399)
 I (..\USER\inc\main.h)(0x69DDE98D)
@@ -476,7 +476,7 @@ I (D:\Software\DevelopmentTools\Keil\ARM\ARMCLANG\include\stdbool.h)(0x603507CA)
 I (..\SYSTEM\sys_aerobuf.h)(0x69DDEAEE)
 I (..\BSP\bsp_uart.h)(0x69E7838D)
 I (..\PLATFORM\led_driver.h)(0x69DE4E40)
-I (..\PLATFORM\treadmills.h)(0x69FEA008)
+I (..\PLATFORM\treadmills.h)(0x6A07BC9D)
 F (..\PLATFORM\led_driver.c)(0x69DDE965)(-xc -std=c11 --target=arm-arm-none-eabi -mcpu=cortex-m0plus -c-fno-rtti -funsigned-char-D__MICROLIB -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../../../../IdeSupport/MDK -I ../../../../Libraries/inc -I ../USER/inc -I ../BSP -I ../SYSTEM -I ../PLATFORM-I./RTE/_Project-ID:/Software/DevelopmentTools/Keil/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/Software/DevelopmentTools/Keil/ARM/PACK/WHXY/CW32L010_DFP/1.0.2/Device/Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o ./objects/led_driver.o -MD)
 I (..\PLATFORM\led_driver.h)(0x69DE4E40)
 I (..\USER\inc\main.h)(0x69DDE98D)

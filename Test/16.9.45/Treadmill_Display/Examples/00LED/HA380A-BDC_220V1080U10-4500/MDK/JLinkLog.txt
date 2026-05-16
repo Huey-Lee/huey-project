@@ -1,0 +1,109 @@
+T6E74 000:186.667   SEGGER J-Link V7.22b Log File
+T6E74 000:186.798   DLL Compiled: Jun 17 2021 17:22:49
+T6E74 000:186.803   Logging started @ 2026-05-05 10:24
+T6E74 000:186.807 - 186.809ms
+T6E74 000:186.815 JLINK_SetWarnOutHandler(...)
+T6E74 000:186.821 - 0.007ms
+T6E74 000:186.826 JLINK_OpenEx(...)
+T6E74 000:191.609   Looking for J-Link GUI Server exe at: D:\Software\DevelopmentTools\Keil\ARM\Segger\JLinkGUIServer.exe
+T6E74 000:191.676   Looking for J-Link GUI Server exe at: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T6E74 000:191.690   Forking J-Link GUI Server: D:\Software\STMicroelectronics\JLink_V796\JLinkGUIServer.exe
+T6E74 000:195.999   J-Link GUI Server info: "J-Link GUI server V7.96 "
+T6E74 001:366.126   TELNET listener socket opened on port 19021
+T6E74 001:366.249   WEBSRV Starting webserver
+T6E74 001:366.375   WEBSRV Webserver running on local port 19080
+T6E74 001:366.388 - 1179.565ms returns "O.K."
+T6E74 001:366.410 JLINK_GetEmuCaps()
+T6E74 001:366.419 - 0.011ms returns 0x98E61B83
+T6E74 001:366.432 JLINK_TIF_GetAvailable(...)
+T6E74 001:366.439 - 0.009ms
+T6E74 001:366.449 JLINK_SetErrorOutHandler(...)
+T6E74 001:366.455 - 0.009ms
+T6E74 001:366.475 JLINK_ExecCommand("ProjectFile = "D:\Huey\BDC\0BatchProgram\HA380\ClosedLoop\Treadmill_Display\Examples\00LED\HA380A-BDC_220V1080U10-4500\MDK\JLinkSettings.ini"", ...). 
+T6E74 001:376.478   Device "CORTEX-M0" selected.
+T6E74 001:378.390 - 11.923ms returns 0x00
+T6E74 001:378.410 JLINK_ExecCommand("Device = CW32L010F8", ...). 
+T6E74 001:378.586   Device "CORTEX-M0" selected.
+T6E74 001:378.801 - 0.406ms returns 0x00
+T6E74 001:378.832 JLINK_GetHardwareVersion()
+T6E74 001:380.404 - 1.586ms returns 20100
+T6E74 001:380.425 JLINK_GetDLLVersion()
+T6E74 001:380.430 - 0.007ms returns 72202
+T6E74 001:380.436 JLINK_GetOEMString(...)
+T6E74 001:380.442 JLINK_GetFirmwareString(...)
+T6E74 001:380.451 - 0.011ms
+T6E74 001:380.462 JLINK_GetDLLVersion()
+T6E74 001:380.466 - 0.006ms returns 72202
+T6E74 001:380.471 JLINK_GetCompileDateTime()
+T6E74 001:380.475 - 0.006ms
+T6E74 001:380.482 JLINK_GetFirmwareString(...)
+T6E74 001:380.486 - 0.006ms
+T6E74 001:380.492 JLINK_GetHardwareVersion()
+T6E74 001:380.497 - 0.006ms returns 20100
+T6E74 001:380.503 JLINK_GetSN()
+T6E74 001:380.507 - 0.006ms returns 1044601577
+T6E74 001:380.513 JLINK_GetOEMString(...)
+T6E74 001:380.520 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T6E74 001:386.373 - 5.866ms returns 0x00
+T6E74 001:386.394 JLINK_HasError()
+T6E74 001:386.407 JLINK_SetSpeed(2000)
+T6E74 001:388.368 - 1.967ms
+T6E74 001:388.656 JLINK_HasError()
+T6E74 001:388.666 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T6E74 001:388.671 - 0.007ms returns JLINKARM_RESET_TYPE_NORMAL
+T6E74 001:388.677 JLINK_Reset()
+T6E74 001:400.376   Found SW-DP with ID 0x0BC11477
+T6E74 001:420.405   Old FW that does not support reading DPIDR via DAP jobs
+T6E74 001:422.374   DPv0 detected
+T6E74 001:422.392   Scanning AP map to find all available APs
+T6E74 001:426.544   AP[1]: Stopped AP scan as end of AP map has been reached
+T6E74 001:426.557   AP[0]: AHB-AP (IDR: 0x04770031)
+T6E74 001:426.564   Iterating through AP map to find AHB-AP to use
+T6E74 001:430.540   AP[0]: Core found
+T6E74 001:430.554   AP[0]: AHB-AP ROM base: 0xE00FF000
+T6E74 001:432.540   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T6E74 001:432.553   Found Cortex-M0 r0p1, Little endian.
+T6E74 001:534.781   -- Max. mem block: 0xFFFFFEFA
+T6E74 001:534.860    -- CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T6E74 001:544.674    -- CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T6E74 001:558.879    -- CPU_ReadMem(4 bytes @ 0xE0002000)
+T6E74 001:568.715   FPUnit: 4 code (BP) slots and 0 literal slots
+T6E74 001:568.778    -- CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T6E74 001:578.632    -- CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T6E74 001:592.684    -- CPU_ReadMem(4 bytes @ 0xE0001000)
+T6E74 001:602.496    -- CPU_WriteMem(4 bytes @ 0xE0001000)
+T6E74 001:616.650   CoreSight components:
+T6E74 001:616.677   ROMTbl[0] @ E00FF000
+T6E74 001:616.689    -- CPU_ReadMem(64 bytes @ 0xE00FF000)
+T6E74 001:628.439    -- CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T6E74 001:638.642   ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB008 SCS
+T6E74 001:638.683    -- CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T6E74 001:648.482   ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 000BB00A DWT
+T6E74 001:648.529    -- CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T6E74 001:658.511   ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 000BB00B FPB
+T6E74 001:658.687   CPU is running
+T6E74 001:658.726    -- CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T6E74 001:672.713   CPU is running
+T6E74 001:672.744    -- CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T6E74 001:686.614   Reset: Halt core after reset via DEMCR.VC_CORERESET.
+T6E74 001:688.645   Reset: Reset device via AIRCR.SYSRESETREQ.
+T6E74 001:688.685   CPU is running
+T6E74 001:688.701    -- CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T6E74 001:756.702    -- CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T6E74 001:766.539    -- CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T6E74 001:776.692   CPU is running
+T6E74 001:776.721    -- CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T6E74 001:790.653   CPU is running
+T6E74 001:790.688    -- CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T6E74 001:809.973    -- CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T6E74 001:857.492    -- CPU_WriteMem(4 bytes @ 0xE0002000)
+T6E74 001:871.495    -- CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T6E74 001:881.657    -- CPU_ReadMem(4 bytes @ 0xE0001000)
+T6E74 001:891.649    -- CPU_WriteMem(4 bytes @ 0xE0001000)
+T6E74 001:905.682 - 517.043ms
+T6E74 001:905.762 JLINK_GetId()
+T6E74 001:907.661 - 1.936ms returns 0x0BC11477
+T6E74 001:915.019 JLINK_GetFirmwareString(...)
+T6E74 001:915.033 - 0.017ms
+T6E74 004:256.533 JLINK_Close()
+T6E74 004:259.482    -- CPU_ReadMem(4 bytes @ 0xE0001000)

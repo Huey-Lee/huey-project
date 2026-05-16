@@ -1,0 +1,17 @@
+E03 在启动阶段主要有三条路径：
+
+checkout_start_stall：start_tim  60 判定「起步堵转超时」。
+checkout_current_over_start：主环里负载电流连续多拍超过 OVER_CURRENT_MAX_LOW_SPEED。
+进 RUN 后 ISR 里的 Current_Max_Over：原始电流采样连续超过全速过流阈。
+你描述的「一启动最低档就 E03、空载带人都一样」，最符合的是第 1 条：原先在 STATUS_MT_START 里每次 motor_speed() 都会 start_tim++，其中包含电压还在往 vmin 爬升的那段。H1 开环升压步数多（约 100 ms 一拍），往往要很多拍才到 vmin，堵转计数在「握手还没开始」时就被加到 60，于是 error_chick() 里的 checkout_start_stall 直接报 E03，和皮带是否真的堵转、是否带人无关。
+
+C03 的 START 形态不同（电压状态切换快），同样写法的 start_tim++ 不一定暴露问题；H1 上就会误判。
+
+已做修改
+motor.c（STATUS_MT_START）
+start_tim 只在「已经达到 vmin」之后的握手阶段递增（放进 else 分支），爬升阶段不再占用 60 拍预算。
+从 START 切入 RUN 的两处
+增加 reset_current_lp_filter()，清零 ISR 里全速过流去抖计数，避免一进 RUN 沿用 START 期间累加的噪声导致误判。
+main.c
+spd_period 至少为 1，避免误配置成 0 时主循环每一圈都跑 motor_speed()，把节拍放大、加速误报。
+请重新编译、在最低档空载带载各试一下。若仍有 E03，再看是 checkout_current_over_start（6A 档） 还是 Current_Max_Over（全速阈），需要的话可再根据现象微调阈值或加短时屏蔽。

@@ -1,994 +1,0 @@
-Dependencies for Project 'template', Target 'template_Release': (DO NOT MODIFY !)
-CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\startup_hc32f005.s)(0x62D65DAC)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include--pd "__UVISION_VERSION SETA 535" --pd "_RTE_ SETA 1" --pd "_RTE_ SETA 1"-o .\output\release\startup_hc32f005.o --depend .\output\release\startup_hc32f005.d)
-F (..\..\..\mcu\common\interrupts_hc32f005.c)(0x6892EF9D)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\interrupts_hc32f005.o --omf_browse .\output\release\interrupts_hc32f005.crf --depend .\output\release\interrupts_hc32f005.d)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\mcu\common\system_hc32f005.c)(0x62D6477A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\system_hc32f005.o --omf_browse .\output\release\system_hc32f005.crf --depend .\output\release\system_hc32f005.d)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\source\main.c)(0x6A0068C0)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\main.o --omf_browse .\output\release\main.crf --depend .\output\release\main.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\my_gpio.h)(0x685E19FF)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-I (..\source\my_pwm.h)(0x66D02032)
-I (..\source\my_flash.h)(0x68564A46)
-I (..\source\aip1628.h)(0x68564A68)
-I (..\source\led_disp.h)(0x685E4B5C)
-I (..\source\indecate.h)(0x68633B7B)
-I (..\source\beep.h)(0x68564AE9)
-I (..\source\uart_frame.h)(0x6A0068C0)
-I (..\source\queue.h)(0x68564B98)
-I (..\source\treadmills.h)(0x6A0068C0)
-I (..\source\param.h)(0x6A0068C0)
-I (..\source\keypad.h)(0x685E810F)
-I (..\source\keypad_fun.h)(0x6A0068C0)
-I (..\source\decode.h)(0x685E1B3E)
-I (..\source\7_segment.h)(0x685E3468)
-I (..\source\programe.h)(0x6A0068C0)
-F (..\source\my_flash.c)(0x68537592)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\my_flash.o --omf_browse .\output\release\my_flash.crf --depend .\output\release\my_flash.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\my_flash.h)(0x68564A46)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-I (..\source\treadmills.h)(0x6A0068C0)
-F (..\source\my_gpio.c)(0x685E8192)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\my_gpio.o --omf_browse .\output\release\my_gpio.crf --depend .\output\release\my_gpio.d)
-I (..\source\my_gpio.h)(0x685E19FF)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-I (..\source\decode.h)(0x685E1B3E)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-F (..\source\my_pwm.c)(0x685CF530)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\my_pwm.o --omf_browse .\output\release\my_pwm.crf --depend .\output\release\my_pwm.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\my_pwm.h)(0x66D02032)
-I (..\source\decode.h)(0x685E1B3E)
-F (..\source\aip1628.c)(0x66D66218)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\aip1628.o --omf_browse .\output\release\aip1628.crf --depend .\output\release\aip1628.d)
-I (..\source\aip1628.h)(0x68564A68)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\7_segment.h)(0x685E3468)
-I (..\source\my_gpio.h)(0x685E19FF)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-F (..\source\7_segment.c)(0x685E343A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\7_segment.o --omf_browse .\output\release\7_segment.crf --depend .\output\release\7_segment.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\7_segment.h)(0x685E3468)
-F (..\source\led_disp.c)(0x686CBBB8)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\led_disp.o --omf_browse .\output\release\led_disp.crf --depend .\output\release\led_disp.d)
-I (..\source\led_disp.h)(0x685E4B5C)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\7_segment.h)(0x685E3468)
-I (..\source\indecate.h)(0x68633B7B)
-I (..\source\aip1628.h)(0x68564A68)
-F (..\source\indecate.c)(0x685262A8)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\indecate.o --omf_browse .\output\release\indecate.crf --depend .\output\release\indecate.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\indecate.h)(0x68633B7B)
-I (..\source\aip1628.h)(0x68564A68)
-I (..\source\7_segment.h)(0x685E3468)
-F (..\source\beep.c)(0x68564109)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\beep.o --omf_browse .\output\release\beep.crf --depend .\output\release\beep.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\beep.h)(0x68564AE9)
-I (..\source\my_pwm.h)(0x66D02032)
-F (..\source\treadmills.c)(0x6A006CFC)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\treadmills.o --omf_browse .\output\release\treadmills.crf --depend .\output\release\treadmills.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\treadmills.h)(0x6A0068C0)
-I (..\source\keypad.h)(0x685E810F)
-I (..\source\led_disp.h)(0x685E4B5C)
-I (..\source\keypad_fun.h)(0x6A0068C0)
-I (..\source\uart_frame.h)(0x6A0068C0)
-I (..\source\queue.h)(0x68564B98)
-I (..\source\indecate.h)(0x68633B7B)
-I (..\source\aip1628.h)(0x68564A68)
-I (..\source\7_segment.h)(0x685E3468)
-I (..\source\beep.h)(0x68564AE9)
-I (..\source\param.h)(0x6A0068C0)
-I (..\source\programe.h)(0x6A0068C0)
-F (..\source\param.c)(0x5E676E3A)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\param.o --omf_browse .\output\release\param.crf --depend .\output\release\param.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\param.h)(0x6A0068C0)
-F (..\source\keypad.c)(0x688984DC)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\keypad.o --omf_browse .\output\release\keypad.crf --depend .\output\release\keypad.d)
-I (..\source\keypad.h)(0x685E810F)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\keypad_fun.h)(0x6A0068C0)
-I (..\source\led_disp.h)(0x685E4B5C)
-I (..\source\decode.h)(0x685E1B3E)
-I (..\source\treadmills.h)(0x6A0068C0)
-I (..\source\beep.h)(0x68564AE9)
-F (..\source\keypad_fun.c)(0x6A0068C0)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\keypad_fun.o --omf_browse .\output\release\keypad_fun.crf --depend .\output\release\keypad_fun.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\keypad_fun.h)(0x6A0068C0)
-I (..\source\keypad.h)(0x685E810F)
-I (..\source\beep.h)(0x68564AE9)
-I (..\source\led_disp.h)(0x685E4B5C)
-I (..\source\uart_frame.h)(0x6A0068C0)
-I (..\source\queue.h)(0x68564B98)
-I (..\source\treadmills.h)(0x6A0068C0)
-I (..\source\7_segment.h)(0x685E3468)
-I (..\source\indecate.h)(0x68633B7B)
-I (..\source\aip1628.h)(0x68564A68)
-I (..\source\param.h)(0x6A0068C0)
-I (..\source\my_flash.h)(0x68564A46)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-I (..\source\programe.h)(0x6A0068C0)
-F (..\source\uart_frame.c)(0x6A0072AE)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\uart_frame.o --omf_browse .\output\release\uart_frame.crf --depend .\output\release\uart_frame.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\uart_frame.h)(0x6A0068C0)
-I (..\source\queue.h)(0x68564B98)
-I (..\source\treadmills.h)(0x6A0068C0)
-I (..\source\param.h)(0x6A0068C0)
-I (..\source\led_disp.h)(0x685E4B5C)
-I (..\source\indecate.h)(0x68633B7B)
-I (..\source\aip1628.h)(0x68564A68)
-I (..\source\beep.h)(0x68564AE9)
-F (..\source\decode.c)(0x6858EA60)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\decode.o --omf_browse .\output\release\decode.crf --depend .\output\release\decode.d)
-I (..\source\decode.h)(0x685E1B3E)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\my_gpio.h)(0x685E19FF)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-F (..\source\queue.c)(0x66D6626E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\queue.o --omf_browse .\output\release\queue.crf --depend .\output\release\queue.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\queue.h)(0x68564B98)
-F (..\source\programe.c)(0x6A0068C0)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\programe.o --omf_browse .\output\release\programe.crf --depend .\output\release\programe.d)
-I (..\source\common.h)(0x68564A2E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdarg.h)(0x60252376)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdlib.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\math.h)(0x60252378)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\pca.h)(0x62D64776)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\source\programe.h)(0x6A0068C0)
-F (..\..\..\driver\src\adc.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\adc.o --omf_browse .\output\release\adc.crf --depend .\output\release\adc.d)
-I (..\..\..\driver\inc\adc.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\adt.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\adt.o --omf_browse .\output\release\adt.crf --depend .\output\release\adt.d)
-I (..\..\..\driver\inc\adt.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\bgr.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\bgr.o --omf_browse .\output\release\bgr.crf --depend .\output\release\bgr.d)
-I (..\..\..\driver\inc\bgr.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\bt.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\bt.o --omf_browse .\output\release\bt.crf --depend .\output\release\bt.d)
-I (..\..\..\driver\inc\bt.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\crc.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\crc.o --omf_browse .\output\release\crc.crf --depend .\output\release\crc.d)
-I (..\..\..\driver\inc\crc.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\ddl.c)(0x669DE31E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\ddl.o --omf_browse .\output\release\ddl.crf --depend .\output\release\ddl.d)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\flash.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\flash.o --omf_browse .\output\release\flash.crf --depend .\output\release\flash.d)
-I (..\..\..\driver\inc\flash.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\gpio.c)(0x669DED4E)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\gpio.o --omf_browse .\output\release\gpio.crf --depend .\output\release\gpio.d)
-I (..\..\..\driver\inc\gpio.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\i2c.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\i2c.o --omf_browse .\output\release\i2c.crf --depend .\output\release\i2c.d)
-I (..\..\..\driver\inc\i2c.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\lpm.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\lpm.o --omf_browse .\output\release\lpm.crf --depend .\output\release\lpm.d)
-I (..\..\..\driver\inc\lpm.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\lvd.c)(0x62D64776)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\lvd.o --omf_browse .\output\release\lvd.crf --depend .\output\release\lvd.d)
-I (..\..\..\driver\inc\lvd.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\ram.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\ram.o --omf_browse .\output\release\ram.crf --depend .\output\release\ram.d)
-I (..\..\..\driver\inc\ram.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\reset.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\reset.o --omf_browse .\output\release\reset.crf --depend .\output\release\reset.d)
-I (..\..\..\driver\inc\reset.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\spi.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\spi.o --omf_browse .\output\release\spi.crf --depend .\output\release\spi.d)
-I (..\..\..\driver\inc\spi.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\sysctrl.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\sysctrl.o --omf_browse .\output\release\sysctrl.crf --depend .\output\release\sysctrl.d)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\trim.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\trim.o --omf_browse .\output\release\trim.crf --depend .\output\release\trim.d)
-I (..\..\..\driver\inc\trim.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\uart.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\uart.o --omf_browse .\output\release\uart.crf --depend .\output\release\uart.d)
-I (..\..\..\driver\inc\uart.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\vc.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\vc.o --omf_browse .\output\release\vc.crf --depend .\output\release\vc.d)
-I (..\..\..\driver\inc\vc.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\..\..\driver\src\wdt.c)(0x62D64778)(--c99 -c --cpu Cortex-M0+ -D__MICROLIB -g -O2 --apcs=interwork --split_sections --enum_is_int -I ..\..\..\mcu\common -I ..\source -I ..\..\..\driver\inc-I.\RTE\_template_Release-ID:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Software\DevelopmentTools\Keil\ARM\PACK\HDSC\HC32F005\1.0.1\Device\Include-D__UVISION_VERSION="535" -D_RTE_ -D_RTE_-o .\output\release\wdt.o --omf_browse .\output\release\wdt.crf --depend .\output\release\wdt.d)
-I (..\..\..\driver\inc\wdt.h)(0x62D64776)
-I (..\..\..\driver\inc\ddl.h)(0x669DE32C)
-I (..\..\..\mcu\common\base_types.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\string.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stddef.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\stdint.h)(0x6025237E)
-I (D:\Software\DevelopmentTools\Keil\ARM\ARMCC\include\assert.h)(0x60252378)
-I (..\..\..\mcu\common\board_stkhc32f005.h)(0x68525392)
-I (..\..\..\mcu\common\hc32f005.h)(0x62D6477A)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm0plus.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D3E8E2)
-I (D:\Software\DevelopmentTools\Keil\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D3E8E2)
-I (..\..\..\mcu\common\system_hc32f005.h)(0x62D6477A)
-I (..\..\..\driver\inc\sysctrl.h)(0x62D64776)
-I (..\..\..\mcu\common\interrupts_hc32f005.h)(0x62D6477A)
-I (..\source\ddl_device.h)(0x62D65DAC)
-F (..\readme.txt)(0x60828244)()

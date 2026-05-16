@@ -122,19 +122,30 @@
 /* --- KIV: current-injection voltage gain per 1 km/h speed band ---
  * Higher = more voltage boost when motor pulls extra current (load compensation).
  * Tune per-speed for each motor.  Typical: 2-3. */
-#define TM_LOWER_KIV_1KM             1u
-#define TM_LOWER_KIV_2KM             1u
-#define TM_LOWER_KIV_3KM             3u
-#define TM_LOWER_KIV_4KM             3u
-#define TM_LOWER_KIV_5KM             3u
-#define TM_LOWER_KIV_6KM             3u
-#define TM_LOWER_KIV_7KM             3u
-#define TM_LOWER_KIV_8KM             3u
-#define TM_LOWER_KIV_9KM             3u
-#define TM_LOWER_KIV_10KM            3u
-#define TM_LOWER_KIV_11KM            3u
-#define TM_LOWER_KIV_12KM            3u
-
+//#define TM_LOWER_KIV_1KM             1u
+//#define TM_LOWER_KIV_2KM             1u
+//#define TM_LOWER_KIV_3KM             3u
+//#define TM_LOWER_KIV_4KM             3u
+//#define TM_LOWER_KIV_5KM             3u
+//#define TM_LOWER_KIV_6KM             3u
+//#define TM_LOWER_KIV_7KM             3u
+//#define TM_LOWER_KIV_8KM             3u
+//#define TM_LOWER_KIV_9KM             3u
+//#define TM_LOWER_KIV_10KM            3u
+//#define TM_LOWER_KIV_11KM            3u
+//#define TM_LOWER_KIV_12KM            3u
+#define TM_LOWER_KIV_1KM             0u
+#define TM_LOWER_KIV_2KM             0u
+#define TM_LOWER_KIV_3KM             0u
+#define TM_LOWER_KIV_4KM             0u
+#define TM_LOWER_KIV_5KM             0u
+#define TM_LOWER_KIV_6KM             0u
+#define TM_LOWER_KIV_7KM             0u
+#define TM_LOWER_KIV_8KM             0u
+#define TM_LOWER_KIV_9KM             0u
+#define TM_LOWER_KIV_10KM            0u
+#define TM_LOWER_KIV_11KM            0u
+#define TM_LOWER_KIV_12KM            0u
 
 /*=============================================================================
  * [6] Timing & boot sequencing
