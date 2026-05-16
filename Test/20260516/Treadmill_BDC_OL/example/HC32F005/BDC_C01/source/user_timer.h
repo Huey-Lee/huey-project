@@ -26,6 +26,9 @@ typedef struct _t_tim
 	volatile uint16_t tim6_cur;
 }tim_t;
 
+/* 上电最早期：开 GPIO 门控后将 TIM0 脚(P01)与 ADTIM6 PWM 脚(P02)推挽输出锁低（须早于 App_ClkInit 可在 main 首行调用） */
+void user_pwm_pins_bootstrap_safe_low_first(void);
+
 void user_timer_init(void);
 void tim0run(void);
 void tim0stop(void);

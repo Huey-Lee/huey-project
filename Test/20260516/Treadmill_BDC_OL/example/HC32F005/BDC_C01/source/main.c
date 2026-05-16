@@ -79,6 +79,9 @@ extern volatile uint16_t ZHANKONBI;
 
 int32_t main(void)
 {
+    /* 顶级防御：时钟与外设正式初始化前，将电机相关 PWM/TIM 脚锁为推挽输出低，避免上电毛刺 */
+    user_pwm_pins_bootstrap_safe_low_first();
+
     App_ClkInit();
     GpioInit();
     user_usart_init();

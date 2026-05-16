@@ -8,11 +8,32 @@
 #include "user_timer.h"
 #include "motor.h"
 #include "gpio.h"
+#include "sysctrl.h"
+#include "ddl.h"
 
 volatile uint16_t ZHANKONBI = MT_START_PWM;
 #define OUT_PUT ((MOTOR_PWM_PERIOD_TICKS) - (ZHANKONBI))
 
 tim_t tim_handle = {0};
+
+void user_pwm_pins_bootstrap_safe_low_first(void)
+{
+    stc_gpio_cfg_t cfg;
+
+    (void)Sysctrl_SetPeripheralGate(SysctrlPeripheralGpio, TRUE);
+
+    DDL_ZERO_STRUCT(cfg);
+    cfg.bOutputVal = FALSE; /* 低电平 */
+    cfg.enDir      = GpioDirOut;
+    cfg.enDrv      = GpioDrvH;
+    cfg.enPu       = GpioPuDisable;
+    cfg.enPd       = GpioPdDisable;
+    cfg.enOD       = GpioOdDisable;
+
+    /* 与 App_GpioInit / App_AdvTimerPortInit 同源：P01→TIM0、P02→ADTIM6 PWM */
+    (void)Gpio_Init(GpioPort0, GpioPin1, &cfg);
+    (void)Gpio_Init(GpioPort0, GpioPin2, &cfg);
+}
 
 static en_result_t App_BtTimerTest(void)
 {
@@ -104,6 +125,8 @@ void App_AdvTimerInit(uint16_t u16Period, uint16_t u16CHA_PWMDuty, uint16_t u16C
     stcAdtTIM6ACfg.enStaStp = AdtCHxStateSelSS;
     stcAdtTIM6ACfg.enStaOut = AdtCHxPortOutHigh;
     stcAdtTIM6ACfg.enStpOut = AdtCHxPortOutHigh;
+//		stcAdtTIM6ACfg.enStaOut = AdtCHxPortOutLow;
+//    stcAdtTIM6ACfg.enStpOut = AdtCHxPortOutLow;
     Adt_CHxXPortCfg(M0P_ADTIM6, AdtCHxA, &stcAdtTIM6ACfg);
 
     Adt_ClearAllIrqFlag(M0P_ADTIM6);

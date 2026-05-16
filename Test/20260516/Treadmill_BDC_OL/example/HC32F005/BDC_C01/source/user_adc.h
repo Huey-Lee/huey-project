@@ -27,6 +27,7 @@ typedef struct _t_adc
 	u8 DONE;
 }adc_t;
 
+extern adc_t adc_handle;
 extern volatile uint32_t adc_batch_seq;
 
 void clear_adcbuf(void);

@@ -26,8 +26,20 @@
 #ifndef VOLT_PER_ADC_TICK
 #define VOLT_PER_ADC_TICK      ((V_REF_ADC) * (V_BUS_DIVIDER_RATIO) / (ADC_RESOLUTION))
 #endif
+/* 物理常数（原理图决定；数值取自本文件 V_REF_ADC / V_BUS_DIVIDER_RATIO / ADC_RESOLUTION） */
+#define PHYS_VREF_V            (V_REF_ADC)
+#define PHYS_DIVIDER_RATIO     (V_BUS_DIVIDER_RATIO)
+#define PHYS_ADC_RES           (ADC_RESOLUTION)
+/* 母线 1V → ADC 计数（≈4096/(Vref×分压比)；与电网 110/220 无关） */
+#define PHYS_VOLT_SCALE        ((PHYS_ADC_RES) / ((PHYS_VREF_V) * (PHYS_DIVIDER_RATIO)))
+
 #ifndef GET_PHYSICAL_V
 #define GET_PHYSICAL_V(adc_)   ((float)(adc_) * (VOLT_PER_ADC_TICK))
+#endif
+
+/* 占空：Duty_ticks = Target_Volts × PHYS_VOLT_SCALE × Period / Realtime_Bus_ADC */
+#ifndef MOTOR_BUS_ADC_SCALE_COUNTS_PER_VOLT
+#define MOTOR_BUS_ADC_SCALE_COUNTS_PER_VOLT  (PHYS_VOLT_SCALE)
 #endif
 
 /* RB18 康铜丝，原理图标称 30 mΩ */

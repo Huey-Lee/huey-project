@@ -33,6 +33,7 @@ static u16 stall_oc_trip_adc(void)
     return MOTOR_STALL_OC_ADC_FROM_FULL(oc_lim_full_mirror);
 }
 
+#if !MOTOR_KIV_FEEDFORWARD_DISABLE
 static u16 motor_kiv_soft_blend_q12_under3k(void)
 {
     u16 cs   = motor.cur_speed_scale;
@@ -56,6 +57,7 @@ static u16 motor_kiv_soft_blend_q12_under3k(void)
         return (u16)(bl + num / den);
     }
 }
+#endif
 
 void motor_drive_refresh_over_voltage_from_vmax(void)
 {
@@ -78,32 +80,36 @@ static void motor_drive_refresh_vbus_duty_lin(void)
     /* 占空由 voltage_adc_to_pwm_ticks_lin() 按 GET_PHYSICAL_V(valtage_up) 即时计算；本函数保留供 boot_sync 兼容。 */
 }
 
-/* 电压闭环：dt≈(Vcmd_phys/Vbus_phys)×PER，本板实测 **ZHANKONBI 与负载端电压同向**，直接写 ZHANKONBI=dt（勿用 PER−dt）。 */
+/* 电压→占空：**顶级物理公式**（与 hardware_config.h 分压/Vref 同源）
+ *   Duty_ticks = Target_Volts * MOTOR_BUS_ADC_SCALE_COUNTS_PER_VOLT * Period / Realtime_Bus_ADC
+ * Target_Volts 由 ADC_cmd 经 g_volt_scale 标尺换算；Realtime_Bus_ADC = motor.valtage_up。
+ * 本板实测 **ZHANKONBI 与负载端电压同向**，直接写 ZHANKONBI=Duty_ticks（勿用 PER−dt）。 */
 static u16 voltage_adc_to_pwm_ticks_lin(u32 v_adc)
 {
-    float v_cmd_V;
-    float v_bus_V;
-    float r;
+    float target_volts;
+    float adc_bus;
+    float duty_ticks;
     u32   dt;
 
     if (v_adc > 65535u)
         v_adc = 65535u;
 
-    v_cmd_V = MOTOR_ADC_CMD_TO_DISPLAY_VOLT_FLT((u16)v_adc);
+    target_volts = MOTOR_ADC_CMD_TO_DISPLAY_VOLT_FLT((u16)v_adc);
+    adc_bus      = (float)motor.valtage_up;
 
-    v_bus_V = GET_PHYSICAL_V(motor.valtage_up);
-    if (v_bus_V < MOTOR_VBUS_PHYSICAL_MIN_VALID_V)
-        v_bus_V = MOTOR_VBUS_PHYSICAL_FALLBACK_V;
+    if (adc_bus < 8.0f ||
+        GET_PHYSICAL_V(motor.valtage_up) < MOTOR_VBUS_PHYSICAL_MIN_VALID_V)
+        adc_bus = CALC_VOLTAGE_2_ADC(MOTOR_VBUS_PHYSICAL_FALLBACK_V);
 
-    if (v_cmd_V <= 0.0f)
-        r = 0.0f;
-    else {
-        r = v_cmd_V / v_bus_V;
-        if (r > MOTOR_DUTY_RATIO_CAP)
-            r = MOTOR_DUTY_RATIO_CAP;
+    if (target_volts <= 0.0f) {
+        dt = 0u;
+    } else {
+        duty_ticks = target_volts * MOTOR_BUS_ADC_SCALE_COUNTS_PER_VOLT *
+                     (float)MOTOR_PWM_PERIOD_TICKS / adc_bus;
+        if (duty_ticks > (float)MOTOR_PWM_PERIOD_TICKS * MOTOR_DUTY_RATIO_CAP)
+            duty_ticks = (float)MOTOR_PWM_PERIOD_TICKS * MOTOR_DUTY_RATIO_CAP;
+        dt = (u32)(duty_ticks + 0.5f);
     }
-
-    dt = (u32)((float)MOTOR_PWM_PERIOD_TICKS * r + 0.5f);
 
     if (dt > (u32)UK_PWM_MAX)
         dt = (u32)UK_PWM_MAX;
@@ -113,7 +119,9 @@ static u16 voltage_adc_to_pwm_ticks_lin(u32 v_adc)
     return (u16)dt;
 }
 
+#if !MOTOR_KIV_FEEDFORWARD_DISABLE
 static u32 s_I_lp_acc = 0u;
+#endif
 
 static u8  s_ov_cnt   = 0u;
 static u8  s_ms_cnt   = 0u;
@@ -137,7 +145,9 @@ void reset_current_lp_filter(void)
 {
     u32 vq;
 
+#if !MOTOR_KIV_FEEDFORWARD_DISABLE
     s_I_lp_acc                 = 0u;
+#endif
     s_ov_cnt                   = 0u;
     s_ms_cnt                   = 0u;
     s_prot_oc_lim_full_isr_cnt = 0u;
@@ -302,19 +312,23 @@ static u16 motor_v_exec_apply_microstep_q8(void)
 void motor_drive_isr(void)
 {
     int16_t cut_adc;
-    u16     I_now;
-    u16     v_exec;
+#if !MOTOR_KIV_FEEDFORWARD_DISABLE
+    u16 I_now = 0u;
+#endif
+    u16 v_exec;
 
     /* 端压差 = M+−M−（两路分压后）；谷底采样、MOS 导通时 down 接近低侧地，up−down 为正对应电枢有效电压 */
     cut_adc = (int16_t)motor.valtage_up - (int16_t)motor.valtage_down;
     if (cut_adc < 0) cut_adc = 0;
 
+#if !MOTOR_KIV_FEEDFORWARD_DISABLE
     {
         u16 raw = (motor.valtage_cur > motor.I_offset) ?
                   (motor.valtage_cur - motor.I_offset) : 0u;
         s_I_lp_acc = s_I_lp_acc - (s_I_lp_acc >> 12u) + raw;
         I_now      = (u16)(s_I_lp_acc >> 12u);
     }
+#endif
 
 #ifndef MOTOR_IOFF_RECAL_PWM_PCT
 #define MOTOR_IOFF_RECAL_PWM_PCT  (2u)
@@ -351,6 +365,12 @@ void motor_drive_isr(void)
         motor_vbus_adc = vb;
         motor_drive_refresh_vbus_duty_lin();
 
+        int32_t V_corr;
+
+#if MOTOR_KIV_FEEDFORWARD_DISABLE
+        V_corr = (int32_t)v_exec;
+        pwm_publish_duty(voltage_to_duty(V_corr));
+#else
         u16     I_noload = speed_param[motor.index].adc_base_curren;
         int32_t kiv_comp = 0;
 
@@ -363,7 +383,7 @@ void motor_drive_isr(void)
         }
         kiv_comp = (kiv_comp * (int32_t)motor_kiv_soft_blend_q12_under3k()) >> 12;
 
-        int32_t V_corr = (int32_t)v_exec + kiv_comp;
+        V_corr = (int32_t)v_exec + kiv_comp;
         {
             int32_t vboost = (int32_t)MOTOR_KIV_BOOST_CAP_RUN_ADC;
 
@@ -374,6 +394,7 @@ void motor_drive_isr(void)
         }
 
         pwm_publish_duty(voltage_to_duty(V_corr));
+#endif
 
         Current_Max_Over();
 
@@ -409,6 +430,13 @@ void motor_drive_isr(void)
 
     case STATUS_MT_STOP:
     {
+#if MOTOR_KIV_FEEDFORWARD_DISABLE
+        int32_t V_corr = (int32_t)v_exec;
+
+        if (V_corr < 0)
+            V_corr = 0;
+        pwm_publish_duty(voltage_adc_to_pwm_ticks_lin((u32)V_corr));
+#else
         u16     I_noload = speed_param[motor.index].adc_base_curren;
         int32_t kiv_comp = 0;
 
@@ -429,6 +457,7 @@ void motor_drive_isr(void)
         if (V_corr < 0) V_corr = 0;
 
         pwm_publish_duty(voltage_adc_to_pwm_ticks_lin((u32)V_corr));
+#endif
 
         {
             u32 vd = (u32)(u16)cut_adc * (u32)MOTOR_CUT_ADC_DELTA_TO_DISP_VOLT_X1000;

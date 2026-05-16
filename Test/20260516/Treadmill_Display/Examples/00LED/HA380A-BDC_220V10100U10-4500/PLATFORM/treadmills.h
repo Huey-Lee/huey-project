@@ -97,8 +97,8 @@
 /* --- Motor type: uncomment the block that matches your motor --- */
 
 /* === 220 V motor — 参数已按「判停/蠕行 + 开环过冲」向保守侧调校，仅烧上显 ================== */
-#define TM_LOWER_VOLTAGE_MAX        180u    
-#define TM_LOWER_VOLTAGE_MIN        35u     
+#define TM_LOWER_VOLTAGE_MAX        100u    
+#define TM_LOWER_VOLTAGE_MIN        30u     
 #define TM_LOWER_OVER_VOLTAGE_MAX   240u
 #define TM_LOWER_OVER_CURRENT_MAX   30u
 #define TM_LOWER_SPEED_MAX_PARAM    100u
@@ -111,8 +111,8 @@
 #define TM_LOWER_END_LEVEL          20u
 
 /* 运行加速/停机减速：加缓减可略快，减轻再加速「顶一下」体感 */
-#define TM_LOWER_ACCEL_LEVEL         1u
-#define TM_LOWER_DECEL_LEVEL         3u
+#define TM_LOWER_ACCEL_LEVEL         2u
+#define TM_LOWER_DECEL_LEVEL         2u
 
 /* KIV 略降：减少 RUN/STOP 段 IR 在低速多顶占空，助减蠕行与过冲（台架可再细调） */
 //#define TM_LOWER_KIV_1KM             0u

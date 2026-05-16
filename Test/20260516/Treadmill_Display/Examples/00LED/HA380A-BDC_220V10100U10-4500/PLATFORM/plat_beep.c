@@ -28,7 +28,7 @@ static uint8_t g_pending_clicks;
 
 void Beep_Init(void) {
     BSP_PWM_Init();
-    g_beep.mute_flag  = 0;
+    g_beep.mute_flag  = 1;
     g_pending_clicks  = 0u;
 }
 

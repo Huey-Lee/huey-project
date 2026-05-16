@@ -10,6 +10,7 @@
 #include "user_adc.h"
 #include "uart_frame.h"
 #include "motor_drive.h"
+#include "ddl.h"
 
 extern uint16_t ZHANKONBI;
 extern u8       waitforamoment;
@@ -17,6 +18,7 @@ extern u8       waitforamoment;
 ctr_t   ctr;
 volatile motor_t motor;
 
+float g_volt_scale = PHYS_VOLT_SCALE * 100.0f;
 u8  motor_grid_profile_known   = 0u;
 u8  motor_grid_env_220         = 0u;
 u16 dynamic_e05_abs_volt_limit = E05_ABS_VOLT_110V;
@@ -76,6 +78,7 @@ void ctr_init(void)
     motor_grid_profile_known = 0u;
     motor_grid_env_220       = 0u;
     dynamic_e05_abs_volt_limit = E05_ABS_VOLT_110V;
+    g_volt_scale               = PHYS_VOLT_SCALE * 100.0f;
     /* 电压–速度线性：90V@10km − vmin@1km，分母 adjust_speed_max−100 */
     motor_recalc_voltage_param_from_cmd();
     motor_drive_boot_sync_limits();
@@ -195,6 +198,24 @@ void motor_controlled_stop_set(u8 err_code)
 
 /* 对照 HA380A-BDC_C03 motor.c；H1 仅多算 POWERON 的 I_offset（不报 E04）。 */
 
+#if !MOTOR_E02_DISABLE
+/* E02：|Up-Dn| 相对 v_nom 超 30% 部分累加；超过 MOTOR_E02_INTEGRAL_LIMIT 视为故障 */
+static void motor_e02_bus_diff_integral_add(u16 val_up, u16 val_down, u32 *acc)
+{
+    u16 v_nom;
+    u16 diff;
+    u32 lim;
+
+    v_nom = (u16)(((u32)val_up + (u32)val_down) / 2u);
+    if (v_nom < (u16)MOTOR_E02_BUS_VNOM_MIN_V)
+        return;
+    diff = (val_up > val_down) ? (u16)(val_up - val_down) : (u16)(val_down - val_up);
+    lim  = ((u32)v_nom * (u32)MOTOR_E02_BUS_DIFF_PCT_NUM) / (u32)MOTOR_E02_BUS_DIFF_PCT_DEN;
+    if ((u32)diff > lim)
+        *acc += ((u32)diff - lim);
+}
+#endif
+
 static void motor_wait_adc_batch_u32(u32 expect)
 {
     u32 spin = 0u;
@@ -206,85 +227,72 @@ static void motor_wait_adc_batch_u32(u32 expect)
 
 void ctr_proc_loop(void)
 {
-    static u8 er02_code = 0, gate_dual_low_cnt = 0;
-    u16       val_up, val_down;
-
     switch (ctr.status)
     {
     case STATUS_POWERON:
     {
-        u32 cur_sum = 0u;
-        u32 base;
-        er02_code          = 0u;
-        gate_dual_low_cnt  = 0u;
-        user_adc_init();
-        /* 仅要 TIM6 底点 UDF→ADC；OUT_PUT=PER−ZHANKONBI→0，压低自检期开关噪声对 I_offset 的影响 */
-        ZHANKONBI = MOTOR_PWM_PERIOD_TICKS;
-        tim6run();
-        base = adc_batch_seq;
-        for (u8 i = 0u; i < 100u; i++) {
-            motor_wait_adc_batch_u32(base + (u32)i + 1u);
-            val_up   = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_up);
-            val_down = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_down);
-            if ((val_up > val_down + 70u) || (val_down > val_up + 70u))
-                er02_code++;
-            if ((val_up < 10u) && (val_down < 10u))
-                gate_dual_low_cnt++;
-            cur_sum += motor.valtage_cur;
-        }
-        tim6stop();
-        motor.I_offset = (u16)(cur_sum / 100u);
+        static u16 s_pwron_mute_cnt;
+        u32        cur_sum = 0u;
+        u32        base;
 
-        if (er02_code > 5u) {
-            er02_code = 0u;
-            ctr.error_code = ERROR_02;
-            ctr.status     = STATUS_ERROR;
+        ZHANKONBI = MOTOR_PWM_PERIOD_TICKS;
+
+        /* 阶段 A：物理静默 — 开 ADC+TIM6 后不判 E02，仅保持关断占空并 1ms 节拍消耗毛刺 */
+        if (s_pwron_mute_cnt < (u16)MOTOR_E02_POWERON_MUTE_MS) {
+            if (s_pwron_mute_cnt == 0u) {
+                user_adc_init();
+                tim6run();
+            }
+            delay1ms(1u);
+            s_pwron_mute_cnt++;
             break;
         }
-        if (gate_dual_low_cnt > 5u) {
-            gate_dual_low_cnt = 0u;
-            ctr.error_code = ERROR_02;
-            ctr.status     = STATUS_ERROR;
+
+        /* 阶段 B+C：缓冲清洗 + 100 点 fresh 自检（保留 motor_e02 超额积分算法） */
+        if (s_pwron_mute_cnt == (u16)MOTOR_E02_POWERON_MUTE_MS) {
+#if !MOTOR_E02_DISABLE
+            u16 val_up, val_down;
+            u32 e02_integral = 0u;
+#endif
+            clear_adcbuf();
+            adc_handle.irq_flag = 0u;
+            adc_batch_seq       = 0u;
+
+            base = adc_batch_seq;
+            for (u8 i = 0u; i < 100u; i++) {
+                motor_wait_adc_batch_u32(base + (u32)i + 1u);
+#if !MOTOR_E02_DISABLE
+                val_up   = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_up);
+                val_down = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_down);
+                motor_e02_bus_diff_integral_add(val_up, val_down, &e02_integral);
+#endif
+                cur_sum += motor.valtage_cur;
+            }
+            tim6stop();
+            motor.I_offset = (u16)(cur_sum / 100u);
+
+#if !MOTOR_E02_DISABLE
+            if (e02_integral > (u32)MOTOR_E02_INTEGRAL_LIMIT) {
+                ctr.error_code   = ERROR_02;
+                ctr.status       = STATUS_ERROR;
+                s_pwron_mute_cnt = 0u;
+                break;
+            }
+#endif
+            ctr.status       = CTR_STATUS_CLEARED;
+            s_pwron_mute_cnt = 0u;
             break;
         }
-        ctr.status = CTR_STATUS_CLEARED;
+
+        s_pwron_mute_cnt = 0u;
         break;
     }
 
     case STATUS_RUN:
-        /* 门控节拍与计数与 POWERON 解耦（同 static 块的干净入口）*/
-        er02_code          = 0u;
-        gate_dual_low_cnt  = 0u;
-        user_adc_init();
-        ZHANKONBI = MOTOR_PWM_PERIOD_TICKS;
-        tim6run();
-        {
-            u32 base = adc_batch_seq;
-            for (u8 i = 0u; i < 100u; i++) {
-                motor_wait_adc_batch_u32(base + (u32)i + 1u);
-                val_up   = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_up);
-                val_down = (u16)CALC_ADC_2_VOLTAGE(motor.valtage_down);
-                if ((val_up > val_down + 70u) || (val_down > val_up + 70u))
-                    er02_code++;
-                if ((val_up < 10u) && (val_down < 10u))
-                    gate_dual_low_cnt++;
-            }
-        }
-        tim6stop();
-        if (er02_code > 5u) {
-            er02_code = 0u;
-            ctr.error_code = ERROR_02;
-            ctr.status     = STATUS_ERROR;
-            break;
-        }
-        if (gate_dual_low_cnt > 5u) {
-            gate_dual_low_cnt = 0u;
-            ctr.error_code = ERROR_02;
-            ctr.status     = STATUS_ERROR;
-            break;
-        }
+        /* 门闩：E02 仅在 STATUS_POWERON 已做（含 MUTE_MS + 缓冲清洗 + 100 点积分）。
+         * 此处再跑一轮无静默的 E02，按键/瞬态易累过 MOTOR_E02_INTEGRAL_LIMIT → 误报。 */
         ctr.status       = CTR_STATUS_CLEARED;
-        waitforamoment = 1u;
+        waitforamoment   = 1u;
         break;
 
     case STATUS_TO_RUN:
@@ -324,6 +332,7 @@ void ctr_proc_loop(void)
                     if (motor.adjust_max_voltage > MAX_RUN_V_110V)
                         motor.adjust_max_voltage = MAX_RUN_V_110V;
                 }
+                g_volt_scale = PHYS_VOLT_SCALE * 100.0f;
             }
             uart_sync_rx_voltage_max_from_motor();
             motor_recalc_voltage_param_from_cmd();
