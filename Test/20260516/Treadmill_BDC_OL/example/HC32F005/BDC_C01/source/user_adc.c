@@ -1,4 +1,10 @@
-/* user_adc.c - motor current, bus: ADC sample, filter, scale. */
+/*
+ * Function: 电机电流与母线电压多通道 ADC：扫描模式、中断入环缓冲、滤波与驱动回调。
+ * Method:   TIM6 底点触发扫描；ISR 写入 adc0/1/2data 并滑动均值；get_adc_value 选通 CH0/CH12 并调用 motor_drive_isr。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #include "user_adc.h"
 #include "bgr.h"
 #include "gpio.h"
@@ -8,19 +14,13 @@
 adc_t adc_handle;
 volatile uint32_t u32AdcResultAcc;
 volatile uint32_t adc_batch_seq;
-//ʹ��ADC��������
-//*******************************************************************************/
+
 u16 adc0data[GET_ADC_len];
 u16 adc1data[GET_ADC_len];
 u16 adc2data[GET_ADC_len];
 
-//u16 adc0val[GET_ADC_len];
-//u16 adc1val[GET_ADC_len];
-//u16 adc2val[GET_ADC_len];
-//*******************************************************************************/
 stc_adc_cfg_t             stcAdcCfg;
 
-/* O(1) 滑动均值：每通道独立环缓冲，ISR 内仅加减，不做 O(N) 循环 */
 static u16  s_adc_ring0[GET_ADC_len];
 static u16  s_adc_ring1[GET_ADC_len];
 static u16  s_adc_ring2[GET_ADC_len];
@@ -71,16 +71,9 @@ void clear_adcbuf(void)
 	memset(adc2data,0,GET_ADC_len * sizeof(u16));
 	adc_sliding_reset();
 }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/**********************************************************************************************************/
-/**********************************************************************************************************/
-/**********************************************************************************************************/
-/**********************************************************************************************************/
-/**********************************************************************************************************/
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 void App_AdcInit(void)
 {
-//    stc_adc_cfg_t             stcAdcCfg;
     stc_adc_scan_cfg_t        stcAdcScanCfg;
     stc_adc_irq_t             stcAdcIrq;
 
@@ -88,32 +81,32 @@ void App_AdcInit(void)
     DDL_ZERO_STRUCT(stcAdcScanCfg);
     DDL_ZERO_STRUCT(stcAdcIrq);
 
-    Sysctrl_SetPeripheralGate(SysctrlPeripheralAdcBgr, TRUE);  //ADCBGR ����ʱ��ʹ��
+    Sysctrl_SetPeripheralGate(SysctrlPeripheralAdcBgr, TRUE);
 
     Adc_Enable();
-    Bgr_BgrEnable();    ///< BGR����ʹ��
+    Bgr_BgrEnable();
 
-    stcAdcCfg.enAdcOpMode = AdcScanMode;               //ɨ�����ģʽ
-    stcAdcCfg.enAdcClkSel = AdcClkSysTDiv1;            //PCLK
-    stcAdcCfg.enAdcSampTimeSel = AdcSampTime8Clk;      //8������ʱ��
-    stcAdcCfg.enAdcRefVolSel = RefVolSelAVDD;      //�ο���ѹ:AVDD
-    stcAdcCfg.bAdcInBufEn = FALSE;                     //��ѹ���������ʹ�ܣ�SPS�������� <=200K
-    stcAdcCfg.enAdcTrig0Sel = AdcTrigTimer6;           /* ADTIM6 三角底点 → ADC */
+    stcAdcCfg.enAdcOpMode = AdcScanMode;
+    stcAdcCfg.enAdcClkSel = AdcClkSysTDiv1;
+    stcAdcCfg.enAdcSampTimeSel = AdcSampTime8Clk;
+    stcAdcCfg.enAdcRefVolSel = RefVolSelAVDD;
+    stcAdcCfg.bAdcInBufEn = FALSE;
+    stcAdcCfg.enAdcTrig0Sel = AdcTrigTimer6;
     stcAdcCfg.enAdcTrig1Sel = AdcTrigDisable;
     Adc_Init(&stcAdcCfg);
 
-    stcAdcIrq.bAdcIrq = TRUE;                          //ת������жϺ����������ʹ��
+    stcAdcIrq.bAdcIrq = TRUE;
     stcAdcIrq.bAdcRegCmp = FALSE;
     stcAdcIrq.bAdcHhtCmp = FALSE;
     stcAdcIrq.bAdcLltCmp = FALSE;
-    Adc_CmpCfg(&stcAdcIrq);                            //����Ƚ��ж�ʹ��/��ֹ����
+    Adc_CmpCfg(&stcAdcIrq);
 
     stcAdcScanCfg.u8AdcScanModeCh =  ADC_SCAN_CH0_EN;
 
-    stcAdcScanCfg.u8AdcSampCnt = 1;                  	
+    stcAdcScanCfg.u8AdcSampCnt = 1;
     Adc_ConfigScanMode(&stcAdcCfg, &stcAdcScanCfg);
 
-    Adc_EnableIrq();                                   //enable interrupt
+    Adc_EnableIrq();
     EnableNvic(ADC_IRQn, IrqLevel2, TRUE);
 }
 void App_AdcInitch12(void)

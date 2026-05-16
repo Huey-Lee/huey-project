@@ -1,18 +1,23 @@
-/* ringfifo.h - ring FIFO and ringfifo_* API. */
+/*
+ * Function: 环形 FIFO 类型定义与字节流 API 声明。
+ * Method:   ringfifo_t 含 buffer、2^n 容量与 volatile 双指针；对外 put/get/peek/find_header/seek 等与 ringfifo.c 一致。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #ifndef _RINGFIFO_H_
 #define _RINGFIFO_H_
 
-//#include "stm32f10x.h"
 #include "hc32f005.h"
 #include <stdint.h>
 
-#define min(a, b) (((a) < (b)) ? (a) : (b))
+#define RINGFIFO_MIN(a, b) (((a) < (b)) ? (a) : (b))
 
 typedef struct ringfifo {
-    uint8_t   *buffer;           /* the buffer holding the data */
-    uint32_t   size;            /* buffer length; MUST be 2^n（init 时会向下规范） */
-    volatile uint32_t in;      /* 写指针：单调递增，按 (in & (size-1)) 落盘 */
-    volatile uint32_t out;   /* 读指针：单调递增，ISR/主循环可见性勿优化掉 */
+    uint8_t   *buffer;
+    uint32_t   size;
+    volatile uint32_t in;
+    volatile uint32_t out;
 } ringfifo_t;
 
 void             ringfifo_init(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int size);
@@ -25,10 +30,8 @@ int              ringfifo_dummy_get(ringfifo_t *ringfifo, unsigned int len);
 
 unsigned int     check_ringfifo_data(ringfifo_t *ringfifo);
 
-/* 从 out+rel_offset 起拷贝 len 字节到 buffer，不移动 out（先偷看再解析帧头） */
 unsigned int     ringfifo_peek(ringfifo_t *ringfifo, unsigned int rel_offset,
                                uint8_t *buffer, unsigned int len);
-/* 在当前可读窗口内查找首字节为 header 的相对偏移；未找到返回 (unsigned int)-1 */
 unsigned int     ringfifo_find_header(ringfifo_t *ringfifo, uint8_t header);
 
 unsigned int     ringfifo_seek(ringfifo_t *ringfifo, const char *str);

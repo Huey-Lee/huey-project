@@ -1,12 +1,17 @@
-/* uart_frame.h - display protocol, frame struct, RX buffer. */
+/*
+ * Function: 上控显示板通信协议：命令字、帧结构、接收缓冲与参数缓存声明。
+ * Method:   与 uart_frame.c 一致：SOF/EOF、CMD 枚举、uart_frame_t/ee_param_t、rx_fifo 与收发函数原型。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #ifndef USER_UART_FRAME_H_
 #define USER_UART_FRAME_H_
-#include "ddl.h"      /* u8/u16/u32；原由 queue.h 间接包含 */
+#include "ddl.h"
 #include "ringfifo.h"
 
 #define UART0 0
 
-/* ringfifo 按 2^n 寻址；128 与原 byte-queue（135 槽、保留 1 判满）有效深度接近 */
 #define RX_BUFF_SIZE   (128)
 #define START_OF_FRAME  (0X7F)
 #define END_OF_FRAME    (0X7E)

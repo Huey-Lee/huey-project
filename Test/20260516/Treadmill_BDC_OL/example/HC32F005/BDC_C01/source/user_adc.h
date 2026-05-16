@@ -1,4 +1,10 @@
-/* user_adc.h - ADC handle, channels, user_adc_init. */
+/*
+ * Function: 多通道 ADC 句柄、通道选择与对外 API 声明。
+ * Method:   adc_t 描述采样状态；GET_ADC_* 定义通道数与缓冲深度；声明初始化与各轮询入口。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #ifndef USER_ADC_H
 #define USER_ADC_H
 #include "adc.h"
@@ -11,13 +17,6 @@ typedef enum _adc_enum
 	SELECT_CH12,
 }adc_enum;
 
-/******************************************************
-*
-*
-*ȫ�ֱ���
-*
-*
-******************************************************/
 #define GET_ADC_ch 3
 #define GET_ADC_len 2
 
@@ -28,17 +27,8 @@ typedef struct _t_adc
 	u8 DONE;
 }adc_t;
 
-/* get_adc_value 完成一批 CH0/CH12 滤波并更新 motor 的次数；供自检等忙等对齐 HW 触发 */
 extern volatile uint32_t adc_batch_seq;
 
-
-/******************************************************
-*
-*
-*��������
-*
-*
-******************************************************/
 void clear_adcbuf(void);
 void Get_Proc_loop(void);
 void App_AdcInit(void);
@@ -48,4 +38,3 @@ void get_adc_value_onech(void);
 uint16_t ADC_Value_Handle(volatile uint16_t *data,uint8_t times);
 uint16_t adc_zhonzhi(volatile uint16_t *data,uint8_t times);
 #endif
-

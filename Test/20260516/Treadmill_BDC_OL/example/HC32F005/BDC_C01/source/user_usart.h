@@ -1,4 +1,10 @@
-/* user_usart.h - UART1 API, ring buffer, init. */
+/*
+ * Function: UART1 与环形缓冲相关接口声明。
+ * Method:   与 user_usart.c 配套的初始化、收发及数值/字符串转换原型。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #ifndef USER_USART_H
 #define USER_USART_H
 #include "stdio.h"

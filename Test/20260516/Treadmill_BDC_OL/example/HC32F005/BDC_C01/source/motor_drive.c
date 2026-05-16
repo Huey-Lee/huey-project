@@ -1,6 +1,9 @@
-/* motor_drive.c — 开环驱动 + IR；占空：dt=Vcmd_phys/Vbus_phys×PER，ZHANKONBI=dt（与实测负载电压同向）；Tim6 写 OUT_PUT=PER−ZN。
- * 全速过流：oc_lim_full_mirror（≈上位 CMD 全速阈）；慢行/起步堵转：全速 ×(410/1024)≈全速÷2.5。
- * E05 本板为母线比值法 checkout_bus_overvoltage_e05。 */
+/*
+ * Function: 开环与 IR 补偿驱动、母线/电流保护及 ADC 节拍占空更新。
+ * Method:   Vcmd/Vbus 线性占空；ZHANKONBI 写入由 TIM6 ISR 完成；error_chick 在主循环按节拍检测过流过压等。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
 
 #include "motor.h"
 #include "motor_drive.h"
@@ -9,10 +12,10 @@
 extern uint16_t ZHANKONBI;
 
 u8               valtage;
-volatile u16    oc_lim_full_mirror = OVER_CURRENT_MAX; /* 与 C03 `over_current` 同源语义；CMD 后经 uart/boot 刷新 */
+volatile u16    oc_lim_full_mirror = OVER_CURRENT_MAX;
 volatile u16    over_voltage       = 240u;
 u32             motor_vbus_adc     = 2468u;
-static u32      s_vbus_ovref_adc   = 2468u; /* 合闸快照：仅 E05 比值用，不随 RUN 纹波跟风 */
+static u32      s_vbus_ovref_adc   = 2468u;
 
 static void motor_drive_refresh_vbus_duty_lin(void);
 

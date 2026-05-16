@@ -1,9 +1,14 @@
-/* ringfifo.c - ring buffer between UART ISR and main. */
+/*
+ * Function: 双索引环形字节 FIFO：可跨中断与主循环安全传递流数据。
+ * Method:   volatile in/out 单调递增，容量为 2^n 时用掩码寻址；写满丢弃尾部；提供 put/get/peek/按字节搜帧头及字符串匹配偏移。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #include "ringfifo.h"
 #include <string.h>
 #include "hc32f005.h"
 
-/* 将 size 规范为 ≤ 原值的最大 2 的幂；<2 视为无效 */
 static uint32_t ringfifo_floor_pow2_u32(uint32_t v)
 {
     uint32_t p = 1u;
@@ -15,7 +20,6 @@ static uint32_t ringfifo_floor_pow2_u32(uint32_t v)
     return p;
 }
 
-/* Init：size 须为 2^n 才安全用于掩码；非幂则向下取整，避免越界 */
 void ringfifo_init(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int size)
 {
     uint32_t sz;
@@ -36,7 +40,6 @@ void ringfifo_init(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int size)
     ringfifo->out    = 0u;
 }
 
-/* 数据先 memcpy，最后一行再 in += len，避免主循环看到半包 */
 int __ringfifo_putin(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int len)
 {
     unsigned int  l;
@@ -49,12 +52,12 @@ int __ringfifo_putin(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int len)
         return 0;
 
     free_bytes = (unsigned int)(ringfifo->size - (unsigned int)(in - out));
-    len        = min(len, free_bytes);
+    len        = RINGFIFO_MIN(len, free_bytes);
     if (len == 0u)
         return 0;
 
     szm = ringfifo->size - 1u;
-    l   = min(len, ringfifo->size - (unsigned int)(in & szm));
+    l   = RINGFIFO_MIN(len, ringfifo->size - (unsigned int)(in & szm));
     memcpy(ringfifo->buffer + (in & szm), buffer, l);
     memcpy(ringfifo->buffer, buffer + l, len - l);
 
@@ -72,7 +75,7 @@ int __ringfifo_dummy_putin(ringfifo_t *ringfifo, unsigned int len)
         return 0;
 
     free_bytes = (unsigned int)(ringfifo->size - (unsigned int)(in - out));
-    len        = min(len, free_bytes);
+    len        = RINGFIFO_MIN(len, free_bytes);
     ringfifo->in = in + (uint32_t)len;
     return (int)len;
 }
@@ -87,7 +90,6 @@ int ringfifo_dummy_putin(ringfifo_t *ringfifo, unsigned int len)
     return __ringfifo_dummy_putin(ringfifo, len);
 }
 
-/* Pop：先 memcpy，再 out += len；禁止 in/out 手动归零（竞态会丢包） */
 int __ringfifo_get(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int len)
 {
     unsigned int l;
@@ -100,12 +102,12 @@ int __ringfifo_get(ringfifo_t *ringfifo, uint8_t *buffer, unsigned int len)
         return 0;
 
     avail = (unsigned int)(in - out);
-    len   = min(len, avail);
+    len   = RINGFIFO_MIN(len, avail);
     if (len == 0u)
         return 0;
 
     szm = ringfifo->size - 1u;
-    l   = min(len, ringfifo->size - (unsigned int)(out & szm));
+    l   = RINGFIFO_MIN(len, ringfifo->size - (unsigned int)(out & szm));
     memcpy(buffer, ringfifo->buffer + (out & szm), l);
     memcpy(buffer + l, ringfifo->buffer, len - l);
 
@@ -120,7 +122,7 @@ int __ringfifo_dummy_get(ringfifo_t *ringfifo, unsigned int len)
     unsigned int avail;
 
     avail = (unsigned int)(in - out);
-    len   = min(len, avail);
+    len   = RINGFIFO_MIN(len, avail);
     ringfifo->out = out + (uint32_t)len;
     return (int)len;
 }
@@ -135,7 +137,6 @@ int ringfifo_dummy_get(ringfifo_t *ringfifo, unsigned int len)
     return __ringfifo_dummy_get(ringfifo, len);
 }
 
-/* 可读字节数：uint32 差自动回绕，勿在 in==out 时强行 in=out=0 */
 unsigned int check_ringfifo_data(ringfifo_t *ringfifo)
 {
     return (unsigned int)(ringfifo->in - ringfifo->out);
@@ -157,14 +158,14 @@ unsigned int ringfifo_peek(ringfifo_t *ringfifo, unsigned int rel_offset,
     if (rel_offset >= avail)
         return 0u;
 
-    len = min(len, avail - rel_offset);
+    len = RINGFIFO_MIN(len, avail - rel_offset);
     if (len == 0u)
         return 0u;
 
     out = ringfifo->out;
     pos = out + rel_offset;
     szm = ringfifo->size - 1u;
-    l   = min(len, ringfifo->size - (unsigned int)(pos & szm));
+    l   = RINGFIFO_MIN(len, ringfifo->size - (unsigned int)(pos & szm));
     memcpy(buffer, ringfifo->buffer + (pos & szm), l);
     memcpy(buffer + l, ringfifo->buffer, len - l);
     return len;

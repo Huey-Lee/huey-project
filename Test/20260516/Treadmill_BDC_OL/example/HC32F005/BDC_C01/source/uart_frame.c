@@ -1,4 +1,10 @@
-/* uart_frame.c  上控通信：帧收发、命令解析、参数下发 */
+/*
+ * Function: 上控 UART 帧收发、状态机解析、命令分发与参数写入。
+ * Method:   rx_fifo 收字节；uart_frame_loop 组帧校验后 cmd_proc；Uart1_IRQHandler 写入 ringfifo；应答经 UART_Send_Buf。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
+ */
+
 #include "uart_frame.h"
 #include "motor.h"
 #include "uart.h"
@@ -6,11 +12,8 @@
 #include "user_timer.h"
 #include "motor_drive.h"
 
-ee_param_t  rx_setparam;  /* 由上控下发并缓存的可配置参数（速度上限、电压范围、Kcomp 等） */
+ee_param_t  rx_setparam;
 
-/* payload 换算为电机内部斜坡值（与 motor.set_speed_scale / adjust_speed_max 同单位）：
- * - 载荷 10~100 ↔ 显示器 1~10 km/h；内部斜坡 = 载荷×10 → 100~1000（即 100=1 km/h，1000=10 km/h）。
- */
 static u16 uart_kmh_payload_to_speed_scale(u8 kbuf)
 {
     if (kbuf < 10u)
@@ -20,7 +23,6 @@ static u16 uart_kmh_payload_to_speed_scale(u8 kbuf)
     return (u16)kbuf * 10u;
 }
 
-/* 仅母线已识别后钳位：避免 220V 机在 TO_RUN 前被误限 100V */
 static void uart_clamp_voltage_max_payload_to_grid(u8 *v)
 {
     u8 cap;
@@ -37,28 +39,25 @@ void uart_sync_rx_voltage_max_from_motor(void)
     rx_setparam.voltage_max = motor.adjust_max_voltage;
 }
 
-ringfifo_t rx_fifo;                /* 串口 RX：ISR putin / 主循环 get */
-u8         rx_buf[RX_BUFF_SIZE];   /* 接收缓冲（长度须为 2^n，与 ringfifo 一致） */
-uart_frame_t uart_frame;           /* 当前正在解析的接收帧 */
-uart_frame_t uart_tx_frame;        /* 待发送帧 */
+ringfifo_t rx_fifo;
+u8         rx_buf[RX_BUFF_SIZE];
+uart_frame_t uart_frame;
+uart_frame_t uart_tx_frame;
 extern u8 relay_wait_en;
 
-/* 初始化帧头/帧尾和接收队列 */
 void uart_frame_init(void)
 {
     ringfifo_init(&rx_fifo, &rx_buf[0], RX_BUFF_SIZE);
-    /* 上电后与 ctr_init 默认值一致，避免 vmax=0 时校验异常 */
     rx_setparam.treadmills_speed_max = 100u;
     rx_setparam.voltage_max          = 90u;
     rx_setparam.voltage_min          = 20u;
 
-    uart_frame.sof    = START_OF_FRAME;  /* 0x7F：帧起始标志 */
-    uart_frame.eof    = END_OF_FRAME;    /* 0x7E：帧结束标志 */
+    uart_frame.sof    = START_OF_FRAME;
+    uart_frame.eof    = END_OF_FRAME;
     uart_tx_frame.sof = START_OF_FRAME;
     uart_tx_frame.eof = END_OF_FRAME;
 }
 
-/* 逐字节轮询发送（通过 UART1 对应上控串口） */
 void UART_Send_Buf(uint8_t UARTPort, uint8_t *ptr, uint8_t len)
 {
     for (uint8_t l = 0; l < len; l++) {
@@ -66,8 +65,6 @@ void UART_Send_Buf(uint8_t UARTPort, uint8_t *ptr, uint8_t len)
     }
 }
 
-/* 发送单字节数据帧：[SOF][CMD][LEN=1][DAT][XOR][0x00][EOF]
- * XOR = CMD ^ LEN ^ DAT，用于接收端校验 */
 void uart_frame_tx(u8 cmd, u8 dat)
 {
     u8 xorval = 0;
@@ -80,7 +77,6 @@ void uart_frame_tx(u8 cmd, u8 dat)
     UART_Send_Buf(UART0, (u8*)&uart_tx_frame, uart_tx_frame.len + 6);
 }
 
-/* 发送双字节数据帧：[SOF][CMD][LEN=2][DAT0][DAT1][XOR][0x00][EOF] */
 void uart_frame_tx_2(u8 cmd, u8 dat0, u8 dat1)
 {
     u8 xorval = 0;

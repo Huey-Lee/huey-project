@@ -1,24 +1,21 @@
-/* motor.c  电机状态机、速度斜坡、故障处理（110 V AC / 低档母线段试制）
- *
- * 全程纯开环（无 PID），四阶段与业务对齐：
- *   A POWERON/RUN ：同 C03 自检
- *   A STATUS_TO_RUN：母线锁存；v_ramp := start_kick；合继电器→500 ms→PWM
- *   B MT_START ：每 ~100 ms 一单步抬高 v_ramp 至不低 vmin×速度轮廓（≈ TM_LOWER_VOLTAGE_MIN@1 km）；禁止 ISR 跟踪母线与 IR
- *   C MT_RUN   ：v_ramp 逼近指令电压；允许 IR；母线分母恒为合闸快照，不做实时母线计算
- *   D MT_STOP  ：v_ramp 按减速档下行，近 v_run_min 步长减半→ISR 触 TO_STOP → TO_STOP 断电
- *   TO_STOP    ：PWM 关 → 续流 → 继电器断
+/*
+ * Function: 跑步机电机主状态机、速度斜坡、过流过压等故障与自检流程。
+ * Method:   ctr_proc_loop/motor_speed 分状态机；与 UART 下发参数、ADC 采样及 PWM 启停联动。
+ * Name:     Huey
+ * Date:     May 16, 2026 18:00
  */
+
 #include "motor.h"
 #include "user_timer.h"
 #include "user_adc.h"
 #include "uart_frame.h"
 #include "motor_drive.h"
 
-extern uint16_t ZHANKONBI;  /* 电压闭环刻度：实测与负载端电压同向；ISR 写 OUT_PUT=PER−ZN 入比较寄存器 */
+extern uint16_t ZHANKONBI;
 extern u8       waitforamoment;
 
-ctr_t   ctr;    /* 控制器状态机（主状态） */
-volatile motor_t motor;  /* volatile：主环与 ADC 节拍 ISR 共享，避免优化掉关键序 */
+ctr_t   ctr;
+volatile motor_t motor;
 
 u8  motor_grid_profile_known   = 0u;
 u8  motor_grid_env_220         = 0u;
